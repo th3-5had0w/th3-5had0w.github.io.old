@@ -36,13 +36,22 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-03-23T11:19:09+00:00</updated>
+ <updated>2021-03-23T11:42:24+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>New blog</title>
+   <link href="https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog.html"/>
+   <updated>2021-03-23T00:00:00+00:00</updated>
+   <id>https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog</id>
+   <content type="html">&lt;p&gt;From today i will start writing on this blog of mine, i will post ctf writeups and math problem solves here, like my digital diary :D&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>New blog</title>
