@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="th3_5had0w" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://th3-5had0w.github.io/atom.xml","author":{"@type":"Person","name":"th3_5had0w"},"headline":"th3_5had0w","description":"Hi, i’m th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!","@context":"https://schema.org"}</script>
+{"description":"Hi, i’m th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!","@type":"WebPage","headline":"th3_5had0w","url":"https://th3-5had0w.github.io/atom.xml","author":{"@type":"Person","name":"th3_5had0w"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" type="image/png" href="/assets/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://th3-5had0w.github.io/feed.xml" title="th3_5had0w" /></head>
@@ -36,22 +36,13 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-03-24T02:24:45+00:00</updated>
+ <updated>2021-03-24T02:30:07+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
- 
- <entry>
-   <title>New blog</title>
-   <link href="https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog.html"/>
-   <updated>2021-03-23T00:00:00+00:00</updated>
-   <id>https://th3-5had0w.github.io/2021/03/23/starting-my-new-blog</id>
-   <content type="html">&lt;p&gt;From today i will start writing on this blog of mine, i will post ctf writeups and math problem solves here, like my digital diary :D&lt;/p&gt;
-</content>
- </entry>
  
  <entry>
    <title>Pointy writeup [picoCTF2019]</title>
@@ -311,6 +302,15 @@ struct Student {
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Starting a new journey</title>
+   <link href="https://th3-5had0w.github.io/2020/12/07/starting-a-new-journey.html"/>
+   <updated>2020-12-07T00:00:00+00:00</updated>
+   <id>https://th3-5had0w.github.io/2020/12/07/starting-a-new-journey</id>
+   <content type="html">&lt;p&gt;From today i will start writing on this blog of mine, i will post ctf writeups and math problem solves here, like my digital diary :D&lt;/p&gt;
 </content>
  </entry>
  
