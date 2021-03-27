@@ -60,86 +60,96 @@ Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i of
   
   <h1 id="pointy-picoctf2019">Pointy (picoCTF2019)</h1>
 
-<h4 id="what-does-this-program-do">What does this program do?</h4>
+<p>What does this program do?</p>
 
-<h4 id="it-will-make-a-loop-which-will">It will make a loop which will:</h4>
+<p>It will make a loop which will:</p>
 
-<h4 id="1-create-a-new-student-struct-and-ask-for-student-name">1. Create a new student struct and ask for student name</h4>
+<ol>
+  <li>
+    <p>Create a new student struct and ask for student name</p>
+  </li>
+  <li>
+    <p>Create a new professor struct and ask for professer name</p>
+  </li>
+  <li>
+    <p>Search for the student who will give a professor some point</p>
+  </li>
+  <li>
+    <p>Search for the professor who will be given some point by the student chosen at step 3</p>
+  </li>
+  <li>
+    <p>Give the professor point</p>
+  </li>
+</ol>
 
-<h4 id="2-create-a-new-professor-struct-and-ask-for-professer-name">2. Create a new professor struct and ask for professer name</h4>
+<p>We could clearly see there are some bugs in vuln.c right in the first place</p>
 
-<h4 id="3-search-for-the-student-who-will-give-a-professor-some-point">3. Search for the student who will give a professor some point</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">ADRESSES_TAKEN</span><span class="o">&lt;</span><span class="n">MAX_ADDRESSES</span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Input the name of a student</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">struct</span> <span class="n">Student</span><span class="o">*</span> <span class="n">student</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">Student</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">Student</span><span class="p">));</span>
+        <span class="n">ADDRESSES</span><span class="p">[</span><span class="n">ADRESSES_TAKEN</span><span class="p">]</span><span class="o">=</span><span class="n">student</span><span class="p">;</span>	<span class="c1">//1: student struct was saved in ADDRESSES array</span>
+        <span class="n">readLine</span><span class="p">(</span><span class="n">student</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Input the name of the favorite professor of a student </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">struct</span> <span class="n">Professor</span><span class="o">*</span> <span class="n">professor</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">Professor</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">Professor</span><span class="p">));</span>
+        <span class="n">ADDRESSES</span><span class="p">[</span><span class="n">ADRESSES_TAKEN</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">professor</span><span class="p">;</span>  <span class="c1">//2: professer struct was also saved in ADDRESSES array</span>
+        <span class="n">readLine</span><span class="p">(</span><span class="n">professor</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+        <span class="n">student</span><span class="o">-&gt;</span><span class="n">scoreProfessor</span><span class="o">=&amp;</span><span class="n">giveScoreToProfessor</span><span class="p">;</span> <span class="c1">//3: student-&gt;scoreProfessor is a function pointer point to giveScoreToProfessor</span>
+        <span class="n">ADRESSES_TAKEN</span><span class="o">+=</span><span class="mi">2</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Input the name of the student that will give the score </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="kt">char</span>  <span class="n">nameStudent</span><span class="p">[</span><span class="n">NAME_SIZE</span><span class="p">];</span>
+        <span class="n">readLine</span><span class="p">(</span><span class="n">nameStudent</span><span class="p">);</span>
+        <span class="n">student</span><span class="o">=</span><span class="p">(</span><span class="k">struct</span> <span class="n">Student</span><span class="o">*</span><span class="p">)</span> <span class="n">retrieveStudent</span><span class="p">(</span><span class="n">nameStudent</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Input the name of the professor that will be scored </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="kt">char</span> <span class="n">nameProfessor</span><span class="p">[</span><span class="n">NAME_SIZE</span><span class="p">];</span>
+        <span class="n">readLine</span><span class="p">(</span><span class="n">nameProfessor</span><span class="p">);</span>
+        <span class="n">professor</span><span class="o">=</span><span class="p">(</span><span class="k">struct</span> <span class="n">Professor</span><span class="o">*</span><span class="p">)</span> <span class="n">retrieveProfessor</span><span class="p">(</span><span class="n">nameProfessor</span><span class="p">);</span> <span class="c1">//4: struct professor's change depends on retrieveProfessor function</span>
+        <span class="n">puts</span><span class="p">(</span><span class="n">professor</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"Input the score: </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="n">scanf</span><span class="p">(</span><span class="s">"%u"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+        <span class="n">student</span><span class="o">-&gt;</span><span class="n">scoreProfessor</span><span class="p">(</span><span class="n">professor</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> <span class="c1">//5: point will be given through function scoreProfessor</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>We can now sense some buggy smell throught that 5 place</p>
 
-<h4 id="4-search-for-the-professor-who-will-be-given-some-point-by-the-student-chosen-at-step-3">4. Search for the professor who will be given some point by the student chosen at step 3</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Professor</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="n">NAME_SIZE</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">lastScore</span><span class="p">;</span>
+<span class="p">};</span>
 
-<h4 id="5-give-the-professor-point">5. Give the professor point</h4>
+<span class="k">struct</span> <span class="n">Student</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="n">NAME_SIZE</span><span class="p">];</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">scoreProfessor</span><span class="p">)(</span><span class="k">struct</span> <span class="n">Professor</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p>The offset of Student-&gt;scoreProfessor is the same as Professor-&gt;lastScore</p>
 
-<h4 id="we-could-clearly-see-there-are-some-bugs-in-vulnc-right-in-the-first-place">We could clearly see there are some bugs in vuln.c right in the first place</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span><span class="o">*</span> <span class="nf">retrieveProfessor</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">name</span> <span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">ADRESSES_TAKEN</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span> <span class="n">strncmp</span><span class="p">(((</span><span class="k">struct</span> <span class="n">Student</span><span class="o">*</span><span class="p">)</span><span class="n">ADDRESSES</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span> <span class="p">,</span><span class="n">NAME_SIZE</span> <span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">ADDRESSES</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">puts</span><span class="p">(</span><span class="s">"person not found... see you!"</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>The struct student and professor are on the same array, but this <code class="language-plaintext highlighter-rouge">retrieveProfessor</code> doesnt check for name if the professor has the same name as the student, this is the critical bug!</p>
 
-<pre><code class="language-C">int main (int argc, char **argv)
-{
-    while(ADRESSES_TAKEN&lt;MAX_ADDRESSES-1){
-        printf("Input the name of a student\n");
-        struct Student* student = (struct Student*)malloc(sizeof(struct Student));
-        ADDRESSES[ADRESSES_TAKEN]=student;	//1: student struct was saved in ADDRESSES array
-        readLine(student-&gt;name);
-        printf("Input the name of the favorite professor of a student \n");
-        struct Professor* professor = (struct Professor*)malloc(sizeof(struct Professor));
-        ADDRESSES[ADRESSES_TAKEN+1]=professor;  //2: professer struct was also saved in ADDRESSES array
-        readLine(professor-&gt;name);
-        student-&gt;scoreProfessor=&amp;giveScoreToProfessor; //3: student-&gt;scoreProfessor is a function pointer point to giveScoreToProfessor
-        ADRESSES_TAKEN+=2;
-        printf("Input the name of the student that will give the score \n");
-        char  nameStudent[NAME_SIZE];
-        readLine(nameStudent);
-        student=(struct Student*) retrieveStudent(nameStudent);
-        printf("Input the name of the professor that will be scored \n");
-        char nameProfessor[NAME_SIZE];
-        readLine(nameProfessor);
-        professor=(struct Professor*) retrieveProfessor(nameProfessor); //4: struct professor's change depends on retrieveProfessor function
-        puts(professor-&gt;name);
-        unsigned int value;
-            printf("Input the score: \n");
-            scanf("%u", &amp;value);
-        student-&gt;scoreProfessor(professor, value); //5: point will be given through function scoreProfessor
-    }
-    return 0;
-}
-</code></pre>
-<h4 id="we-can-now-sense-some-buggy-smell-throught-that-5-place">We can now sense some buggy smell throught that 5 place</h4>
+<p>So now if we input <code class="language-plaintext highlighter-rouge">A</code> as the student name, <code class="language-plaintext highlighter-rouge">A</code> as the professor name, <code class="language-plaintext highlighter-rouge">A</code> for the student that will give score (bypass the program check).</p>
 
-<pre><code class="language-C">struct Professor {
-    char name[NAME_SIZE];
-    int lastScore;
-};
+<p>And finally <code class="language-plaintext highlighter-rouge">A</code> as the professor name, the <code class="language-plaintext highlighter-rouge">retrieveProfessor</code> will now try to search professor named <code class="language-plaintext highlighter-rouge">A</code> but the student named <code class="language-plaintext highlighter-rouge">A</code> is at the first index of the array, so the program will give the <code class="language-plaintext highlighter-rouge">professor</code>  struct variable the <code class="language-plaintext highlighter-rouge">student</code> struct, and then because the offset of <code class="language-plaintext highlighter-rouge">Student-&gt;scoreProfessor</code> is the same as <code class="language-plaintext highlighter-rouge">Professor-&gt;lastScore</code>, the program will change the function pointer <code class="language-plaintext highlighter-rouge">Student-&gt;scoreProfessor</code> to the number of point, this was performed in <code class="language-plaintext highlighter-rouge">giveScoreToProfessor</code> function of struct <code class="language-plaintext highlighter-rouge">student</code>.</p>
 
-struct Student {
-    char name[NAME_SIZE];
-    void (*scoreProfessor)(struct Professor*, int);
-};
-</code></pre>
-<h4 id="the-offset-of-student-scoreprofessor-is-the-same-as-professor-lastscore">The offset of Student-&gt;scoreProfessor is the same as Professor-&gt;lastScore</h4>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">giveScoreToProfessor</span><span class="p">(</span><span class="k">struct</span> <span class="n">Professor</span><span class="o">*</span> <span class="n">professor</span><span class="p">,</span> <span class="kt">int</span> <span class="n">score</span><span class="p">){</span>
+    <span class="n">professor</span><span class="o">-&gt;</span><span class="n">lastScore</span><span class="o">=</span><span class="n">score</span><span class="p">;</span> <span class="c1">// professor-&gt;lastScore is actually student-&gt;scoreProfessor because the program chose the student struct as professor struct and professor-&gt;lastScore is the same offset as student-&gt;scoreProfessor</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Score Given: %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">score</span><span class="p">);</span>
 
-<pre><code class="language-C">void* retrieveProfessor(char * name ){
-    for(int i=0; i&lt;ADRESSES_TAKEN;i++){
-        if( strncmp(((struct Student*)ADDRESSES[i])-&gt;name, name ,NAME_SIZE )==0){
-            return ADDRESSES[i];
-        }
-    }
-    puts("person not found... see you!");
-    exit(0);
-}
-</code></pre>
-<h4 id="the-struct-student-and-professor-are-on-the-same-array-but-this-retrieveprofessor-doesnt-check-for-name-if-the-professor-has-the-same-name-as-the-student-this-is-the-critical-bug">The struct student and professor are on the same array, but this <code class="language-plaintext highlighter-rouge">retrieveProfessor</code> doesnt check for name if the professor has the same name as the student, this is the critical bug!</h4>
-<h4 id="so-now-if-we-input-a-as-the-student-name-a-as-the-professor-name-a-for-the-student-that-will-give-score-bypass-the-program-check">So now if we input <code class="language-plaintext highlighter-rouge">A</code> as the student name, <code class="language-plaintext highlighter-rouge">A</code> as the professor name, <code class="language-plaintext highlighter-rouge">A</code> for the student that will give score (bypass the program check).</h4>
-<h4 id="and-finally-a-as-the-professor-name-the-retrieveprofessor-will-now-try-to-search-professor-named-a-but-the-student-named-a-is-at-the-first-index-of-the-array-so-the-program-will-give-the-professor--struct-variable-the-student-struct-and-then-because-the-offset-of-student-scoreprofessor-is-the-same-as-professor-lastscore-the-program-will-change-the-function-pointer-student-scoreprofessor-to-the-number-of-point-this-was-performed-in-givescoretoprofessor-function-of-struct-student">And finally <code class="language-plaintext highlighter-rouge">A</code> as the professor name, the <code class="language-plaintext highlighter-rouge">retrieveProfessor</code> will now try to search professor named <code class="language-plaintext highlighter-rouge">A</code> but the student named <code class="language-plaintext highlighter-rouge">A</code> is at the first index of the array, so the program will give the <code class="language-plaintext highlighter-rouge">professor</code>  struct variable the <code class="language-plaintext highlighter-rouge">student</code> struct, and then because the offset of <code class="language-plaintext highlighter-rouge">Student-&gt;scoreProfessor</code> is the same as <code class="language-plaintext highlighter-rouge">Professor-&gt;lastScore</code>, the program will change the function pointer <code class="language-plaintext highlighter-rouge">Student-&gt;scoreProfessor</code> to the number of point, this was performed in <code class="language-plaintext highlighter-rouge">giveScoreToProfessor</code> function of struct <code class="language-plaintext highlighter-rouge">student</code>.</h4>
-
-<pre><code class="language-C">void giveScoreToProfessor(struct Professor* professor, int score){
-    professor-&gt;lastScore=score; // professor-&gt;lastScore is actually student-&gt;scoreProfessor because the program chose the student struct as professor struct and professor-&gt;lastScore is the same offset as student-&gt;scoreProfessor
-    printf("Score Given: %d \n", score);
-
-}
-</code></pre>
+<span class="p">}</span>
+</code></pre></div></div>
 <p>And i got this final exploit:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -165,6 +175,28 @@ struct Student {
 
 </div>
 
+
+<div class="comments">
+<div id="disqus_thread"></div>
+<script>
+ var disqus_config = function () {
+     this.page.url = 'https://th3-5had0w.github.io/2021/03/10/pointy-writeup.html';
+     this.page.identifier = '/2021/03/10/pointy-writeup';
+     this.page.title = 'Pointy writeup [picoCTF2019]';
+ };
+
+ (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+     var d = document, s = d.createElement('script');
+
+     s.src = '//th3-5had0w-github-io.disqus.com.disqus.com/embed.js';
+
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
 
 
 
