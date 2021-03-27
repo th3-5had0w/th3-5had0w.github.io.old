@@ -39,15 +39,14 @@
 
   <p><code class="language-plaintext highlighter-rouge">nc chall.pwnable.tw 10103</code></p>
 
-  <p><a href="https://github.com/th3-5had0w/CTF-contests/blob/master/pwnable.tw/Silver_Bullet/silver_bullet">silver_bullet</a></p>
+  <p><a href="https://github.com/th3-5had0w/CTF-contests/raw/master/pwnable.tw/Silver_Bullet/silver_bullet">silver_bullet</a></p>
 
-  <p><a href="https://github.com/th3-5had0w/CTF-contests/blob/master/pwnable.tw/Silver_Bullet/libc_32.so.6">libc.so</a></p>
+  <p><a href="https://github.com/th3-5had0w/CTF-contests/raw/master/pwnable.tw/Silver_Bullet/libc_32.so.6">libc.so</a></p>
 </blockquote>
 
 <h2 id="the-vulnerability">The vulnerability</h2>
 
-<p>After wondering around for a while, i discover a bug in function <code class="language-plaintext highlighter-rouge">power_up</code>:</p>
-
+<h4 id="after-wondering-around-for-a-while-i-discover-a-bug-in-function-power_up">After wondering around for a while, i discover a bug in function <code class="language-plaintext highlighter-rouge">power_up</code>:</h4>
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="kr">__cdecl</span> <span class="nf">power_up</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dest</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">48</span><span class="p">];</span> <span class="c1">// [esp+0h] [ebp-34h] BYREF</span>
@@ -69,15 +68,13 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>The program allowed to <code class="language-plaintext highlighter-rouge">strncat</code> upto <code class="language-plaintext highlighter-rouge">n</code> bytes, which was supposed to be <code class="language-plaintext highlighter-rouge">n-1</code> bytes, because as strncat manual says:</p>
-
+<h4 id="the-program-allowed-to-strncat-upto-n-bytes-which-was-supposed-to-be-n-1-bytes-because-as-strncat-manual-says">The program allowed to <code class="language-plaintext highlighter-rouge">strncat</code> upto <code class="language-plaintext highlighter-rouge">n</code> bytes, which was supposed to be <code class="language-plaintext highlighter-rouge">n-1</code> bytes, because as strncat manual says:</h4>
 <p><code class="language-plaintext highlighter-rouge">If src contains n or more bytes, strncat() writes n+1 bytes to dest (n from  src plus the terminating null byte). Therefore, the size of dest must be at least strlen(dest)+n+1</code></p>
 
-<p>From that, we got <code class="language-plaintext highlighter-rouge">1-byte buffer overflow</code>, where the null-byte will overwrite the size of “the description of the bullet”, the size will be reset back to 0, so we can trick the program into concatenating to a string longer than 47 bytes, which will be a buffer overflow ==&gt; We control the <code class="language-plaintext highlighter-rouge">main</code> function’s return pointer (EIP), and also the power of the bullet, after we “kill the wolf”, the program execution flow will be redirected to the address we want.</p>
+<h4 id="from-that-we-got-1-byte-buffer-overflow-where-the-null-byte-will-overwrite-the-size-of-the-description-of-the-bullet-the-size-will-be-reset-back-to-0-so-we-can-trick-the-program-into-concatenating-to-a-string-longer-than-47-bytes-which-will-be-a-buffer-overflow--we-control-the-main-functions-return-pointer-eip-and-also-the-power-of-the-bullet-after-we-kill-the-wolf-the-program-execution-flow-will-be-redirected-to-the-address-we-want">From that, we got <code class="language-plaintext highlighter-rouge">1-byte buffer overflow</code>, where the null-byte will overwrite the size of “the description of the bullet”, the size will be reset back to 0, so we can trick the program into concatenating to a string longer than 47 bytes, which will be a buffer overflow ==&gt; We control the <code class="language-plaintext highlighter-rouge">main</code> function’s return pointer (EIP), and also the power of the bullet, after we “kill the wolf”, the program execution flow will be redirected to the address we want.</h4>
 <h2 id="leaking-libc-phase">Leaking libc phase</h2>
 
-<p>I wrote a code to leak libc and then return back to the main function to get another chance of redirecting the program execution flow. Here we are leaking the libc address of <code class="language-plaintext highlighter-rouge">puts</code> function</p>
-
+<h4 id="i-wrote-a-code-to-leak-libc-and-then-return-back-to-the-main-function-to-get-another-chance-of-redirecting-the-program-execution-flow-here-we-are-leaking-the-libc-address-of-puts-function">I wrote a code to leak libc and then return back to the main function to get another chance of redirecting the program execution flow. Here we are leaking the libc address of <code class="language-plaintext highlighter-rouge">puts</code> function</h4>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#--init--
 </span><span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s">'choice :'</span><span class="p">))</span>
 <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'1'</span><span class="p">)</span>
@@ -109,12 +106,11 @@
 <span class="c1">#---------
 </span></code></pre></div></div>
 
-<p>After having the <code class="language-plaintext highlighter-rouge">puts</code> libc address, we could subtract the offset and got the base address of libc. And from libc base address, we got <code class="language-plaintext highlighter-rouge">system()</code> address and <code class="language-plaintext highlighter-rouge">/bin/sh</code> string address.</p>
+<h4 id="after-having-the-puts-libc-address-we-could-subtract-the-offset-and-got-the-base-address-of-libc-and-from-libc-base-address-we-got-system-address-and-binsh-string-address">After having the <code class="language-plaintext highlighter-rouge">puts</code> libc address, we could subtract the offset and got the base address of libc. And from libc base address, we got <code class="language-plaintext highlighter-rouge">system()</code> address and <code class="language-plaintext highlighter-rouge">/bin/sh</code> string address.</h4>
 
 <h2 id="exploiting-phase">Exploiting phase</h2>
 
-<p>The program now has been redirected to the <code class="language-plaintext highlighter-rouge">main</code> function again, reusing the vulnerability, we will spawn a shell.</p>
-
+<h4 id="the-program-now-has-been-redirected-to-the-main-function-again-reusing-the-vulnerability-we-will-spawn-a-shell">The program now has been redirected to the <code class="language-plaintext highlighter-rouge">main</code> function again, reusing the vulnerability, we will spawn a shell:</h4>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#-- phase 2 - exploit --
 </span>
 <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'1'</span><span class="p">)</span>
@@ -137,7 +133,6 @@
 </span></code></pre></div></div>
 
 <h2 id="the-final-exploit">The final exploit</h2>
-
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">io</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s">'./silver_bullet'</span><span class="p">)</span>
@@ -208,7 +203,7 @@
 <span class="c1">#-------------------------
 </span></code></pre></div></div>
 
-<p>Thanks for reading, if you want to ask anything, please comment below. :D</p>
+<h4 id="thanks-for-reading-if-you-want-to-ask-anything-please-comment-below-d">Thanks for reading, if you want to ask anything, please comment below. :D</h4>
 
 
       </div>
