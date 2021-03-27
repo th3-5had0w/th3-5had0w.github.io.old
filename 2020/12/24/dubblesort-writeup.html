@@ -26,7 +26,7 @@
   <div class="wrapper">
     <a class="site-title" rel="author" href="/">th3_5had0w<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
     <span class="social_links">
-        <a class="color-cyan-hover" href="https://twitter.com/th3_5had0w_w"><i class="fab fa-twitter-square"></i></a><a class="color-yellow-hover" href="https://github.com/th3-5had0w"><i class="fab fa-github-square"></i></a>
+        <a class="color-cyan-hover" href="https://twitter.com/th3_5had0w_w"><i class="fab fa-twitter-square"></i></a><a class="color-purple-hover" href="https://github.com/th3-5had0w"><i class="fab fa-github-square"></i></a>
     </span>
   </div>
 </div>
@@ -74,64 +74,65 @@ Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i of
 
 <p><a href="https://github.com/th3-5had0w/writeups/raw/main/dubblesort%5Bpwnable.tw%5D/local_libc.so.6">Phiên bản libc local (Ubuntu 20.04)</a></p>
 
-<h2 id="những-đoạn-code-cần-lưu-ý">Những đoạn code cần lưu ý</h2>
+<p>Những đoạn code cần lưu ý</p>
 
-<h3 id="1-leak-libc">1) Leak libc</h3>
+<h2 id="1-leak-libc">1) Leak libc</h2>
 
-<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_1.png" alt="pic1" /></p>
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/writeups/main/dubblesort%5Bpwnable.tw%5D/res/pic_1.png" alt="pic1" /></p>
 
-<h4 id="ở-đây-chương-trình-đọc-input-vào-nhưng-không-chặn-chuỗi-bằng-nullbyte-x00--ta-có-thể-nhập-các-kí-tự-để-hàm-printf-leak-được-địa-chỉ-của-libc">Ở đây chương trình đọc input vào nhưng không chặn chuỗi bằng nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>) =&gt; Ta có thể nhập các kí tự để hàm printf leak được địa chỉ của libc.</h4>
+<p>Ở đây chương trình đọc input vào nhưng không chặn chuỗi bằng nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>) =&gt; Ta có thể nhập các kí tự để hàm printf leak được địa chỉ của libc.</p>
 
-<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_3.png" alt="pic3" /></p>
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/writeups/main/dubblesort%5Bpwnable.tw%5D/res/pic_3.png" alt="pic3" /></p>
 
-<h4 id="mình-đã-nhập-8-chữ-a-kèm-theo-kí-tự-enter-x0a-và-như-ảnh-trên-thì-có-thể-thấy-địa-chỉ-chỉ-libc-rất-gần-với-nơi-ta-nhập-input-1">Mình đã nhập 8 chữ <code class="language-plaintext highlighter-rouge">a</code> kèm theo kí tự enter <code class="language-plaintext highlighter-rouge">\x0a</code>, và như ảnh trên thì có thể thấy địa chỉ chỉ libc rất gần với nơi ta nhập input. (1)</h4>
-<h4 id="ngoài-ra-kí-tự-enter-của-mình-đã-ghi-đè-lên-byte-nullbyte-x00-của-libc-mà-printf-sẽ-in-các-bytes-ra-màn-hình-cho-đến-khi-gặp-kí-tự-nullbyte-x00-vì-kí-tự-enter-của-mình-đã-ghi-đè-lên-1-byte-x00-của-địa-chỉ-libc-nên-khi-leak-được-bạn-nhớ-trừ-đi-x0a-2">Ngoài ra kí tự enter của mình đã ghi đè lên byte nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>) của libc, mà printf sẽ in các bytes ra màn hình cho đến khi gặp kí tự nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>), vì kí tự enter của mình đã ghi đè lên 1 byte <code class="language-plaintext highlighter-rouge">\x00</code> của địa chỉ libc nên khi leak được bạn nhớ trừ đi <code class="language-plaintext highlighter-rouge">\x0a</code> (2)</h4>
+<p>Mình đã nhập 8 chữ <code class="language-plaintext highlighter-rouge">a</code> kèm theo kí tự enter <code class="language-plaintext highlighter-rouge">\x0a</code>, và như ảnh trên thì có thể thấy địa chỉ chỉ libc rất gần với nơi ta nhập input. (1)</p>
 
-<h4 id="từ-1-và-2--ta-có-thể-leak-được-libc">Từ (1) và (2) =&gt; Ta có thể leak được libc.</h4>
+<p>Ngoài ra kí tự enter của mình đã ghi đè lên byte nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>) của libc, mà printf sẽ in các bytes ra màn hình cho đến khi gặp kí tự nullbyte (<code class="language-plaintext highlighter-rouge">\x00</code>), vì kí tự enter của mình đã ghi đè lên 1 byte <code class="language-plaintext highlighter-rouge">\x00</code> của địa chỉ libc nên khi leak được bạn nhớ trừ đi <code class="language-plaintext highlighter-rouge">\x0a</code> (2)</p>
 
-<h4 id="nhưng-đây-mới-chỉ-là-địa-chỉ-libc-nằm-tại-segment-gotplt-đã-được-map-để-tìm-địa-chỉ-libc-gốc-thì-ta-phải-lấy-địa-chỉ-vừa-leak-được-trừ-đi-địa-chỉ-chưa-được-map">Nhưng đây mới chỉ là địa chỉ libc nằm tại segment <code class="language-plaintext highlighter-rouge">.got.plt</code> đã được map, để tìm địa chỉ libc gốc thì ta phải lấy địa chỉ vừa leak được trừ đi địa chỉ chưa được map.</h4>
+<p>Từ (1) và (2) =&gt; Ta có thể leak được libc.</p>
 
-<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_7.png" alt="pic7" /></p>
+<p>Nhưng đây mới chỉ là địa chỉ libc nằm tại segment <code class="language-plaintext highlighter-rouge">.got.plt</code> đã được map, để tìm địa chỉ libc gốc thì ta phải lấy địa chỉ vừa leak được trừ đi địa chỉ chưa được map.</p>
 
-<h4 id="ở-đây-address-là-0x001eb000-vì-mình-đang-readelf-libc-local-của-mình-có-thể-address-ở-libc-bạn-sẽ-khác-và-address-ở-libc-của-remote-server-cũng-sẽ-khác">Ở đây address là 0x001eb000 vì mình đang readelf libc local của mình, có thể address ở libc bạn sẽ khác và address ở libc của remote server cũng sẽ khác.</h4>
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/writeups/main/dubblesort%5Bpwnable.tw%5D/res/pic_7.png" alt="pic7" /></p>
+
+<p>Ở đây address là 0x001eb000 vì mình đang readelf libc local của mình, có thể address ở libc bạn sẽ khác và address ở libc của remote server cũng sẽ khác.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>địa chỉ libc gốc = địa chỉ libc đã leak - 0x001eb000 - 0x0a
 </code></pre></div></div>
 
-<h3 id="2-lỗi-tràn-bộ-nhớ-tại-đoạn-code-nhập-số-lượng-số-mà-ta-muốn-nhập-vào">2) Lỗi tràn bộ nhớ tại đoạn code nhập số lượng số mà ta muốn nhập vào</h3>
+<h2 id="2-lỗi-tràn-bộ-nhớ-tại-đoạn-code-nhập-số-lượng-số-mà-ta-muốn-nhập-vào">2) Lỗi tràn bộ nhớ tại đoạn code nhập số lượng số mà ta muốn nhập vào</h2>
 
-<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_2.png" alt="pic2" /></p>
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/writeups/main/dubblesort%5Bpwnable.tw%5D/res/pic_2.png" alt="pic2" /></p>
 
-<h4 id="ở-đây-v4-chính-là-con-trỏ-của-v13-chương-trình-sẽ-hỏi-ta-muốn-nhập-bao-nhiêu-số-sau-mỗi-một-số-nhập-vào-thì-v4-sẽ-tăng-lên-1-có-nghĩa-là-vị-trí-của-con-trỏ-tăng-lên-4-vì-kích-cỡ-của-kiểu-int-nhưng-ở-đây-ta-không-hề-thấy-có-một-hàm-hay-dòng-lệnh-nào-để-kiểm-tra--khi-tăng-vị-trí-của-con-trỏ-lên-một-kích-cỡ-nhất-định-4n-thì-ta-sẽ-gặp-lỗi-buffer-overflow">Ở đây v4 chính là con trỏ của v13, chương trình sẽ hỏi ta muốn nhập bao nhiêu số, sau mỗi một số nhập vào thì v4 sẽ tăng lên 1, có nghĩa là <code class="language-plaintext highlighter-rouge">vị trí của con trỏ tăng lên 4</code> vì kích cỡ của kiểu <code class="language-plaintext highlighter-rouge">int</code>, nhưng ở đây ta không hề thấy có một hàm hay dòng lệnh nào để kiểm tra =&gt; Khi tăng vị trí của con trỏ lên một kích cỡ nhất định (4*n) thì ta sẽ gặp lỗi buffer overflow!</h4>
+<p>Ở đây v4 chính là con trỏ của v13, chương trình sẽ hỏi ta muốn nhập bao nhiêu số, sau mỗi một số nhập vào thì v4 sẽ tăng lên 1, có nghĩa là <code class="language-plaintext highlighter-rouge">vị trí của con trỏ tăng lên 4</code> vì kích cỡ của kiểu <code class="language-plaintext highlighter-rouge">int</code>, nhưng ở đây ta không hề thấy có một hàm hay dòng lệnh nào để kiểm tra =&gt; Khi tăng vị trí của con trỏ lên một kích cỡ nhất định (4*n) thì ta sẽ gặp lỗi buffer overflow!</p>
 
-<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_4.png" alt="pic4" /></p>
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/writeups/main/dubblesort%5Bpwnable.tw%5D/res/pic_4.png" alt="pic4" /></p>
 
-<h4 id="nhưng-ta-gặp-vấn-đề-là-chương-trình-này-có-bật-cơ-chế-stack-canary">Nhưng ta gặp vấn đề là chương trình này có bật cơ chế <code class="language-plaintext highlighter-rouge">Stack Canary</code>.</h4>
+<p>Nhưng ta gặp vấn đề là chương trình này có bật cơ chế <code class="language-plaintext highlighter-rouge">Stack Canary</code>.</p>
 
-<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_5.png" alt="pic5" /></p>
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/writeups/main/dubblesort%5Bpwnable.tw%5D/res/pic_5.png" alt="pic5" /></p>
 
-<h4 id="chương-trình-đọc-input-các-số-vào-bằng-hàm-scanf-nên-ta-có-thể-bypass-dễ-dàng-bằng-cách-nhập-các-kí-tự-như----vào-ô-dữ-liệu-nơi-chứa-stack-canary-cụ-thể-ở-đây-là-ở-số-thứ-25">Chương trình đọc input các số vào bằng hàm <code class="language-plaintext highlighter-rouge">scanf</code> nên ta có thể bypass dễ dàng bằng cách nhập các kí tự như <code class="language-plaintext highlighter-rouge">-, +,...</code> vào ô dữ liệu nơi chứa <code class="language-plaintext highlighter-rouge">Stack Canary</code>, cụ thể ở đây là ở số thứ 25.</h4>
+<p>Chương trình đọc input các số vào bằng hàm <code class="language-plaintext highlighter-rouge">scanf</code> nên ta có thể bypass dễ dàng bằng cách nhập các kí tự như <code class="language-plaintext highlighter-rouge">-, +,...</code> vào ô dữ liệu nơi chứa <code class="language-plaintext highlighter-rouge">Stack Canary</code>, cụ thể ở đây là ở số thứ 25.</p>
 
-<p><img src="https://github.com/th3-5had0w/writeups/blob/main/dubblesort%5Bpwnable.tw%5D/res/pic_6.png" alt="pic6" /></p>
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/writeups/main/dubblesort%5Bpwnable.tw%5D/res/pic_6.png" alt="pic6" /></p>
 
-<h4 id="như-trên-hình-thì-không-hề-có-cảnh-báo--stack-smashing-detected--vậy-là-ta-đã-bypass-được-stack-canary">Như trên hình thì không hề có cảnh báo <code class="language-plaintext highlighter-rouge">*** stack smashing detected ***</code>, vậy là ta đã bypass được <code class="language-plaintext highlighter-rouge">Stack Canary</code>.</h4>
+<p>Như trên hình thì không hề có cảnh báo <code class="language-plaintext highlighter-rouge">*** stack smashing detected ***</code>, vậy là ta đã bypass được <code class="language-plaintext highlighter-rouge">Stack Canary</code>.</p>
 
-<h3 id="3-kết-luận">3) Kết luận</h3>
+<h2 id="3-kết-luận">3) Kết luận</h2>
 
-<h4 id="vậy-là-ta-đã-leak-được-libc-và-bypass-được-stack-canary-để-điều-khiển-con-trỏ-rip">Vậy là ta đã leak được libc và bypass được <code class="language-plaintext highlighter-rouge">Stack Canary</code> để điều khiển con trỏ <code class="language-plaintext highlighter-rouge">RIP</code>.</h4>
+<p>Vậy là ta đã leak được libc và bypass được <code class="language-plaintext highlighter-rouge">Stack Canary</code> để điều khiển con trỏ <code class="language-plaintext highlighter-rouge">RIP</code>.</p>
 
-<h4 id="đây-là-chương-trình-chạy-kiến-trúc-x86-nên-theo-calling-convention-của-nó-ta-sẽ-truyền-vào-rip-theo-thứ-tự">Đây là chương trình chạy kiến trúc x86 nên theo calling convention của nó ta sẽ truyền vào <code class="language-plaintext highlighter-rouge">RIP</code> theo thứ tự:</h4>
+<p>Đây là chương trình chạy kiến trúc x86 nên theo calling convention của nó ta sẽ truyền vào <code class="language-plaintext highlighter-rouge">RIP</code> theo thứ tự:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[RIP] = địa chỉ của hàm system
 [RIP+4] = tùy ý (đây là return pointer của hàm system, sau hàm system thì ta không cần return về đâu nữa vì đã có shell)
 [RIP+8] = địa chỉ của chuỗi /bin/sh (đây chính là tham số đầu tiên của hàm system)
 </code></pre></div></div>
 
-<h4 id="ta-cũng-cần-lưu-ý-về-cơ-chế-sort-của-chương-trình-để-tránh-giá-trị-của-canary-bị-sửa-đổi-ngoài-ý-muốn">Ta cũng cần lưu ý về cơ chế sort của chương trình để tránh giá trị của canary bị sửa đổi ngoài ý muốn.</h4>
+<p>Ta cũng cần lưu ý về cơ chế sort của chương trình để tránh giá trị của canary bị sửa đổi ngoài ý muốn.</p>
 
-<h4 id="nhưng-ở-đây-thì-canary-địa-chỉ-của-hàm-system-và-địa-chỉ-của-chuỗi-binsh-đã-được-nhập-vào-theo-thứ-tự-từ-nhỏ-đến-lớn-ngay-từ-đầu">Nhưng ở đây thì canary, địa chỉ của hàm system và địa chỉ của chuỗi /bin/sh đã được nhập vào theo thứ tự từ nhỏ đến lớn ngay từ đầu.</h4>
+<p>Nhưng ở đây thì canary, địa chỉ của hàm system và địa chỉ của chuỗi /bin/sh đã được nhập vào theo thứ tự từ nhỏ đến lớn ngay từ đầu.</p>
 
-<h4 id="vậy-là-ta-đã-exploit-thành-công-chương-trình-đây-là-code-exploit-của-mình">Vậy là ta đã exploit thành công chương trình. Đây là code exploit của mình:</h4>
+<p>Vậy là ta đã exploit thành công chương trình. Đây là code exploit của mình:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">debug</span> <span class="o">=</span> <span class="bp">False</span>
@@ -204,28 +205,6 @@ Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i of
 
 </div>
 
-
-<div class="comments">
-<div id="disqus_thread"></div>
-<script>
- var disqus_config = function () {
-     this.page.url = 'https://th3-5had0w.github.io/2020/12/24/dubblesort-writeup.html';
-     this.page.identifier = '/2020/12/24/dubblesort-writeup';
-     this.page.title = 'dubblesort writeup [pwnable.tw]';
- };
-
- (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
-     var d = document, s = d.createElement('script');
-
-     s.src = '//th3-5had0w-github-io.disqus.com.disqus.com/embed.js';
-
-     s.setAttribute('data-timestamp', +new Date());
-     (d.head || d.body).appendChild(s);
- })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-</div>
 
 
 
