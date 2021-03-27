@@ -74,7 +74,6 @@
 <p><code class="language-plaintext highlighter-rouge">If src contains n or more bytes, strncat() writes n+1 bytes to dest (n from  src plus the terminating null byte). Therefore, the size of dest must be at least strlen(dest)+n+1</code></p>
 
 <p>From that, we got <code class="language-plaintext highlighter-rouge">1-byte buffer overflow</code>, where the null-byte will overwrite the size of “the description of the bullet”, the size will be reset back to 0, so we can trick the program into concatenating to a string longer than 47 bytes, which will be a buffer overflow ==&gt; We control the <code class="language-plaintext highlighter-rouge">main</code> function’s return pointer (EIP), and also the power of the bullet, after we “kill the wolf”, the program execution flow will be redirected to the address we want.</p>
-
 <h2 id="leaking-libc-phase">Leaking libc phase</h2>
 
 <p>I wrote a code to leak libc and then return back to the main function to get another chance of redirecting the program execution flow. Here we are leaking the libc address of <code class="language-plaintext highlighter-rouge">puts</code> function</p>
