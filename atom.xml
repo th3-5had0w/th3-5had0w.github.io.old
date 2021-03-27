@@ -36,7 +36,7 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-03-27T16:06:01+00:00</updated>
+ <updated>2021-03-27T16:08:11+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
@@ -154,7 +154,7 @@
 &lt;h2 id=&quot;the-final-exploit&quot;&gt;The final exploit&lt;/h2&gt;
 &lt;h4 id=&quot;wise-words-from-my-master&quot;&gt;Wise words from my master:&lt;/h4&gt;
 &lt;blockquote&gt;
-  &lt;h4 id=&quot;instead-of-ba7-you-could-use-bxffxffxffba4-to-kill-the-wolf-in-one-time&quot;&gt;“Instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b'A'*7&lt;/code&gt; you could use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b'\xff\xff\xff'+b'A'*4&lt;/code&gt; to kill the wolf in one time”&lt;/h4&gt;
+  &lt;p&gt;“Instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b'A'*7&lt;/code&gt; you could use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b'\xff\xff\xff'+b'A'*4&lt;/code&gt; to kill the wolf in one time”&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pwn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
