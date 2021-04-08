@@ -1,5 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-03-27T17:26:58+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
-</subtitle><author><name>th3_5had0w</name></author><entry><title type="html">Silver Bullet writeup [pwnable.tw]</title><link href="https://th3-5had0w.github.io/2021/03/26/silver-bullet-writeup.html" rel="alternate" type="text/html" title="Silver Bullet writeup [pwnable.tw]" /><published>2021-03-26T00:00:00+00:00</published><updated>2021-03-26T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/03/26/silver-bullet-writeup</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/03/26/silver-bullet-writeup.html">&lt;h1 id=&quot;silver-bullet-200pts-pwnabletw&quot;&gt;Silver Bullet [200pts] (pwnable.tw)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-04-08T14:01:27+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
+</subtitle><author><name>th3_5had0w</name></author><entry><title type="html">How to config dnscrypt-proxy for linux?</title><link href="https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux.html" rel="alternate" type="text/html" title="How to config dnscrypt-proxy for linux?" /><published>2021-04-08T00:00:00+00:00</published><updated>2021-04-08T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux.html">&lt;p&gt;You might wondering why i replaced &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;systemd-resolved&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt;. The reason is yesterday i tried to update the ubuntu repositories with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt update&lt;/code&gt; but the default dns server (my ISP’s dns) blocked some of the ip in the repositories, then i decided to change my dns, at first i just wanted to change my dns in the settings menu of ubuntu, but i thought “Why not something different?”.&lt;/p&gt;
+
+&lt;p&gt;Ok, let’s get started.&lt;/p&gt;
+
+&lt;p&gt;Before install and run dnscrypt we need stop and disable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;systemd-resolved&lt;/code&gt; first to prevent conflict.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ systemctl stop systemd-resolved
+$ systemctl disable systemd-resolved
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then get the &lt;a href=&quot;https://github.com/jedisct1/dnscrypt-proxy/releases/latest&quot;&gt;dnscrypt-proxy binaries&lt;/a&gt; compatible with your operating system and architecture and extract it as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; folder into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/opt&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo tar -xvf dnscrypt-proxy-linux_x86_64-2.0.45.tar.gz --directory /opt
+$ sudo mv /opt/linux-x86_64 /opt/dnscrypt-proxy
+$ cd /opt/dnscrypt-proxy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By now you are in the dnscrypt-proxy folder, there is a default example config file in that folder, you could create a configuration file based on this example file.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp example-dnscrypt-proxy.toml dnscrypt-proxy.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I also do a little change in the config file, search for the line contains &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;listen_addresses&lt;/code&gt; and uncomment it.&lt;/p&gt;
+
+&lt;p&gt;Also if you want to manually choose your DNS server, search for line contains &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server_names&lt;/code&gt; and uncomment it, and you could add or remove servers in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;]&lt;/code&gt; brackets as you like. You could search for the servers &lt;a href=&quot;https://dnscrypt.info/public-servers&quot;&gt;here&lt;/a&gt;, my config is:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_names = ['quad9-dnscrypt-ip4-filter-pri']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now go to the dnscrypt-proxy directory, and type: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo ./dnscrypt-proxy&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have any trouble, there’s a troubleshooting guide at dnscrypt-proxy’s document which i have screenshot here:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;dnscrypt-proxy-troubleshoot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Don’t have any trouble? Nice! Let’s keep going!&lt;/p&gt;
+
+&lt;h3 id=&quot;important-dont-close-the-terminal-window-yet-were-going-to-change-the-system-dns-settings&quot;&gt;Important: Don’t close the terminal window yet. We’re going to change the system DNS settings.&lt;/h3&gt;
+
+&lt;p&gt;Make a backup of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/resolv.conf&lt;/code&gt; file then delete it.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo cp /etc/resolv.conf /etc/resolv.conf.backup
+$ sudo rm -f /etc/resolv.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;important-now-you-need-to-set-a-config-for-networkmanagerservice-because-your-resolvconf-file-might-be-overwritten-everytime-you-restart-it-or-you-restart-your-machine&quot;&gt;Important: Now you need to set a config for NetworkManager.service because your resolv.conf file might be overwritten everytime you restart it or you restart your machine.&lt;/h3&gt;
+
+&lt;p&gt;Create a config rule for NetworkManger service and restart the service to do that:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo echo -e &quot;[main]\ndns=none&quot; &amp;gt; /etc/NetworkManager/conf.d/no-dns.conf
+sudo systemctl restart NetworkManager.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And then create a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/resolv.conf&lt;/code&gt; file with the following content:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nameserver 127.0.0.1
+options edns0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now check if everything works properly by sending a first query using dnscrypt-proxy:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./dnscrypt-proxy -resolve github.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If it was successfully able to resolve &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github.com&lt;/code&gt;, let’s install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; as a system service.&lt;/p&gt;
+
+&lt;p&gt;Control-C in the dnscrypt-proxy terminal window to stop the proxy.&lt;/p&gt;
+
+&lt;p&gt;Now, register dnscrypt-proxy as a system service and start it.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./dnscrypt-proxy -service install
+sudo ./dnscrypt-proxy -service start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Perfect, you have successfully installed and configured dnscrypt-proxy, no more FBI agents or ISP spies spying on you, heh-heh!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;fbi-agent-meme-1&quot; /&gt;&lt;/p&gt;</content><author><name>th3_5had0w</name></author><category term="tutorial" /><category term="privacy" /><summary type="html">You might wondering why i replaced systemd-resolved with dnscrypt-proxy. The reason is yesterday i tried to update the ubuntu repositories with apt update but the default dns server (my ISP’s dns) blocked some of the ip in the repositories, then i decided to change my dns, at first i just wanted to change my dns in the settings menu of ubuntu, but i thought “Why not something different?”.</summary></entry><entry><title type="html">Silver Bullet writeup [pwnable.tw]</title><link href="https://th3-5had0w.github.io/2021/03/26/silver-bullet-writeup.html" rel="alternate" type="text/html" title="Silver Bullet writeup [pwnable.tw]" /><published>2021-03-26T00:00:00+00:00</published><updated>2021-03-26T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/03/26/silver-bullet-writeup</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/03/26/silver-bullet-writeup.html">&lt;h1 id=&quot;silver-bullet-200pts-pwnabletw&quot;&gt;Silver Bullet [200pts] (pwnable.tw)&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://i.etsystatic.com/5962934/d/il/76350c/2345639591/il_340x270.2345639591_2cgb.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 

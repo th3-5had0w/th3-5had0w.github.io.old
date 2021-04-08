@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to config dnscrypt-proxy for linux? | th3_5had0w</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="How to config dnscrypt-proxy for linux?" />
+<meta name="author" content="th3_5had0w" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="You might wondering why i replaced systemd-resolved with dnscrypt-proxy. The reason is yesterday i tried to update the ubuntu repositories with apt update but the default dns server (my ISP’s dns) blocked some of the ip in the repositories, then i decided to change my dns, at first i just wanted to change my dns in the settings menu of ubuntu, but i thought “Why not something different?”." />
+<meta property="og:description" content="You might wondering why i replaced systemd-resolved with dnscrypt-proxy. The reason is yesterday i tried to update the ubuntu repositories with apt update but the default dns server (my ISP’s dns) blocked some of the ip in the repositories, then i decided to change my dns, at first i just wanted to change my dns in the settings menu of ubuntu, but i thought “Why not something different?”." />
+<link rel="canonical" href="https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux.html" />
+<meta property="og:url" content="https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux.html" />
+<meta property="og:site_name" content="th3_5had0w" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-08T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to config dnscrypt-proxy for linux?" />
+<script type="application/ld+json">
+{"description":"You might wondering why i replaced systemd-resolved with dnscrypt-proxy. The reason is yesterday i tried to update the ubuntu repositories with apt update but the default dns server (my ISP’s dns) blocked some of the ip in the repositories, then i decided to change my dns, at first i just wanted to change my dns in the settings menu of ubuntu, but i thought “Why not something different?”.","@type":"BlogPosting","url":"https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux.html","headline":"How to config dnscrypt-proxy for linux?","dateModified":"2021-04-08T00:00:00+00:00","datePublished":"2021-04-08T00:00:00+00:00","author":{"@type":"Person","name":"th3_5had0w"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://th3-5had0w.github.io/feed.xml" title="th3_5had0w" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">th3_5had0w<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-cyan-hover" href="https://twitter.com/th3_5had0w_w"><i class="fab fa-twitter-square"></i></a><a class="color-purple-hover" href="https://github.com/th3-5had0w"><i class="fab fa-github-square"></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+  <div class="author-box">
+    
+    
+        <img src="
+            https://gravatar.com/avatar/4241e14141109999e63e51ba2f6eac59?s=256
+        " class="author-avatar" alt="Avatar" />
+    
+Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
+
+</div>
+
+
+<div class="post">
+  <h1 class="post-title">How to config dnscrypt-proxy for linux?</h1>
+  
+  <div class="post-tags">
+      
+      <a class="tag" href="/tag/tutorial/">tutorial</a>
+      
+      <a class="tag" href="/tag/privacy/">privacy</a>
+      
+  </div>
+  
+  <div class="post-date">Published on 08 Apr 2021</div>
+  
+  <p>You might wondering why i replaced <code class="language-plaintext highlighter-rouge">systemd-resolved</code> with <code class="language-plaintext highlighter-rouge">dnscrypt-proxy</code>. The reason is yesterday i tried to update the ubuntu repositories with <code class="language-plaintext highlighter-rouge">apt update</code> but the default dns server (my ISP’s dns) blocked some of the ip in the repositories, then i decided to change my dns, at first i just wanted to change my dns in the settings menu of ubuntu, but i thought “Why not something different?”.</p>
+
+<p>Ok, let’s get started.</p>
+
+<p>Before install and run dnscrypt we need stop and disable <code class="language-plaintext highlighter-rouge">systemd-resolved</code> first to prevent conflict.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ systemctl stop systemd-resolved
+$ systemctl disable systemd-resolved
+</code></pre></div></div>
+
+<p>Then get the <a href="https://github.com/jedisct1/dnscrypt-proxy/releases/latest">dnscrypt-proxy binaries</a> compatible with your operating system and architecture and extract it as <code class="language-plaintext highlighter-rouge">dnscrypt-proxy</code> folder into <code class="language-plaintext highlighter-rouge">/opt</code>.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo tar -xvf dnscrypt-proxy-linux_x86_64-2.0.45.tar.gz --directory /opt
+$ sudo mv /opt/linux-x86_64 /opt/dnscrypt-proxy
+$ cd /opt/dnscrypt-proxy
+</code></pre></div></div>
+
+<p>By now you are in the dnscrypt-proxy folder, there is a default example config file in that folder, you could create a configuration file based on this example file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp example-dnscrypt-proxy.toml dnscrypt-proxy.toml
+</code></pre></div></div>
+
+<p>I also do a little change in the config file, search for the line contains <code class="language-plaintext highlighter-rouge">listen_addresses</code> and uncomment it.</p>
+
+<p>Also if you want to manually choose your DNS server, search for line contains <code class="language-plaintext highlighter-rouge">server_names</code> and uncomment it, and you could add or remove servers in the <code class="language-plaintext highlighter-rouge">[</code> and <code class="language-plaintext highlighter-rouge">]</code> brackets as you like. You could search for the servers <a href="https://dnscrypt.info/public-servers">here</a>, my config is:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server_names = ['quad9-dnscrypt-ip4-filter-pri']
+</code></pre></div></div>
+
+<p>Now go to the dnscrypt-proxy directory, and type: <code class="language-plaintext highlighter-rouge">sudo ./dnscrypt-proxy</code></p>
+
+<p>If you have any trouble, there’s a troubleshooting guide at dnscrypt-proxy’s document which i have screenshot here:</p>
+
+<p><img src="" alt="dnscrypt-proxy-troubleshoot" /></p>
+
+<p>Don’t have any trouble? Nice! Let’s keep going!</p>
+
+<h3 id="important-dont-close-the-terminal-window-yet-were-going-to-change-the-system-dns-settings">Important: Don’t close the terminal window yet. We’re going to change the system DNS settings.</h3>
+
+<p>Make a backup of the <code class="language-plaintext highlighter-rouge">/etc/resolv.conf</code> file then delete it.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cp /etc/resolv.conf /etc/resolv.conf.backup
+$ sudo rm -f /etc/resolv.conf
+</code></pre></div></div>
+
+<h3 id="important-now-you-need-to-set-a-config-for-networkmanagerservice-because-your-resolvconf-file-might-be-overwritten-everytime-you-restart-it-or-you-restart-your-machine">Important: Now you need to set a config for NetworkManager.service because your resolv.conf file might be overwritten everytime you restart it or you restart your machine.</h3>
+
+<p>Create a config rule for NetworkManger service and restart the service to do that:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo echo -e "[main]\ndns=none" &gt; /etc/NetworkManager/conf.d/no-dns.conf
+sudo systemctl restart NetworkManager.service
+</code></pre></div></div>
+
+<p>And then create a new <code class="language-plaintext highlighter-rouge">/etc/resolv.conf</code> file with the following content:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nameserver 127.0.0.1
+options edns0
+</code></pre></div></div>
+
+<p>Now check if everything works properly by sending a first query using dnscrypt-proxy:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ./dnscrypt-proxy -resolve github.com
+</code></pre></div></div>
+
+<p>If it was successfully able to resolve <code class="language-plaintext highlighter-rouge">github.com</code>, let’s install <code class="language-plaintext highlighter-rouge">dnscrypt-proxy</code> as a system service.</p>
+
+<p>Control-C in the dnscrypt-proxy terminal window to stop the proxy.</p>
+
+<p>Now, register dnscrypt-proxy as a system service and start it.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ./dnscrypt-proxy -service install
+sudo ./dnscrypt-proxy -service start
+</code></pre></div></div>
+
+<p>Perfect, you have successfully installed and configured dnscrypt-proxy, no more FBI agents or ISP spies spying on you, heh-heh!</p>
+
+<p><img src="" alt="fbi-agent-meme-1" /></p>
+
+</div>
+
+
+
+
+
+<div class="related">
+  <h2>related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/03/26/silver-bullet-writeup.html">
+            Silver Bullet writeup [pwnable.tw]
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/03/10/pointy-writeup.html">
+            Pointy writeup [picoCTF2019]
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2020/12/24/dubblesort-writeup.html">
+            dubblesort writeup [pwnable.tw]
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <h2>all tags</h2>
+  <div class="tag-cloud"><a href="/tag/heap-exploit/" class="set-1">heap exploit</a> <a href="/tag/introduction/" class="set-1">introduction</a> <a href="/tag/picoctf2019/" class="set-1">picoCTF2019</a> <a href="/tag/privacy/" class="set-1">privacy</a> <a href="/tag/pwn/" class="set-5">pwn</a> <a href="/tag/pwnable.tw/" class="set-3">pwnable.tw</a> <a href="/tag/tutorial/" class="set-1">tutorial</a></div>
+  
+
+
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()" checked />
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = localStorage.getItem('theme');
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>
