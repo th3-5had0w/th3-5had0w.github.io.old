@@ -36,7 +36,7 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-04-08T14:01:27+00:00</updated>
+ <updated>2021-04-08T14:13:25+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
@@ -50,6 +50,8 @@
    <updated>2021-04-08T00:00:00+00:00</updated>
    <id>https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux</id>
    <content type="html">&lt;p&gt;You might wondering why i replaced &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;systemd-resolved&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt;. The reason is yesterday i tried to update the ubuntu repositories with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt update&lt;/code&gt; but the default dns server (my ISP’s dns) blocked some of the ip in the repositories, then i decided to change my dns, at first i just wanted to change my dns in the settings menu of ubuntu, but i thought “Why not something different?”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/privacy-is-needed.jpeg&quot; alt=&quot;privacy-is-needed&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Ok, let’s get started.&lt;/p&gt;
 
@@ -78,7 +80,7 @@ $ cd /opt/dnscrypt-proxy
 
 &lt;p&gt;If you have any trouble, there’s a troubleshooting guide at dnscrypt-proxy’s document which i have screenshot here:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;dnscrypt-proxy-troubleshoot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/dnscrypt-proxy-troubleshoot.png&quot; alt=&quot;dnscrypt-proxy-troubleshoot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Don’t have any trouble? Nice! Let’s keep going!&lt;/p&gt;
 
@@ -117,7 +119,7 @@ sudo ./dnscrypt-proxy -service start
 
 &lt;p&gt;Perfect, you have successfully installed and configured dnscrypt-proxy, no more FBI agents or ISP spies spying on you, heh-heh!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;fbi-agent-meme-1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/fbi-agent-meme-1.jpg&quot; alt=&quot;fbi-agent-meme-1&quot; /&gt;&lt;/p&gt;
 </content>
  </entry>
  
