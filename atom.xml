@@ -36,7 +36,7 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-04-08T14:13:25+00:00</updated>
+ <updated>2021-05-06T15:54:55+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
@@ -120,6 +120,149 @@ sudo ./dnscrypt-proxy -service start
 &lt;p&gt;Perfect, you have successfully installed and configured dnscrypt-proxy, no more FBI agents or ISP spies spying on you, heh-heh!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/fbi-agent-meme-1.jpg&quot; alt=&quot;fbi-agent-meme-1&quot; /&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Văn tế sống - 30 days of information security challenge</title>
+   <link href="https://th3-5had0w.github.io/2021/04/07/30-days-of-information-security-challenge.html"/>
+   <updated>2021-04-07T00:00:00+00:00</updated>
+   <id>https://th3-5had0w.github.io/2021/04/07/30-days-of-information-security-challenge</id>
+   <content type="html">&lt;h1 id=&quot;thử-thách-30-ngày-bảo-mật-thông-tin&quot;&gt;Thử thách 30 ngày bảo mật thông tin?&lt;/h1&gt;
+
+&lt;p&gt;Chú thích:&lt;/p&gt;
+
+&lt;p&gt;(1*) Big brothers: là một thuật ngữ dùng để ám chỉ các thế lực bí ẩn to lớn đứng trong bóng tối theo dõi đời tư của tất cả mọi người vì một mục đích cá nhân nào đó, trong bài này thì sử dụng để đề cập đến các công ty công nghệ lớn như google, amazon, facebook, apple,… và chính phủ của các quốc gia.&lt;/p&gt;
+
+&lt;p&gt;“Tao làm gì có gì để giấu đâu” luôn là câu trả lời phổ biến nhất khi bạn đi phỏng vấn hay đặt câu hỏi về các vấn đề liên quan đến sự riêng tư trên mạng internet cho những người sử dụng phổ thông, vậy thì có thật là những người dùng họ không có gì để giấu không, hay họ chỉ nghĩ thế? Và sự can thiệp sâu sắc vào không gian cá nhân của người dùng đến từ các “(1*)big brothers” thì có ảnh hưởng gì đến cá nhân mỗi người dùng phổ thông và toàn xã hội?&lt;/p&gt;
+
+&lt;h2 id=&quot;vì-sao-phải-bảo-vệ-sự-riêng-tư-và-dữ-liệu-cá-nhân&quot;&gt;Vì sao phải bảo vệ sự riêng tư và dữ liệu cá nhân?&lt;/h2&gt;
+
+&lt;p&gt;Những thông tin được thu thập từ bạn sẽ được gom hết lại để tạo ra 1 hồ sơ tổng hợp về cá nhân bạn, để tôi liệt kê sơ sơ cho các bạn xem những thông tin cá nhân được thu thập từ bạn sẽ có ảnh hưởng lớn như thế nào nhé:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Có khả năng chi phối cảm xúc, những tập đoàn lớn thuê cả những cụm máy chủ lớn chỉ để chạy những thuật toán AI nhằm phân tích cảm xúc dựa trên những kết quả tìm kiếm, những bài nhạc, những video, thậm chỉ cả những game bạn chơi, nắm được điểm yếu này thì những AI sẽ tiếp tục gợi ý cho bạn những kết quả có thể là giống với bạn đang mong muốn để khiến cho bạn bị phụ thuộc cảm xúc vào nền tảng công nghệ ấy, kết quả là 8 tiếng duyệt web, lướt facebook, xem porn trong vô thức. Vì não bạn bị chai dopamine (một loại hóa chất gây hạnh phúc) nên sẽ luôn cần 1 liều lớn hơn, và thế là mọi thời gian của bạn đều được tiêu tốn trên mạng, vào mạng xã hội, hài nhảm, phim khiêu dâm,… thay vì những hoạt động xã hội khỏe mạnh bên ngoài. ==&amp;gt; Thao túng cảm xúc&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ngay cả trong những cuộc bầu cử, tranh đấu cũng có sự giúp sức của các công ty công nghệ, ví dụ như trong suốt nhiệm kì của tổng thống Mỹ Donald Trump, các đài báo truyền thông thuộc phe cánh tả cùng với các công ty công nghệ lớn đã liên tục tung nhiều tin không đầy đủ sự thật làm lung lay niềm tin của người dân vào phe bảo thủ. Tuy nhiên không phải các kết quả tìm kiếm lại cho ra giống nhau với mọi người, mà tùy quan điểm, cảm xúc, thế giới quan của mỗi người thế nào thì sẽ có những tin tức (không rõ là thật hay giả) phù hợp để tăng sự căm gét của họ, thực trạng này xảy ra ở cả 2 phe cánh tả và cánh hữu. ==&amp;gt; Chi phối chính trị&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cuối cùng, từ hai yếu tố chi phối chính trị và thao túng cảm xúc, các công ty công nghệ cùng truyền thông sẽ đạt được sức mạnh tối thượng để có thể điều khiển đám đông tung hô hoặc tấn công tâm lý, vật lý bất kì cá nhân hay tổ chức nào, đổi trắng thay đen chỉ là một cái trở tay. ==&amp;gt; Định hướng dư luận&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chưa hết, “big brothers” ở đây không chỉ bao gồm các công ty công nghệ lớn, truyền thông mà còn là cả các chính phủ, các nhà mạng,… Nhưng tôi gom chúng hết lại là vì bọn này thường phối hợp vì lợi ích chung đề thu thập được nhiều dữ liệu nhất có thể, với 3 sức mạnh có được ở trên truyền thông, các công ty công nghệ sẽ dễ dàng khiến người dân tin và bầu cho đảng phái nào tạo điều kiện cho chúng thu thập dữ liệu, còn đảng phái có được lợi thế thì sẽ lại dùng các thông tin đó để làm những việc riêng, những công việc như vậy thường xuyên diễn ra trong bóng tối với sự thờ ơ của những người dùng internet phổ thông khiến cho “big brothers” ngày càng lộng quyền và can thiệp càng sâu vào mọi khía cạnh trong xã hội hòng tái thiết lập chế độ độc tài, gây ra những hậu quả khôn lường.&lt;/p&gt;
+
+&lt;h2 id=&quot;thực-hiện-quyền-riêng-tư-và-bảo-vệ-dữ-liệu-cá-nhân-như-thế-nào&quot;&gt;Thực hiện quyền riêng tư và bảo vệ dữ liệu cá nhân như thế nào?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Lưu ý: Nếu bạn chỉ cần hiểu những ảnh hưởng của “big brothers” lên cuộc sống của toàn bộ người dùng toàn cầu nhưng không muốn thay đổi các ứng dụng - dịch vụ mình đang sử dụng, hoặc những thay đổi về quyền riêng tư ảnh hưởng đến công việc, đời sống xã hội của bạn thì bạn có thể bỏ qua bước này.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;Đầu tiên là các dịch vụ bạn sử dụng trên mạng phải tách rời nhau, hạn chế dùng nhiều dịch vụ có cùng chung một công ty quản lý. Ví dụ như tránh dùng cả hệ sinh thái google, apples, amazon, facebook, microsoft, huawei, xiaomi, etc… vì các công ty sẽ càng dễ dàng thiết lập hồ sơ cá nhân về bạn và bán nó cho các bên thứ ba hoặc trao đổi với các công ty lớn khác nhằm mục đích trục lợi. Sau đây tôi sẽ gợi ý cho bạn một vài lựa chọn thay thế những Messenger, Google Photo, Discord, Gmail, Google Drive, Microsoft Outlook, etc…&lt;/p&gt;
+
+&lt;h4 id=&quot;hệ-điều-hành&quot;&gt;Hệ điều hành:&lt;/h4&gt;
+
+&lt;p&gt;Đầu tiên mình sẽ làm rõ điều mà nhiều người thường hay hiểu lầm, đó là “sử dụng các hệ điều hành nhân Linux thì sẽ không bị nhiễm mã độc”, đây là khẳng định hoàn toàn sai, các hệ điều hành dùng nhân Linux hoàn toàn có thể bị nhiễm mã độc. Nhưng vì người dùng phổ thông lại ít ai dùng nhân Linux nên hầu hết các mã độc tấn công quy mô lớn vào người dùng cá nhân lại không nhằm vào nhân Linux, mà nhằm vào hệ điều hành Windows. Nên nếu bạn là người dùng cơ bản chỉ có các nhu cầu lướt web, nghe nhạc, xem phim hoặc có máy tính cũ, yếu thì nên dùng Linux, còn không thì hãy sử dụng Windows.&lt;/p&gt;
+
+&lt;p&gt;Vì điểm yếu nhất trong mắt xích của hệ thống an toàn thông tin chính là con người, nếu bạn đọc xong bài này mà vẫn vô tư bấm vào các đường link lừa đảo, nhập thông tin cá nhân vô tội vạ, mở các tài liệu Word, Pdf đính kèm trong những Email không rõ nguồn gốc một cách bất cẩn thì chẳng có hệ điều hành nào cứu nổi bạn cả.&lt;/p&gt;
+
+&lt;h4 id=&quot;dịch-vụ-email&quot;&gt;Dịch vụ email:&lt;/h4&gt;
+
+&lt;p&gt;Bạn có thể lựa chọn các dịch vụ Email sau để thay thế cho Gmail:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Protonmail&lt;/li&gt;
+  &lt;li&gt;Tutanota&lt;/li&gt;
+  &lt;li&gt;Kolab Now&lt;/li&gt;
+  &lt;li&gt;Riseup&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;trình-duyệt-web&quot;&gt;Trình duyệt web:&lt;/h4&gt;
+
+&lt;p&gt;Bạn nên dùng Mozilla Firefox, trình duyệt tuy có thể không có các tính năng hoặc devtools cao cấp như chrome, IE nhưng nói về bảo mật cá nhân thì Firefox có ưu thế lớn hơn rất nhiều.&lt;/p&gt;
+
+&lt;h4 id=&quot;công-cụ-tìm-kiếm&quot;&gt;Công cụ tìm kiếm:&lt;/h4&gt;
+
+&lt;p&gt;Bạn nên thay thế Google, Bing, Yahoo search bằng các công cụ tìm kiếm sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Duckduckgo&lt;/li&gt;
+  &lt;li&gt;Searx&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;dịch-vụ-nhắn-tin&quot;&gt;Dịch vụ nhắn tin:&lt;/h4&gt;
+
+&lt;p&gt;Nếu được thì bạn hãy thuyết phục những người xung quanh sử dụng Signal.&lt;/p&gt;
+
+&lt;h4 id=&quot;trình-quản-lý-mật-khẩu&quot;&gt;Trình quản lý mật khẩu:&lt;/h4&gt;
+
+&lt;p&gt;Bạn nên dùng KeePassXC thay vì các trình quản lý như LastPass, 1Password.&lt;/p&gt;
+
+&lt;p&gt;KeePassXC là trình quản lý mật khẩu nội bộ, không tự động sao lưu các bản dữ liệu của bạn lên máy chủ riêng nên bạn có thể tự do nắm quyền kiểm soát các bản ghi mật khẩu của mình mà không sự bên thứ ba soi mói hay máy chủ bị tấn công làm lộ mật khẩu của bạn.&lt;/p&gt;
+
+&lt;h4 id=&quot;các-addon-của-trình-duyệt&quot;&gt;Các addon của trình duyệt:&lt;/h4&gt;
+
+&lt;p&gt;Các bạn nên sử dụng hết những addon sau cùng với Mozilla Firefox (thành thật xin lỗi các bạn team chrome, mình không sử dụng google chrome nên không biết rõ các addon của nó) để đạt được sự riêng tư và bảo vệ tối đa trên internet nhé:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Decentraleyes&lt;/li&gt;
+  &lt;li&gt;uBlock Origin&lt;/li&gt;
+  &lt;li&gt;NoScript&lt;/li&gt;
+  &lt;li&gt;Privacy Badger&lt;/li&gt;
+  &lt;li&gt;HTTPS Everywhere&lt;/li&gt;
+  &lt;li&gt;Facebook Container&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;dành-cho-các-người-chơi-hardcore-hệ-an-toàn-thông-tin&quot;&gt;Dành cho các người chơi hardcore hệ an toàn thông tin:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Nếu bạn muốn phòng tránh các cuộc tấn công man-in-the-middle hay nghe lén network traffic thì bạn có thể xem bài viết cách config DNSCrypt-proxy của mình ở đây: https://th3-5had0w.github.io/2021/04/08/config-dnscrypt-proxy-for-linux.html&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cài lại firmware của router đề kiểm soát hoàn toàn mạng của nhà mình.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sử dụng Wireguard để tự config VPN tunnel theo các rules của riêng mình.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;các-mẹo-nhỏ-để-tránh-bị-chiếm-đoạt-tải-khoản-trên-các-mạng-xã-hội&quot;&gt;Các mẹo nhỏ để tránh bị chiếm đoạt tải khoản trên các mạng xã hội:&lt;/h2&gt;
+
+&lt;p&gt;Rõ ràng có một thực tế ở Việt Nam là chuyện bị chiếm đoạt tài khoản trên các mạng xã hội xảy ra như cơm bữa chỉ vì bạn trót “ngây thơ”, đôi khi oái oăm hơn là bạn mất các tài khoản mạng xã hội hàng loạt chỉ vì dùng chung 1 mật khẩu cho mọi tài khoản, hay không bật xác thực 2 yếu tố,… Vậy nên hãy nhớ:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bật xác thực 2 yếu tố cho mọi tài khoản&lt;/li&gt;
+  &lt;li&gt;Sử dụng mỗi tài khoản một mật khẩu khác nhau, khuyến khích sử dụng trình quản lý mật khẩu và tự động tạo mật khẩu ngẫu nhiên bao gồm các chứ cái hoa, thường, số, kí tự đặc biệt. (Bài sau mình sẽ hướng dẫn bạn viết một chương trình tạo mật khẩu ngẫu nhiên chỉ với vài dòng code python, rất cơ bản.)&lt;/li&gt;
+  &lt;li&gt;Tránh đăng nhập các tài khoản mạng xã hội vào các thiết bị lạ, như máy của bạn bè, hoặc máy quán net, vì rất có thể trong những thiết bị đấy đã có sẵn các keylogger ghi lại mọi phím bạn gõ.&lt;/li&gt;
+  &lt;li&gt;Đừng tiếc vài chục ngàn mua gói Data của nhà mạng mà đi dùng mạng công cộng, nếu lỡ trong các mạng công cộng mà có người thực hiện tấn công man-in-the-middle thì các traffic của bạn sẽ bị họ thấy hết.&lt;/li&gt;
+  &lt;li&gt;Đừng tham lam, rõ ràng đa phần các người dùng phổ thông dễ tin vào các trang web lừa đảo, phishing, không chỉ riêng người già, MỌI ĐỘ TUỔI ĐỀU CÓ THỂ ĂN CÚ LỪA NẾU BỊ ĐÁNH VÀO GÓT CHÂN ACHILLES, một thông báo nhận quà từ trò chơi điện tử bạn yêu thích, một thông báo trúng thưởng, trúng tuyển đại học, hay thông báo thăng chức từ công ty, tất cả mọi thứ đều có thể bị làm giả.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Tương truyền rằng Tào Tháo vì tính đa nghi của mình mà mất mạng nhưng trong thế giới mà tem chống giả còn bị làm giả thì rõ ràng tính đa nghi đã cứu mạng ông rất nhiều lần. Vì thế nên hãy luôn luôn cảnh giác, không thì có ngày sẽ bị lừa đau đớn rồi tức hộc máu như Chu Du.&lt;/p&gt;
+
+&lt;p&gt;Tất cả các thông tin được thu thập từ mỗi cá nhân đều nhằm để thực hiện một âm mưu to lớn - thao túng tất cả mọi thứ, bao gồm toàn bộ cuộc sống, quyết định của bạn. Nên hãy suy nghĩ về tương lai, mỗi người thực hiện những hành động nhỏ thì cùng nhau mọi người sẽ làm nên việc lớn, đừng mãi thờ ơ và ở trong vùng an toàn nữa:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Lũ chúng ta ngủ trong giường chiếu hẹp&lt;/p&gt;
+
+  &lt;p&gt;Giấc mơ con đè nát cuộc đời con&lt;/p&gt;
+
+  &lt;p&gt;Hạnh phúc đựng trong một tà áo đẹp&lt;/p&gt;
+
+  &lt;p&gt;Một mái nhà yên rủ bóng xuống tâm hồn&lt;/p&gt;
+
+  &lt;p&gt;Trăm cơn mơ không chống nổi một đêm dày&lt;/p&gt;
+
+  &lt;p&gt;Ta lại mặc cho mưa tuôn và gió thổi&lt;/p&gt;
+
+  &lt;p&gt;Lòng ta thành con rối&lt;/p&gt;
+
+  &lt;p&gt;Cho cuộc đời giật dây” – Chế Lan Viên&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
  </entry>
  
