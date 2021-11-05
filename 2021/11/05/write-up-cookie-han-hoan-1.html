@@ -1252,7 +1252,7 @@ Flag{N0_B0T_@ll0w}
 
 <p>Mình tiếp tục tìm trong source thì thấy một đoạn js có vẻ khả nghi:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">getHistory</span><span class="p">()</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">getHistory</span><span class="p">()</span>
 <span class="p">{</span>	
 	<span class="nx">src</span> <span class="o">=</span> <span class="p">[]</span>
 	<span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/get_all_screenshot</span><span class="dl">"</span><span class="p">);</span>
@@ -1267,60 +1267,62 @@ Flag{N0_B0T_@ll0w}
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Ở đây <code class="language-plaintext highlighter-rouge">get_screenshot?file=</code> có vẻ là chỗ để xem file .png ở trên. Boom, và mình đã có screenshot của <code class="language-plaintext highlighter-rouge">/</code></p>
+<p>Ở đây <code class="language-plaintext highlighter-rouge">get_screenshot?file=</code> có vẻ là chỗ để xem file .png ở trên. Boom, và mình đã có screenshot của <code class="language-plaintext highlighter-rouge">/</code>.</p>
 
-<pre><code class="language-http://chal8.web.letspentest.org/get_screenshot">
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_3.png)
+<p><code class="language-plaintext highlighter-rouge">http://chal8.web.letspentest.org/get_screenshot?file=4f5637f9e6ab447aa20ae338d04eb7a8.png</code></p>
 
-Sau khi thử tìm lần lượt trong các thư mục đều không thấy flag, riêng `/src` lại bị `url invalid`, mình cũng thử với các URL khác có chứa từ `src` thì nhận ra là từ khoá này đã bị block.
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_3.png" alt="" /></p>
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_4.png)
+<p>Sau khi thử tìm lần lượt trong các thư mục đều không thấy flag, riêng <code class="language-plaintext highlighter-rouge">/src</code> lại bị <code class="language-plaintext highlighter-rouge">url invalid</code>, mình cũng thử với các URL khác có chứa từ <code class="language-plaintext highlighter-rouge">src</code> thì nhận ra là từ khoá này đã bị block.</p>
 
-Để bypass cái này và truy cập vào `src` này mình dùng thư mục `/proc/[pid]/cwd`:
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_4.png" alt="" /></p>
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_5.png)
+<p>Để bypass cái này và truy cập vào <code class="language-plaintext highlighter-rouge">src</code> này mình dùng thư mục <code class="language-plaintext highlighter-rouge">/proc/[pid]/cwd</code>:</p>
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_6.png)
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_5.png" alt="" /></p>
 
-Mình thử với `pid = 1` thì thấy một thư mục có khả năng cao là chứa flag:
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_6.png" alt="" /></p>
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_7.png)
+<p>Mình thử với <code class="language-plaintext highlighter-rouge">pid = 1</code> thì thấy một thư mục có khả năng cao là chứa flag:</p>
 
-Tiếp tục đi vào trong thì mình tìm được file `flag.txt`:
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_7.png" alt="" /></p>
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_8.png)
+<p>Tiếp tục đi vào trong thì mình tìm được file <code class="language-plaintext highlighter-rouge">flag.txt</code>:</p>
 
-Screenshot và có flag =)):
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_8.png" alt="" /></p>
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_9.png)
+<p>Screenshot và có flag =)):</p>
 
-Flag: `FLAG{abc725173fa1828ea019503669b4eecd}`
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_9.png" alt="" /></p>
 
-## A tiny hole 
-&gt; Lợi dụng thời điểm hệ thống giám sát ngủ say và mệt mỏi sau cuộc tấn công HTTP Flood. Mèo Yang Hồ đột nhập vào máy chủ Challenge của Cookie Arena để cài đặt một Web Shell để đánh cắp Flag. Tuy nhiên máy chủ bị hạn chế một số kết nối ra ngoài Internet, nên nó không thể download, lưu và thực thi mã độc hại được. Còn cửa nào sáng không?
-&gt;
-&gt; http://chal17.web.letspentest.org/
+<p>Flag: <code class="language-plaintext highlighter-rouge">FLAG{abc725173fa1828ea019503669b4eecd}</code></p>
 
-Đề cho ta file app.py chạy ở phía server, đọc sơ qua source code thì mình có thể dễ dàng đoán được server sẽ thực hiện việc download script từ url mình nhập vào và thực thi nó. Sau khi test thử một vài đường link thì mình nhận ra không thể kết nối ra bên ngoài. 
+<h2 id="a-tiny-hole">A tiny hole</h2>
+<blockquote>
+  <p>Lợi dụng thời điểm hệ thống giám sát ngủ say và mệt mỏi sau cuộc tấn công HTTP Flood. Mèo Yang Hồ đột nhập vào máy chủ Challenge của Cookie Arena để cài đặt một Web Shell để đánh cắp Flag. Tuy nhiên máy chủ bị hạn chế một số kết nối ra ngoài Internet, nên nó không thể download, lưu và thực thi mã độc hại được. Còn cửa nào sáng không?</p>
 
-Muốn chạy được script thì mình phải bypass qua được đoạn check ở hàm `download_script` trước:
+  <p>http://chal17.web.letspentest.org/</p>
+</blockquote>
 
-```python
-def download_script(script_path, command_log, url):
-	try:
-		script_link = url
-	except:
-		return "missing url"
-	r = requests.Session()
-	r.mount('file://', FileAdapter())
-	try:
-		result = r.get(script_link)
-	except:
-		return "Oh no! Lost internet"
-	with open(script_path, 'wb') as f:
-		f.write(result.content)
-		run_script(script_path, command_log)
-</code></pre>
+<p>Đề cho ta file app.py chạy ở phía server, đọc sơ qua source code thì mình có thể dễ dàng đoán được server sẽ thực hiện việc download script từ url mình nhập vào và thực thi nó. Sau khi test thử một vài đường link thì mình nhận ra không thể kết nối ra bên ngoài.</p>
+
+<p>Muốn chạy được script thì mình phải bypass qua được đoạn check ở hàm <code class="language-plaintext highlighter-rouge">download_script</code> trước:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">download_script</span><span class="p">(</span><span class="n">script_path</span><span class="p">,</span> <span class="n">command_log</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="n">script_link</span> <span class="o">=</span> <span class="n">url</span>
+	<span class="k">except</span><span class="p">:</span>
+		<span class="k">return</span> <span class="s">"missing url"</span>
+	<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span>
+	<span class="n">r</span><span class="p">.</span><span class="n">mount</span><span class="p">(</span><span class="s">'file://'</span><span class="p">,</span> <span class="n">FileAdapter</span><span class="p">())</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">script_link</span><span class="p">)</span>
+	<span class="k">except</span><span class="p">:</span>
+		<span class="k">return</span> <span class="s">"Oh no! Lost internet"</span>
+	<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">script_path</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+		<span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+		<span class="n">run_script</span><span class="p">(</span><span class="n">script_path</span><span class="p">,</span> <span class="n">command_log</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Để ý thấy dòng <code class="language-plaintext highlighter-rouge">r.mount('file://', FileAdapter())</code>, mình thử nhập url là <code class="language-plaintext highlighter-rouge">file:///etc/passwd</code> thì bypass được hàm này.</p>
 

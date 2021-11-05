@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-11-05T09:23:21+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-11-05T10:00:48+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
 </subtitle><author><name>th3_5had0w</name></author><entry><title type="html">Writeups Cookie Hân Hoan Season 1</title><link href="https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html" rel="alternate" type="text/html" title="Writeups Cookie Hân Hoan Season 1" /><published>2021-11-05T00:00:00+00:00</published><updated>2021-11-05T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html">&lt;h1 id=&quot;forensic&quot;&gt;FORENSIC&lt;/h1&gt;
 
 &lt;h2 id=&quot;exseller&quot;&gt;Exseller&lt;/h2&gt;
@@ -1187,7 +1187,7 @@ Flag{N0_B0T_@ll0w}
 
 &lt;p&gt;Mình tiếp tục tìm trong source thì thấy một đoạn js có vẻ khả nghi:&lt;/p&gt;
 
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getHistory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getHistory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;	
 	&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/get_all_screenshot&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -1202,60 +1202,62 @@ Flag{N0_B0T_@ll0w}
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Ở đây &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_screenshot?file=&lt;/code&gt; có vẻ là chỗ để xem file .png ở trên. Boom, và mình đã có screenshot của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ở đây &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_screenshot?file=&lt;/code&gt; có vẻ là chỗ để xem file .png ở trên. Boom, và mình đã có screenshot của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-http://chal8.web.letspentest.org/get_screenshot&quot;&gt;
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_3.png)
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://chal8.web.letspentest.org/get_screenshot?file=4f5637f9e6ab447aa20ae338d04eb7a8.png&lt;/code&gt;&lt;/p&gt;
 
-Sau khi thử tìm lần lượt trong các thư mục đều không thấy flag, riêng `/src` lại bị `url invalid`, mình cũng thử với các URL khác có chứa từ `src` thì nhận ra là từ khoá này đã bị block.
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_4.png)
+&lt;p&gt;Sau khi thử tìm lần lượt trong các thư mục đều không thấy flag, riêng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/src&lt;/code&gt; lại bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;url invalid&lt;/code&gt;, mình cũng thử với các URL khác có chứa từ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; thì nhận ra là từ khoá này đã bị block.&lt;/p&gt;
 
-Để bypass cái này và truy cập vào `src` này mình dùng thư mục `/proc/[pid]/cwd`:
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_5.png)
+&lt;p&gt;Để bypass cái này và truy cập vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; này mình dùng thư mục &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/proc/[pid]/cwd&lt;/code&gt;:&lt;/p&gt;
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_6.png)
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-Mình thử với `pid = 1` thì thấy một thư mục có khả năng cao là chứa flag:
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_7.png)
+&lt;p&gt;Mình thử với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pid = 1&lt;/code&gt; thì thấy một thư mục có khả năng cao là chứa flag:&lt;/p&gt;
 
-Tiếp tục đi vào trong thì mình tìm được file `flag.txt`:
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_8.png)
+&lt;p&gt;Tiếp tục đi vào trong thì mình tìm được file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag.txt&lt;/code&gt;:&lt;/p&gt;
 
-Screenshot và có flag =)):
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_9.png)
+&lt;p&gt;Screenshot và có flag =)):&lt;/p&gt;
 
-Flag: `FLAG{abc725173fa1828ea019503669b4eecd}`
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-## A tiny hole 
-&amp;gt; Lợi dụng thời điểm hệ thống giám sát ngủ say và mệt mỏi sau cuộc tấn công HTTP Flood. Mèo Yang Hồ đột nhập vào máy chủ Challenge của Cookie Arena để cài đặt một Web Shell để đánh cắp Flag. Tuy nhiên máy chủ bị hạn chế một số kết nối ra ngoài Internet, nên nó không thể download, lưu và thực thi mã độc hại được. Còn cửa nào sáng không?
-&amp;gt;
-&amp;gt; http://chal17.web.letspentest.org/
+&lt;p&gt;Flag: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FLAG{abc725173fa1828ea019503669b4eecd}&lt;/code&gt;&lt;/p&gt;
 
-Đề cho ta file app.py chạy ở phía server, đọc sơ qua source code thì mình có thể dễ dàng đoán được server sẽ thực hiện việc download script từ url mình nhập vào và thực thi nó. Sau khi test thử một vài đường link thì mình nhận ra không thể kết nối ra bên ngoài. 
+&lt;h2 id=&quot;a-tiny-hole&quot;&gt;A tiny hole&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Lợi dụng thời điểm hệ thống giám sát ngủ say và mệt mỏi sau cuộc tấn công HTTP Flood. Mèo Yang Hồ đột nhập vào máy chủ Challenge của Cookie Arena để cài đặt một Web Shell để đánh cắp Flag. Tuy nhiên máy chủ bị hạn chế một số kết nối ra ngoài Internet, nên nó không thể download, lưu và thực thi mã độc hại được. Còn cửa nào sáng không?&lt;/p&gt;
 
-Muốn chạy được script thì mình phải bypass qua được đoạn check ở hàm `download_script` trước:
+  &lt;p&gt;http://chal17.web.letspentest.org/&lt;/p&gt;
+&lt;/blockquote&gt;
 
-```python
-def download_script(script_path, command_log, url):
-	try:
-		script_link = url
-	except:
-		return &quot;missing url&quot;
-	r = requests.Session()
-	r.mount('file://', FileAdapter())
-	try:
-		result = r.get(script_link)
-	except:
-		return &quot;Oh no! Lost internet&quot;
-	with open(script_path, 'wb') as f:
-		f.write(result.content)
-		run_script(script_path, command_log)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Đề cho ta file app.py chạy ở phía server, đọc sơ qua source code thì mình có thể dễ dàng đoán được server sẽ thực hiện việc download script từ url mình nhập vào và thực thi nó. Sau khi test thử một vài đường link thì mình nhận ra không thể kết nối ra bên ngoài.&lt;/p&gt;
+
+&lt;p&gt;Muốn chạy được script thì mình phải bypass qua được đoạn check ở hàm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;download_script&lt;/code&gt; trước:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;download_script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command_log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;script_link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;missing url&quot;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'file://'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Oh no! Lost internet&quot;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;run_script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;command_log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Để ý thấy dòng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;r.mount('file://', FileAdapter())&lt;/code&gt;, mình thử nhập url là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file:///etc/passwd&lt;/code&gt; thì bypass được hàm này.&lt;/p&gt;
 
