@@ -36,7 +36,7 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-11-05T09:14:08+00:00</updated>
+ <updated>2021-11-05T09:23:21+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
@@ -796,7 +796,7 @@ nc chal1.crypto.letspentest.org 7000&lt;/p&gt;
 
 &lt;p&gt;Signkey được chèn vào sẽ có độ dài random từ 8 đến 32, không biết cụ thể là gì nên lại brute, brute đến chết :Đ&lt;/p&gt;
 
-&lt;p&gt;Hàm parse_qsl dùng để tách các thành phần ra, mình sẽ thêm chuỗi “product=FLAG” sau khi chọn mua món hàng đầu tiên. Mà món hàng đầu tiên luôn là giá 1đ. Thì sau khi mình truyền chuỗi sau khi thêm “product=FLAG”, hàm parse_qsl sẽ thực thi và món hàng mình mua sẽ là FLAG, chứ không phải là món hàng đầu tiên nữa. Cái này cũng hơi ná ná giống attack vào AES EBC mode nhỉ hê hê =))&lt;/p&gt;
+&lt;p&gt;Hàm parse_qsl dùng để tách các thành phần ra, mình sẽ thêm chuỗi “product=FLAG” sau khi chọn mua món hàng đầu tiên. Mà món hàng đầu tiên luôn là giá 1đ. Thì sau khi mình truyền chuỗi sau khi thêm “product=FLAG”, hàm parse_qsl sẽ thực thi và món hàng mình mua sẽ là FLAG, chứ không phải là món hàng đầu tiên nữa. Lờ mao bờ rô, đít ít con phiu xinh át phắc .__.&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pwn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b64encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b64decode&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hashpumpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashpump&lt;/span&gt;
