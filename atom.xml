@@ -36,7 +36,7 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-11-05T09:03:37+00:00</updated>
+ <updated>2021-11-05T09:11:29+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
@@ -1023,11 +1023,13 @@ Flag{N0_B0T_@ll0w}
 
 &lt;p&gt;Ở đây hàm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;btoa&lt;/code&gt; có tác dụng chuyển sang base64, ngược lại với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;btoa&lt;/code&gt; là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atob&lt;/code&gt;. Ta biến đổi biểu thức:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;btoa(password.replace(&quot;cookiehanhoan&quot;, &quot;&quot;)) == &quot;Y29va2llaGFuaG9hbg==&quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;btoa(password.replace(“cookiehanhoan”, “”)) == “Y29va2llaGFuaG9hbg==”&lt;/p&gt;
 
-&lt;p&gt;=&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atob(btoa(password.replace(&quot;cookiehanhoan&quot;, &quot;&quot;))) == atob(&quot;Y29va2llaGFuaG9hbg==&quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=&amp;gt; atob(btoa(password.replace(“cookiehanhoan”, “”))) == atob(“Y29va2llaGFuaG9hbg==”)&lt;/p&gt;
 
-&lt;p&gt;=&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password.replace(&quot;cookiehanhoan&quot;, &quot;&quot;) == &quot;cookiehanhoan&quot;&lt;/code&gt;. (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atob(&quot;Y29va2llaGFuaG9hbg==&quot;)&lt;/code&gt; chính là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;cookiehanhoan&quot;&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;=&amp;gt; password.replace(“cookiehanhoan”, “”) == “cookiehanhoan”.&lt;/p&gt;
+
+&lt;p&gt;Mà atob(“Y29va2llaGFuaG9hbg==”) lại chính là “cookiehanhoan”)&lt;/p&gt;
 
 &lt;p&gt;Tức là mật khẩu của chúng ta sau khi bỏ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;cookiehanhoan&quot;&lt;/code&gt; phải là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;cookiehanhoan&quot;&lt;/code&gt;???&lt;/p&gt;
 

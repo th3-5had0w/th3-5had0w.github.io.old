@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-11-05T09:03:37+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://th3-5had0w.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://th3-5had0w.github.io/" rel="alternate" type="text/html" /><updated>2021-11-05T09:11:29+00:00</updated><id>https://th3-5had0w.github.io/feed.xml</id><title type="html">th3_5had0w</title><subtitle>Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
 </subtitle><author><name>th3_5had0w</name></author><entry><title type="html">Writeups Cookie Hân Hoan Season 1</title><link href="https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html" rel="alternate" type="text/html" title="Writeups Cookie Hân Hoan Season 1" /><published>2021-11-05T00:00:00+00:00</published><updated>2021-11-05T00:00:00+00:00</updated><id>https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1</id><content type="html" xml:base="https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html">&lt;h1 id=&quot;forensic&quot;&gt;FORENSIC&lt;/h1&gt;
 
 &lt;h2 id=&quot;exseller&quot;&gt;Exseller&lt;/h2&gt;
@@ -973,11 +973,13 @@ Flag{N0_B0T_@ll0w}
 
 &lt;p&gt;Ở đây hàm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;btoa&lt;/code&gt; có tác dụng chuyển sang base64, ngược lại với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;btoa&lt;/code&gt; là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atob&lt;/code&gt;. Ta biến đổi biểu thức:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;btoa(password.replace(&quot;cookiehanhoan&quot;, &quot;&quot;)) == &quot;Y29va2llaGFuaG9hbg==&quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;btoa(password.replace(“cookiehanhoan”, “”)) == “Y29va2llaGFuaG9hbg==”&lt;/p&gt;
 
-&lt;p&gt;=&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atob(btoa(password.replace(&quot;cookiehanhoan&quot;, &quot;&quot;))) == atob(&quot;Y29va2llaGFuaG9hbg==&quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=&amp;gt; atob(btoa(password.replace(“cookiehanhoan”, “”))) == atob(“Y29va2llaGFuaG9hbg==”)&lt;/p&gt;
 
-&lt;p&gt;=&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password.replace(&quot;cookiehanhoan&quot;, &quot;&quot;) == &quot;cookiehanhoan&quot;&lt;/code&gt;. (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atob(&quot;Y29va2llaGFuaG9hbg==&quot;)&lt;/code&gt; chính là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;cookiehanhoan&quot;&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;=&amp;gt; password.replace(“cookiehanhoan”, “”) == “cookiehanhoan”.&lt;/p&gt;
+
+&lt;p&gt;Mà atob(“Y29va2llaGFuaG9hbg==”) lại chính là “cookiehanhoan”)&lt;/p&gt;
 
 &lt;p&gt;Tức là mật khẩu của chúng ta sau khi bỏ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;cookiehanhoan&quot;&lt;/code&gt; phải là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;cookiehanhoan&quot;&lt;/code&gt;???&lt;/p&gt;
 

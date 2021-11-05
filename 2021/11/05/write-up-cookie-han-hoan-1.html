@@ -1038,11 +1038,13 @@ Flag{N0_B0T_@ll0w}
 
 <p>Ở đây hàm <code class="language-plaintext highlighter-rouge">btoa</code> có tác dụng chuyển sang base64, ngược lại với <code class="language-plaintext highlighter-rouge">btoa</code> là <code class="language-plaintext highlighter-rouge">atob</code>. Ta biến đổi biểu thức:</p>
 
-<p><code class="language-plaintext highlighter-rouge">btoa(password.replace("cookiehanhoan", "")) == "Y29va2llaGFuaG9hbg=="</code></p>
+<p>btoa(password.replace(“cookiehanhoan”, “”)) == “Y29va2llaGFuaG9hbg==”</p>
 
-<p>=&gt; <code class="language-plaintext highlighter-rouge">atob(btoa(password.replace("cookiehanhoan", ""))) == atob("Y29va2llaGFuaG9hbg==")</code></p>
+<p>=&gt; atob(btoa(password.replace(“cookiehanhoan”, “”))) == atob(“Y29va2llaGFuaG9hbg==”)</p>
 
-<p>=&gt; <code class="language-plaintext highlighter-rouge">password.replace("cookiehanhoan", "") == "cookiehanhoan"</code>. (<code class="language-plaintext highlighter-rouge">atob("Y29va2llaGFuaG9hbg==")</code> chính là <code class="language-plaintext highlighter-rouge">"cookiehanhoan"</code>)</p>
+<p>=&gt; password.replace(“cookiehanhoan”, “”) == “cookiehanhoan”.</p>
+
+<p>Mà atob(“Y29va2llaGFuaG9hbg==”) lại chính là “cookiehanhoan”)</p>
 
 <p>Tức là mật khẩu của chúng ta sau khi bỏ <code class="language-plaintext highlighter-rouge">"cookiehanhoan"</code> phải là <code class="language-plaintext highlighter-rouge">"cookiehanhoan"</code>???</p>
 
