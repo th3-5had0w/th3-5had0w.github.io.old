@@ -36,7 +36,7 @@
  <title>th3_5had0w</title>
  <link href="https://th3-5had0w.github.io/atom.xml" rel="self"/>
  <link href="https://th3-5had0w.github.io/"/>
- <updated>2021-11-05T09:11:29+00:00</updated>
+ <updated>2021-11-05T09:14:08+00:00</updated>
  <id>https://th3-5had0w.github.io</id>
  <author>
    <name></name>
@@ -56,7 +56,7 @@
   &lt;p&gt;Để không bị Mèo nhòm ngó tệp tài liệu quan trọng. Gà nhanh tay đặt mật khẩu, nhưng lại vô tình quên mất. Làm thế nào bây giờ T_T&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Chương trình cho ta 1 file excel &lt;a href=&quot;&quot;&gt;bruteme.xlxs&lt;/a&gt;, thử thách này chỉ là 1 mẹo tin học văn phòng bình thường, ta chỉ đổi file extension từ xlxs thành zip là có ngay một file có thể giải nén được, giải nén ra rồi thì mình đi tham quan vòng vòng ở trong mấy thư mục một chút, và mình để ý ngay file nằm ở đường dẫn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bruteme\xl\sharedStrings.xml&lt;/code&gt;, mở ra thì ta thấy luôn flag nằm trong đó, thử thách này không khó nhưng cũng thú vị đối với các bạn newbie.&lt;/p&gt;
+&lt;p&gt;Chương trình cho ta 1 file excel bruteme.xlxs, thử thách này chỉ là 1 mẹo tin học văn phòng bình thường, ta chỉ đổi file extension từ xlxs thành zip là có ngay một file có thể giải nén được, giải nén ra rồi thì mình đi tham quan vòng vòng ở trong mấy thư mục một chút, và mình để ý ngay file nằm ở đường dẫn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bruteme\xl\sharedStrings.xml&lt;/code&gt;, mở ra thì ta thấy luôn flag nằm trong đó, thử thách này không khó nhưng cũng thú vị đối với các bạn newbie.&lt;/p&gt;
 
 &lt;p&gt;Flag: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag{Micro$oft_Heck3r_Man}&lt;/code&gt;&lt;/p&gt;
 
@@ -1212,7 +1212,7 @@ Flag{N0_B0T_@ll0w}
 
 &lt;p&gt;Và việc còn lại là sấy thôi, hình ảnh gấu đang dùng khẩu súng sida của mình:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/gatling_gun_3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/gatling_gun_3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau một hồi bruteforce thì mình đã thấy được flag:&lt;/p&gt;
 
